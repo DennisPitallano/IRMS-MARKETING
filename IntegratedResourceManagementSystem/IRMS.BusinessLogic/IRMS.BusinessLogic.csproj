@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{61074899-1B6E-468F-8381-1BBAA09ACE95}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IRMS.BusinessLogic</RootNamespace>
+    <AssemblyName>IRMS.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BLToolkit.4">
+      <HintPath>..\..\..\Accounting\IntegratedResourceManagementSystem\IntegratedResourceManagementSystem\bin\BLToolkit.4.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\AccessorBase.cs" />
+    <Compile Include="DataAccess\AccountAccessor.cs" />
+    <Compile Include="DataAccess\AreaGroupAccessor.cs" />
+    <Compile Include="DataAccess\ArrangementTypeAccessor.cs" />
+    <Compile Include="DataAccess\AuditTrailAccessor.cs" />
+    <Compile Include="DataAccess\BranchAccessor.cs" />
+    <Compile Include="DataAccess\BranchDepartmentCodeAccessor.cs" />
+    <Compile Include="DataAccess\BrandAccessor.cs" />
+    <Compile Include="DataAccess\BrandDepartmentCodeAccessor.cs" />
+    <Compile Include="DataAccess\BrandGarmentAccessor.cs" />
+    <Compile Include="DataAccess\CategoryAccessor.cs" />
+    <Compile Include="DataAccess\ColorAccessor.cs" />
+    <Compile Include="DataAccess\CompanyAccessor.cs" />
+    <Compile Include="DataAccess\ConcessionMarkDownMemoAccessor.cs" />
+    <Compile Include="DataAccess\CustomerAccessor.cs" />
+    <Compile Include="DataAccess\CustomerGroupAccessor.cs" />
+    <Compile Include="DataAccess\CustomerInfoAccessor.cs" />
+    <Compile Include="DataAccess\CustomerPriceAgreementAccessor.cs" />
+    <Compile Include="DataAccess\DeliveryReceiptsAccessor.cs" />
+    <Compile Include="DataAccess\DepartmentAccessor.cs" />
+    <Compile Include="DataAccess\FabricAccessor.cs" />
+    <Compile Include="DataAccess\FittingAccessor.cs" />
+    <Compile Include="DataAccess\FormulaAccessor.cs" />
+    <Compile Include="DataAccess\ForwarderAccessor.cs" />
+    <Compile Include="DataAccess\GarmentAccessor.cs" />
+    <Compile Include="DataAccess\GeneralMemoConcessionAccessor.cs" />
+    <Compile Include="DataAccess\GeneralMemoConcessionDetailAccessor.cs" />
+    <Compile Include="DataAccess\ItemsReprocessAccessor.cs" />
+    <Compile Include="DataAccess\Library.cs" />
+    <Compile Include="DataAccess\MarkDownMemoAccessor.cs" />
+    <Compile Include="DataAccess\MessageAccessor.cs" />
+    <Compile Include="DataAccess\OutletAccessor.cs" />
+    <Compile Include="DataAccess\OutRightMarkDownMemoAccessor.cs" />
+    <Compile Include="DataAccess\PriceAccessor.cs" />
+    <Compile Include="DataAccess\PriceGroupAccessor.cs" />
+    <Compile Include="DataAccess\PricePointAccessor.cs" />
+    <Compile Include="DataAccess\PriceTypeAccessor.cs" />
+    <Compile Include="DataAccess\ProductAccessor.cs" />
+    <Compile Include="DataAccess\PulloutDetailAccessor.cs" />
+    <Compile Include="DataAccess\PulloutHeaderAccessor.cs" />
+    <Compile Include="DataAccess\PullOutLetterSummaryAccessor.cs" />
+    <Compile Include="DataAccess\RankAccessor.cs" />
+    <Compile Include="DataAccess\SizeAccessor.cs" />
+    <Compile Include="DataAccess\SizeGroupAccessor.cs" />
+    <Compile Include="DataAccess\StyleAccessor.cs" />
+    <Compile Include="DataAccess\StyleColorsAccessor.cs" />
+    <Compile Include="DataAccess\StyleSizesAccessor.cs" />
+    <Compile Include="DataAccess\TermAccessor.cs" />
+    <Compile Include="DataAccess\UserClassAccessor.cs" />
+    <Compile Include="DataAccess\UserLevelAccessor.cs" />
+    <Compile Include="DataAccess\UserRoleAccessor.cs" />
+    <Compile Include="DataAccess\WholesalerAccessor.cs" />
+    <Compile Include="Manager\AccountsManager.cs" />
+    <Compile Include="Manager\AreaGroupManager.cs" />
+    <Compile Include="Manager\ArrangementTypeManager.cs" />
+    <Compile Include="Manager\AuditTrailManager.cs" />
+    <Compile Include="Manager\BranchDepartmentCodeManager.cs" />
+    <Compile Include="Manager\BranchManager.cs" />
+    <Compile Include="Manager\BrandDepartmentCodeManager.cs" />
+    <Compile Include="Manager\BrandGarmentsManager.cs" />
+    <Compile Include="Manager\BrandManager.cs" />
+    <Compile Include="Manager\CategoryManager.cs" />
+    <Compile Include="Manager\ColorManager.cs" />
+    <Compile Include="Manager\CompanyManager.cs" />
+    <Compile Include="Manager\ConcessionMarkDownMemoManager.cs" />
+    <Compile Include="Manager\CustomerGroupManager.cs" />
+    <Compile Include="Manager\CustomerInfoManager.cs" />
+    <Compile Include="Manager\CustomerListingManager.cs" />
+    <Compile Include="Manager\CustomerManager.cs" />
+    <Compile Include="Manager\CustomerPriceAgreementManager.cs" />
+    <Compile Include="Manager\DeliveryReceiptsManager.cs" />
+    <Compile Include="Manager\DepartmentManager.cs" />
+    <Compile Include="Manager\FabricManager.cs" />
+    <Compile Include="Manager\FittingManager.cs" />
+    <Compile Include="Manager\FormulaManager.cs" />
+    <Compile Include="Manager\ForwarderManager.cs" />
+    <Compile Include="Manager\GarmentManager.cs" />
+    <Compile Include="Manager\GeneralMemoConcessionDetailManager.cs" />
+    <Compile Include="Manager\GeneralMemoConcessionManager.cs" />
+    <Compile Include="Manager\GenericStyleManager.cs" />
+    <Compile Include="Manager\IBaseManager.cs" />
+    <Compile Include="Manager\ItemsReprocessManager.cs" />
+    <Compile Include="Manager\LogManager.cs" />
+    <Compile Include="Manager\MarkDownMemoManager.cs" />
+    <Compile Include="Manager\MessageManager.cs" />
+    <Compile Include="Manager\OutletManager.cs" />
+    <Compile Include="Manager\OutRightMarkDownMemoManager.cs" />
+    <Compile Include="Manager\PriceGroupManager.cs" />
+    <Compile Include="Manager\PriceManager.cs" />
+    <Compile Include="Manager\PricePointManager.cs" />
+    <Compile Include="Manager\PriceTypeManager.cs" />
+    <Compile Include="Manager\ProductManager.cs" />
+    <Compile Include="Manager\PullOutDetailManager.cs" />
+    <Compile Include="Manager\PullOutLetterManager.cs" />
+    <Compile Include="Manager\PullOutLetterSummaryManager.cs" />
+    <Compile Include="Manager\RankManager.cs" />
+    <Compile Include="Manager\SizeGroupManager.cs" />
+    <Compile Include="Manager\SizeManager.cs" />
+    <Compile Include="Manager\StyleColorsManager.cs" />
+    <Compile Include="Manager\StyleManager.cs" />
+    <Compile Include="Manager\StyleSizesManager.cs" />
+    <Compile Include="Manager\SubFittingManager.cs" />
+    <Compile Include="Manager\TermManager.cs" />
+    <Compile Include="Manager\UserLevelManager.cs" />
+    <Compile Include="Manager\UserManager.cs" />
+    <Compile Include="Manager\UserRoleManager.cs" />
+    <Compile Include="Manager\WholesalerManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Components\IRMS.Components.csproj">
+      <Project>{550E6C99-45E8-483A-B47D-AAD2E1692130}</Project>
+      <Name>IRMS.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IRMS.Entities\IRMS.Entities.csproj">
+      <Project>{F6D55DDB-D634-4722-BEED-37ECA4CD76B1}</Project>
+      <Name>IRMS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IRMS.ObjectModel\IRMS.ObjectModel.csproj">
+      <Project>{C733A9C1-25EF-4B67-834B-932CC63D4D35}</Project>
+      <Name>IRMS.ObjectModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
