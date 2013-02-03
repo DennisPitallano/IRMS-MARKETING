@@ -1,0 +1,16 @@
+﻿
+.panelTitle {
+	height:28px; 
+	margin-bottom:3px; 
+	line-height:28px;
+	font-weight:bold; 
+	font-size:18px; 
+	font-variant:small-caps; 
+	color: #333;
+	text-shadow: 1px 1px 0px white;
+	padding-bottom:7px;
+	 box-shadow:1px 0 rgba(127, 127, 127, 0.25), 2px 0 rgba(127, 127, 127, 0.125), 3px 0 rgba(127, 127, 127, 0.0625), -1px 0 rgba(127, 127, 127, 0.25), -2px 0 rgba(127, 127, 127, 0.125), -3px 0 rgba(127, 127, 127, 0.0625), 0 1px rgba(127, 127, 127, 0.25), 0 2px rgba(127, 127, 127, 0.125), 0 3px rgba(127, 127, 127, 0.0625);
+  border-bottom:1px solid #999; 
+	 box-shadow:0 1px rgba(255, 255, 255, .6);
+	  z-index:2; 
+}

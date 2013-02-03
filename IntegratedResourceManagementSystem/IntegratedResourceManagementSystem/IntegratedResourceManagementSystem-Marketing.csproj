@@ -1,0 +1,1892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{418F9B78-7384-4F84-9B85-7FBDFA0D56B1}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntegratedResourceManagementSystem</RootNamespace>
+    <AssemblyName>IntegratedResourceManagementSystem-Marketing</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\+Back Up\Warehouse Department\IntegratedResourceManagementSystem\IntegratedResourceManagementSystem\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="App_Data\IRMS.mdf" />
+    <Content Include="App_Data\IRMS_log.ldf">
+      <DependentUpon>IRMS.mdf</DependentUpon>
+    </Content>
+    <Content Include="images\columnBg.png" />
+    <Content Include="images\columnTop.gif" />
+    <Content Include="images\tipBtm.png" />
+    <Content Include="images\tipMid.png" />
+    <Content Include="images\tipTop.png" />
+    <Content Include="Marketing\AccountManagementPanel.aspx" />
+    <Content Include="Marketing\BranchDepartmentCodeManagementPanel.aspx" />
+    <Content Include="Marketing\BranchManagementPanel.aspx" />
+    <Content Include="Marketing\BrandDepartmentCodeManagementPanel.aspx" />
+    <Content Include="Marketing\BrandManagementPanel.aspx" />
+    <Content Include="Marketing\CategoryManagementPanel.aspx" />
+    <Content Include="Marketing\CheckStylesPrice.aspx" />
+    <Content Include="Marketing\ColorManagementPanel.aspx" />
+    <Content Include="Marketing\ConcessionMarkDownMemoPanel.aspx" />
+    <Content Include="Marketing\controls\color_picker.ascx" />
+    <Content Include="Marketing\controls\CustomerItemMenu.ascx" />
+    <Content Include="Marketing\controls\DRMenu.ascx" />
+    <Content Include="Marketing\controls\ItemMasterQuickHelp.ascx" />
+    <Content Include="Marketing\controls\MDMemoMenu.ascx" />
+    <Content Include="Marketing\controls\ProductStyleMenu.ascx" />
+    <Content Include="Marketing\controls\ReturnAndTransferMenu.ascx" />
+    <Content Include="Marketing\controls\StyleSummary.ascx" />
+    <Content Include="Marketing\controls\styles\memo-menu.css" />
+    <Content Include="Marketing\controls\styles\menu-style.css" />
+    <Content Include="Marketing\controls\UCLoader.ascx" />
+    <Content Include="Marketing\controls\UserAccount.ascx" />
+    <Content Include="Marketing\controls\UserManagementMenu.ascx" />
+    <Content Include="Marketing\CustomerDeliveryIndex.aspx" />
+    <Content Include="Marketing\CustomerDeliveryIndexDetails.aspx" />
+    <Content Include="Marketing\CustomerDeliveryIndexPerArea.aspx" />
+    <Content Include="Marketing\CustomerDeliveryIndexReports.aspx" />
+    <Content Include="Marketing\CustomerManagementPanel.aspx" />
+    <Content Include="Marketing\CustomerMenuPanel.aspx" />
+    <Content Include="Marketing\CustomListing.aspx" />
+    <Content Include="Marketing\DashBoardPanel.aspx" />
+    <Content Include="Marketing\DeliveryReceiptsMenu.aspx" />
+    <Content Include="Marketing\ErrorPages\Error404.htm" />
+    <Content Include="Marketing\FabricManagementPanel.aspx" />
+    <Content Include="Marketing\FittingsManagementPanel.aspx" />
+    <Content Include="Marketing\forms\FBrand.ascx" />
+    <Content Include="Marketing\forms\FCategory.ascx" />
+    <Content Include="Marketing\forms\FFabric.ascx" />
+    <Content Include="Marketing\forms\FFitting.ascx" />
+    <Content Include="Marketing\forms\FGarment.ascx" />
+    <Content Include="Marketing\forms\FSize.ascx" />
+    <Content Include="Marketing\forms\FSizeGroup.ascx" />
+    <Content Include="Marketing\forms\FSubFitting.ascx" />
+    <Content Include="Marketing\GarmentManagementPanel.aspx" />
+    <Content Include="Marketing\GeneralMemoConcession.aspx" />
+    <Content Include="Marketing\GeneralMemoOutright.aspx" />
+    <Content Include="Marketing\GenerateItemCode-SKUForm.aspx" />
+    <Content Include="Marketing\GenericStylesManagementPanel.aspx" />
+    <Content Include="Marketing\IntegratedLogin.aspx" />
+    <Content Include="Marketing\Login.aspx" />
+    <Content Include="Marketing\MarkdownMemoReport.aspx" />
+    <Content Include="Marketing\Marketing-Admin\SendMessage.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Styles\mail.css" />
+    <Content Include="Marketing\NewGeneralMemoConcession.aspx" />
+    <Content Include="Marketing\NewPullOutLetter.aspx" />
+    <Content Include="Marketing\NewPullOutLetterBoxSack.aspx" />
+    <Content Include="Marketing\NewSMPullOutLetter.aspx" />
+    <Content Include="Marketing\NewTransfer.aspx" />
+    <Content Include="Marketing\PriceHistory.aspx" />
+    <Content Include="Marketing\PullOutLettersManagementPanel.aspx" />
+    <Content Include="Marketing\PullOutLetterSummaryUpdate.aspx" />
+    <Content Include="Marketing\PullOutLetterUpdate.aspx" />
+    <Content Include="Marketing\PullOutLetterUpdateDefault.aspx" />
+    <Content Include="Marketing\ReturnAndTransfer.aspx" />
+    <Content Include="Marketing\ReturnsAndTransferReportPanel.aspx" />
+    <Content Include="Marketing\ReturnsManagementPanel.aspx" />
+    <Content Include="Marketing\SessionExpired.aspx" />
+    <Content Include="Marketing\MarkDownMemoConcession.aspx" />
+    <Content Include="Marketing\MarkDownMemoMenu.aspx" />
+    <Content Include="Marketing\Marketing-Admin\AreaGroupManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\ArrangementManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\AuditTrails.aspx" />
+    <Content Include="Marketing\Marketing-Admin\CompanyManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\controls\AdminMenu.ascx" />
+    <Content Include="Marketing\Marketing-Admin\controls\AdminMenuMain.ascx" />
+    <Content Include="Marketing\Marketing-Admin\controls\ErrorMessageBox.ascx" />
+    <Content Include="Marketing\Marketing-Admin\CustomerGroupPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Default.aspx" />
+    <Content Include="Marketing\Marketing-Admin\DepartmentManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\forms\AreaGroupForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\ArrangementForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\CompanyForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\CustGrp.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\DepartmentForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\FormulaForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\PriceGroupForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\PriceTypeForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\SubAreaGroupForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\TermForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\forms\UserLevelForm.ascx" />
+    <Content Include="Marketing\Marketing-Admin\FormulaManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\NewUserAccount.aspx" />
+    <Content Include="Marketing\Marketing-Admin\PriceGroupManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\PriceTypeManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Reports\AreaGroup.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Reports\Departments.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Reports\PriceGroup.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Styles\user-logs-preview.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\audit-trails.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\customer-group-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\new-user-account.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\user-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\company-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\arrangement-type-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\formula-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\sub-area-group-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\area-group-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\price-group-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\price-type-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\user-level-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\term-management.css" />
+    <Content Include="Marketing\Marketing-Admin\Styles\deparment-management.css" />
+    <Content Include="Marketing\Marketing-Admin\SubAreaGroupManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\TermManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\UpdateUserAccount.aspx" />
+    <Content Include="Marketing\Marketing-Admin\user-images\contact_followed.png" />
+    <Content Include="Marketing\Marketing-Admin\user-images\contact_ignored.png" />
+    <Content Include="Marketing\Marketing-Admin\user-images\femaleicon.png" />
+    <Content Include="Marketing\Marketing-Admin\user-images\mail_new.png" />
+    <Content Include="Marketing\Marketing-Admin\user-images\maleicon.png" />
+    <Content Include="Marketing\Marketing-Admin\user-images\pita.jpg" />
+    <Content Include="Marketing\Marketing-Admin\UserLevelManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\UserLogsPreview.aspx" />
+    <Content Include="Marketing\Marketing-Admin\UserManagementPanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Users.aspx" />
+    <Content Include="Marketing\MyAccount.aspx" />
+    <Content Include="Marketing\NewFitting.aspx" />
+    <Content Include="Marketing\NewGeneralMemoOutright.aspx" />
+    <Content Include="Marketing\NewGenericStyle.aspx" />
+    <Content Include="Marketing\NewItemForm.aspx" />
+    <Content Include="Marketing\NewMarkDownMemoConcession.aspx" />
+    <Content Include="Marketing\NonOutletManagementPanel.aspx" />
+    <Content Include="Marketing\OutletManagementPanel.aspx" />
+    <Content Include="Marketing\OutRightMarkDownMemoPanel.aspx" />
+    <Content Include="Marketing\PriceChecking.aspx" />
+    <Content Include="Marketing\PriceCheckingAndItemReprocessingPanel.aspx" />
+    <Content Include="Marketing\ProductManagementPanel.aspx" />
+    <Content Include="Marketing\PulloutRequest.aspx" />
+    <Content Include="Marketing\ReprocessItems.aspx" />
+    <Content Include="Marketing\RequestPanel.aspx" />
+    <Content Include="Marketing\sample.aspx" />
+    <Content Include="Marketing\SizeManagementPanel.aspx" />
+    <Content Include="Marketing\SizesDisplayIndexManagementPanel.aspx" />
+    <Content Include="Marketing\SkuBarcodeManagementPanel.aspx" />
+    <Content Include="Marketing\SMPullOutLetterDetailsPreview.aspx" />
+    <Content Include="Marketing\SMPullOutLetterManagementPanel.aspx" />
+    <Content Include="Marketing\SMPullOutLetterUpdate.aspx" />
+    <Content Include="Marketing\StockInputReport.aspx" />
+    <Content Include="Marketing\StylePanel.aspx" />
+    <Content Include="Marketing\Marketing-Admin\Admin.Master" />
+    <None Include="Resources\irms.png" />
+    <None Include="Resources\submenu.png" />
+    <None Include="Resources\submenuh.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\product_brand.png" />
+    <None Include="Resources\knits_.png" />
+    <None Include="Resources\garments.png" />
+    <None Include="Resources\color.png" />
+    <None Include="Resources\size.png" />
+    <None Include="Resources\Barcode.png" />
+    <None Include="Resources\Shirt.png" />
+    <None Include="Resources\Barcode_summary.png" />
+    <None Include="Resources\color_summary.png" />
+    <None Include="Resources\fabric_summary.png" />
+    <None Include="Resources\garments_summary.png" />
+    <None Include="Resources\product_brand_summary.png" />
+    <None Include="Resources\product_summary.png" />
+    <None Include="Resources\size_summary.png" />
+    <None Include="Resources\summary.png" />
+    <None Include="Resources\cancel_gray.png" />
+    <None Include="Resources\cancel_normal.png" />
+    <None Include="Resources\delete_gray.png" />
+    <None Include="Resources\delete_normal.png" />
+    <None Include="Resources\edit_gray.png" />
+    <None Include="Resources\edit_normal.png" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\new_gray.png" />
+    <None Include="Resources\print_gray.png" />
+    <None Include="Resources\print_normal.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\save_normal.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\bkModal.png" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\yes.png" />
+    <None Include="Resources\category.png" />
+    <None Include="Resources\unisex_polo_.png" />
+    <None Include="Resources\unisex_pants1_.png" />
+    <None Include="Resources\Dress_.png" />
+    <None Include="Resources\skirts_.png" />
+    <None Include="Resources\panels.png" />
+    <None Include="Resources\barcode_flat.jpg" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\fast_forward.png" />
+    <None Include="Resources\reply.png" />
+    <Content Include="Marketing\TransferManagementPanel.aspx" />
+    <Content Include="Marketing\UpdateGeneralMemoConcession.aspx" />
+    <Content Include="Marketing\UpdateGeneratedCodes-SKUs.aspx" />
+    <None Include="Resources\garments_collection.png" />
+    <None Include="Resources\cascade.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\undelete.png" />
+    <None Include="Resources\crissa_bg.jpg" />
+    <None Include="Resources\commercial.png" />
+    <None Include="Resources\customer.png" />
+    <None Include="Resources\adjustment.png" />
+    <None Include="Resources\accounting.png" />
+    <None Include="Resources\29.gif" />
+    <None Include="Resources\first.png" />
+    <None Include="Resources\last.png" />
+    <None Include="Resources\unhappy.png" />
+    <None Include="Resources\nextresult.png" />
+    <None Include="Resources\previousresult.png" />
+    <None Include="Resources\close_infobar.png" />
+    <Content Include="Marketing\UserRolesManagementPanel.aspx" />
+    <Content Include="Marketing\UsersManagementPanel.aspx" />
+    <Content Include="Marketing\UsersPanel.aspx" />
+    <Content Include="Marketing\ViewMessage.aspx" />
+    <Content Include="Reports\ReportForms\BTQDRSummaryPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerLuzonPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\DRSummaryPerAreaPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\LUZONDRSummaryPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\markDownMemoPreview.aspx" />
+    <Content Include="Reports\ReportForms\MarkDownMemoPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\MINDANAODRSummaryPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\MMDSDRSummaryPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\PrintOutlet.aspx" />
+    <Content Include="Reports\ReportForms\PrintStylePrices.aspx" />
+    <Content Include="Reports\ReportForms\PullOutLetterDetailsPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\PullOutLetterPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\PullOutLetterSummaryPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\PulloutReport.aspx" />
+    <Content Include="Reports\ReportForms\StockInputReportPreview.aspx" />
+    <Content Include="Reports\ReportForms\StockInputReportPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\VISAYASDRSummaryPrintPreview.aspx" />
+    <Content Include="Resources\account-icon.png" />
+    <None Include="Resources\arrow.png" />
+    <Content Include="Resources\box-icon.png" />
+    <Content Include="Resources\box-label-icon.png" />
+    <Content Include="Resources\box-pencil-icon.png" />
+    <Content Include="Resources\box-plus-icon.png" />
+    <Content Include="Resources\Box.png" />
+    <Content Include="Resources\Box64.png" />
+    <Content Include="Resources\Branch-icon.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\group_open.png" />
+    <None Include="Resources\group_closed.png" />
+    <Content Include="Resources\Calendar-icon.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\chat.png" />
+    <Content Include="Resources\code-icon.png" />
+    <Content Include="Resources\contacts.png" />
+    <Content Include="Resources\dennis.png" />
+    <Content Include="Resources\dup1.png" />
+    <Content Include="Resources\dup2.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\Excel.png" />
+    <Content Include="Resources\favicon.ico" />
+    <Content Include="Resources\filtericon.png" />
+    <Content Include="Resources\fit.png" />
+    <Content Include="Resources\hardware-icon.png" />
+    <Content Include="Resources\History.png" />
+    <Content Include="Resources\homeicon.png" />
+    <Content Include="Resources\imageupicon.png" />
+    <Content Include="Resources\info.png" />
+    <Content Include="Resources\invoice.png" />
+    <None Include="Resources\log.png" />
+    <Content Include="Resources\left.png" />
+    <Content Include="Resources\Mail-icon.png" />
+    <Content Include="Resources\Mail-icon32.png" />
+    <Content Include="Resources\mail_forwarded.png" />
+    <Content Include="Resources\mail_new.png" />
+    <Content Include="Resources\mail_read.png" />
+    <Content Include="Resources\memo-doc.png" />
+    <Content Include="Resources\menu_tools.png" />
+    <Content Include="Resources\money.png" />
+    <Content Include="Resources\move_16px.png" />
+    <Content Include="Resources\news_group.png" />
+    <Content Include="Resources\ok.png" />
+    <None Include="Resources\pin-icon.png" />
+    <None Include="Resources\Signatory.jpg" />
+    <None Include="Resources\submenu45.png" />
+    <None Include="Resources\submenuh45.png" />
+    <None Include="Resources\price.png" />
+    <None Include="Resources\reprocess.png" />
+    <None Include="Resources\texture.jpg" />
+    <Content Include="Resources\openfile.png" />
+    <Content Include="Resources\page.png" />
+    <Content Include="Resources\password.png" />
+    <Content Include="Resources\private.png" />
+    <Content Include="Resources\question.png" />
+    <Content Include="Resources\Refresh.png" />
+    <Content Include="Resources\right.png" />
+    <Content Include="Resources\Sack16.png" />
+    <Content Include="Resources\Sack32.png" />
+    <Content Include="Resources\Sack64.png" />
+    <Content Include="Resources\sessionicon.png" />
+    <Content Include="Resources\settings_16px.png" />
+    <Content Include="Resources\tableselectrowicon.png" />
+    <Content Include="Resources\tab_contacts.png" />
+    <Content Include="Resources\tab_speeddial.png" />
+    <Content Include="Resources\Tag-icon.png" />
+    <Content Include="Resources\ThumbDown.png" />
+    <Content Include="Resources\ThumbDownGray.png" />
+    <Content Include="Resources\ThumbUp.png" />
+    <Content Include="Resources\ThumbUpGray.png" />
+    <Content Include="Resources\transfer_loading_waiting.png" />
+    <Content Include="Resources\usermode.png" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\user_roles_grant.png" />
+    <Content Include="Resources\username.png" />
+    <Content Include="Scripts\jquery-1.7.2.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.betterTooltip.js" />
+    <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Styles\brand-department-code.css" />
+    <Content Include="Styles\permission-note.css" />
+    <Content Include="Styles\my-user-account.css" />
+    <Content Include="Styles\cdi-reports.css" />
+    <Content Include="Styles\generic-styles-management.css" />
+    <Content Include="Styles\new-generic-form.css" />
+    <Content Include="Styles\fitting-form.css" />
+    <Content Include="Styles\fitting-manager.css" />
+    <Content Include="Styles\account.css" />
+    <Content Include="Styles\item-reprocess.css" />
+    <Content Include="Styles\new-general-memo-concession.css" />
+    <Content Include="Styles\general-memo-concession.css" />
+    <Content Include="Styles\cdi-details.css" />
+    <Content Include="Styles\new-general-memo-outright.css" />
+    <Content Include="Styles\general-memo-outright.css" />
+    <Content Include="Styles\custom-listing.css" />
+    <Content Include="Styles\branch-management.css" />
+    <Content Include="Styles\account-management.css" />
+    <Content Include="Styles\pull-out-letter.css" />
+    <Content Include="Styles\returns-and-transfer.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Styles\sm-pull-out-details.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Styles\toolbar-controls.css" />
+    <Content Include="Styles\modal-controls.css" />
+    <Content Include="Styles\product-management.css" />
+    <Content Include="Styles\size-management.css" />
+    <Content Include="Styles\color-management.css" />
+    <Content Include="Styles\garment-management.css" />
+    <Content Include="Styles\fabric-management.css" />
+    <Content Include="Styles\category-management.css" />
+    <Content Include="Styles\brand-management.css" />
+    <Content Include="Styles\cdi.css" />
+    <Content Include="Styles\grid.css" />
+    <Content Include="Styles\login.css" />
+    <Content Include="Styles\marketing-item-master.css" />
+    <Content Include="Styles\price-check.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Permission.cs" />
+    <Compile Include="Common\Populate.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\AccountManagementPanel.aspx.cs">
+      <DependentUpon>AccountManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\AccountManagementPanel.aspx.designer.cs">
+      <DependentUpon>AccountManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\BranchDepartmentCodeManagementPanel.aspx.cs">
+      <DependentUpon>BranchDepartmentCodeManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\BranchDepartmentCodeManagementPanel.aspx.designer.cs">
+      <DependentUpon>BranchDepartmentCodeManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\BranchManagementPanel.aspx.cs">
+      <DependentUpon>BranchManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\BranchManagementPanel.aspx.designer.cs">
+      <DependentUpon>BranchManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\BrandDepartmentCodeManagementPanel.aspx.cs">
+      <DependentUpon>BrandDepartmentCodeManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\BrandDepartmentCodeManagementPanel.aspx.designer.cs">
+      <DependentUpon>BrandDepartmentCodeManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\BrandManagementPanel.aspx.cs">
+      <DependentUpon>BrandManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\BrandManagementPanel.aspx.designer.cs">
+      <DependentUpon>BrandManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CategoryManagementPanel.aspx.cs">
+      <DependentUpon>CategoryManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CategoryManagementPanel.aspx.designer.cs">
+      <DependentUpon>CategoryManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CheckStylesPrice.aspx.cs">
+      <DependentUpon>CheckStylesPrice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CheckStylesPrice.aspx.designer.cs">
+      <DependentUpon>CheckStylesPrice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ColorManagementPanel.aspx.cs">
+      <DependentUpon>ColorManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ColorManagementPanel.aspx.designer.cs">
+      <DependentUpon>ColorManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ConcessionMarkDownMemoPanel.aspx.cs">
+      <DependentUpon>ConcessionMarkDownMemoPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ConcessionMarkDownMemoPanel.aspx.designer.cs">
+      <DependentUpon>ConcessionMarkDownMemoPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\color_picker.ascx.cs">
+      <DependentUpon>color_picker.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\color_picker.ascx.designer.cs">
+      <DependentUpon>color_picker.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\CustomerItemMenu.ascx.cs">
+      <DependentUpon>CustomerItemMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\CustomerItemMenu.ascx.designer.cs">
+      <DependentUpon>CustomerItemMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\DRMenu.ascx.cs">
+      <DependentUpon>DRMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\DRMenu.ascx.designer.cs">
+      <DependentUpon>DRMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\ItemMasterQuickHelp.ascx.cs">
+      <DependentUpon>ItemMasterQuickHelp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\ItemMasterQuickHelp.ascx.designer.cs">
+      <DependentUpon>ItemMasterQuickHelp.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\MDMemoMenu.ascx.cs">
+      <DependentUpon>MDMemoMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\MDMemoMenu.ascx.designer.cs">
+      <DependentUpon>MDMemoMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\ProductStyleMenu.ascx.cs">
+      <DependentUpon>ProductStyleMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\ProductStyleMenu.ascx.designer.cs">
+      <DependentUpon>ProductStyleMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\ReturnAndTransferMenu.ascx.cs">
+      <DependentUpon>ReturnAndTransferMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\ReturnAndTransferMenu.ascx.designer.cs">
+      <DependentUpon>ReturnAndTransferMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\StyleSummary.ascx.cs">
+      <DependentUpon>StyleSummary.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\StyleSummary.ascx.designer.cs">
+      <DependentUpon>StyleSummary.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\UCLoader.ascx.cs">
+      <DependentUpon>UCLoader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\UCLoader.ascx.designer.cs">
+      <DependentUpon>UCLoader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\UserAccount.ascx.cs">
+      <DependentUpon>UserAccount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\UserAccount.ascx.designer.cs">
+      <DependentUpon>UserAccount.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\controls\UserManagementMenu.ascx.cs">
+      <DependentUpon>UserManagementMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\controls\UserManagementMenu.ascx.designer.cs">
+      <DependentUpon>UserManagementMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndex.aspx.cs">
+      <DependentUpon>CustomerDeliveryIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndex.aspx.designer.cs">
+      <DependentUpon>CustomerDeliveryIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndexDetails.aspx.cs">
+      <DependentUpon>CustomerDeliveryIndexDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndexDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDeliveryIndexDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndexPerArea.aspx.cs">
+      <DependentUpon>CustomerDeliveryIndexPerArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndexPerArea.aspx.designer.cs">
+      <DependentUpon>CustomerDeliveryIndexPerArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndexReports.aspx.cs">
+      <DependentUpon>CustomerDeliveryIndexReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomerDeliveryIndexReports.aspx.designer.cs">
+      <DependentUpon>CustomerDeliveryIndexReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomerManagementPanel.aspx.cs">
+      <DependentUpon>CustomerManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomerManagementPanel.aspx.designer.cs">
+      <DependentUpon>CustomerManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomerMenuPanel.aspx.cs">
+      <DependentUpon>CustomerMenuPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomerMenuPanel.aspx.designer.cs">
+      <DependentUpon>CustomerMenuPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\CustomListing.aspx.cs">
+      <DependentUpon>CustomListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\CustomListing.aspx.designer.cs">
+      <DependentUpon>CustomListing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\DashBoardPanel.aspx.cs">
+      <DependentUpon>DashBoardPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\DashBoardPanel.aspx.designer.cs">
+      <DependentUpon>DashBoardPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\DeliveryReceiptsMenu.aspx.cs">
+      <DependentUpon>DeliveryReceiptsMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\DeliveryReceiptsMenu.aspx.designer.cs">
+      <DependentUpon>DeliveryReceiptsMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\FabricManagementPanel.aspx.cs">
+      <DependentUpon>FabricManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\FabricManagementPanel.aspx.designer.cs">
+      <DependentUpon>FabricManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\FittingsManagementPanel.aspx.cs">
+      <DependentUpon>FittingsManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\FittingsManagementPanel.aspx.designer.cs">
+      <DependentUpon>FittingsManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FBrand.ascx.cs">
+      <DependentUpon>FBrand.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FBrand.ascx.designer.cs">
+      <DependentUpon>FBrand.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FCategory.ascx.cs">
+      <DependentUpon>FCategory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FCategory.ascx.designer.cs">
+      <DependentUpon>FCategory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FFabric.ascx.cs">
+      <DependentUpon>FFabric.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FFabric.ascx.designer.cs">
+      <DependentUpon>FFabric.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FFitting.ascx.cs">
+      <DependentUpon>FFitting.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FFitting.ascx.designer.cs">
+      <DependentUpon>FFitting.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FGarment.ascx.cs">
+      <DependentUpon>FGarment.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FGarment.ascx.designer.cs">
+      <DependentUpon>FGarment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FSize.ascx.cs">
+      <DependentUpon>FSize.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FSize.ascx.designer.cs">
+      <DependentUpon>FSize.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FSizeGroup.ascx.cs">
+      <DependentUpon>FSizeGroup.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FSizeGroup.ascx.designer.cs">
+      <DependentUpon>FSizeGroup.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\forms\FSubFitting.ascx.cs">
+      <DependentUpon>FSubFitting.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\forms\FSubFitting.ascx.designer.cs">
+      <DependentUpon>FSubFitting.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\GarmentManagementPanel.aspx.cs">
+      <DependentUpon>GarmentManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\GarmentManagementPanel.aspx.designer.cs">
+      <DependentUpon>GarmentManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\GeneralMemoConcession.aspx.cs">
+      <DependentUpon>GeneralMemoConcession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\GeneralMemoConcession.aspx.designer.cs">
+      <DependentUpon>GeneralMemoConcession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\GeneralMemoOutright.aspx.cs">
+      <DependentUpon>GeneralMemoOutright.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\GeneralMemoOutright.aspx.designer.cs">
+      <DependentUpon>GeneralMemoOutright.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\GenerateItemCode-SKUForm.aspx.cs">
+      <DependentUpon>GenerateItemCode-SKUForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\GenerateItemCode-SKUForm.aspx.designer.cs">
+      <DependentUpon>GenerateItemCode-SKUForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\GenericStylesManagementPanel.aspx.cs">
+      <DependentUpon>GenericStylesManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\GenericStylesManagementPanel.aspx.designer.cs">
+      <DependentUpon>GenericStylesManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\IntegratedLogin.aspx.cs">
+      <DependentUpon>IntegratedLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\IntegratedLogin.aspx.designer.cs">
+      <DependentUpon>IntegratedLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\MarkdownMemoReport.aspx.cs">
+      <DependentUpon>MarkdownMemoReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\MarkdownMemoReport.aspx.designer.cs">
+      <DependentUpon>MarkdownMemoReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\SendMessage.aspx.cs">
+      <DependentUpon>SendMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\SendMessage.aspx.designer.cs">
+      <DependentUpon>SendMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewGeneralMemoConcession.aspx.cs">
+      <DependentUpon>NewGeneralMemoConcession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewGeneralMemoConcession.aspx.designer.cs">
+      <DependentUpon>NewGeneralMemoConcession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewPullOutLetter.aspx.cs">
+      <DependentUpon>NewPullOutLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewPullOutLetter.aspx.designer.cs">
+      <DependentUpon>NewPullOutLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewPullOutLetterBoxSack.aspx.cs">
+      <DependentUpon>NewPullOutLetterBoxSack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewPullOutLetterBoxSack.aspx.designer.cs">
+      <DependentUpon>NewPullOutLetterBoxSack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewSMPullOutLetter.aspx.cs">
+      <DependentUpon>NewSMPullOutLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewSMPullOutLetter.aspx.designer.cs">
+      <DependentUpon>NewSMPullOutLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewTransfer.aspx.cs">
+      <DependentUpon>NewTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewTransfer.aspx.designer.cs">
+      <DependentUpon>NewTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PriceHistory.aspx.cs">
+      <DependentUpon>PriceHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PriceHistory.aspx.designer.cs">
+      <DependentUpon>PriceHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PullOutLettersManagementPanel.aspx.cs">
+      <DependentUpon>PullOutLettersManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PullOutLettersManagementPanel.aspx.designer.cs">
+      <DependentUpon>PullOutLettersManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PullOutLetterSummaryUpdate.aspx.cs">
+      <DependentUpon>PullOutLetterSummaryUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PullOutLetterSummaryUpdate.aspx.designer.cs">
+      <DependentUpon>PullOutLetterSummaryUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PullOutLetterUpdate.aspx.cs">
+      <DependentUpon>PullOutLetterUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PullOutLetterUpdate.aspx.designer.cs">
+      <DependentUpon>PullOutLetterUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PullOutLetterUpdateDefault.aspx.cs">
+      <DependentUpon>PullOutLetterUpdateDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PullOutLetterUpdateDefault.aspx.designer.cs">
+      <DependentUpon>PullOutLetterUpdateDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ReturnAndTransfer.aspx.cs">
+      <DependentUpon>ReturnAndTransfer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ReturnAndTransfer.aspx.designer.cs">
+      <DependentUpon>ReturnAndTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ReturnsAndTransferReportPanel.aspx.cs">
+      <DependentUpon>ReturnsAndTransferReportPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ReturnsAndTransferReportPanel.aspx.designer.cs">
+      <DependentUpon>ReturnsAndTransferReportPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ReturnsManagementPanel.aspx.cs">
+      <DependentUpon>ReturnsManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ReturnsManagementPanel.aspx.designer.cs">
+      <DependentUpon>ReturnsManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SessionExpired.aspx.cs">
+      <DependentUpon>SessionExpired.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SessionExpired.aspx.designer.cs">
+      <DependentUpon>SessionExpired.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\MarkDownMemoConcession.aspx.cs">
+      <DependentUpon>MarkDownMemoConcession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\MarkDownMemoConcession.aspx.designer.cs">
+      <DependentUpon>MarkDownMemoConcession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\MarkDownMemoMenu.aspx.cs">
+      <DependentUpon>MarkDownMemoMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\MarkDownMemoMenu.aspx.designer.cs">
+      <DependentUpon>MarkDownMemoMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\AreaGroupManagementPanel.aspx.cs">
+      <DependentUpon>AreaGroupManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\AreaGroupManagementPanel.aspx.designer.cs">
+      <DependentUpon>AreaGroupManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\ArrangementManagementPanel.aspx.cs">
+      <DependentUpon>ArrangementManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\ArrangementManagementPanel.aspx.designer.cs">
+      <DependentUpon>ArrangementManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\AuditTrails.aspx.cs">
+      <DependentUpon>AuditTrails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\AuditTrails.aspx.designer.cs">
+      <DependentUpon>AuditTrails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\CompanyManagementPanel.aspx.cs">
+      <DependentUpon>CompanyManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\CompanyManagementPanel.aspx.designer.cs">
+      <DependentUpon>CompanyManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\controls\AdminMenu.ascx.cs">
+      <DependentUpon>AdminMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\controls\AdminMenu.ascx.designer.cs">
+      <DependentUpon>AdminMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\controls\AdminMenuMain.ascx.cs">
+      <DependentUpon>AdminMenuMain.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\controls\AdminMenuMain.ascx.designer.cs">
+      <DependentUpon>AdminMenuMain.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\controls\ErrorMessageBox.ascx.cs">
+      <DependentUpon>ErrorMessageBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\controls\ErrorMessageBox.ascx.designer.cs">
+      <DependentUpon>ErrorMessageBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\CustomerGroupPanel.aspx.cs">
+      <DependentUpon>CustomerGroupPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\CustomerGroupPanel.aspx.designer.cs">
+      <DependentUpon>CustomerGroupPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\DepartmentManagementPanel.aspx.cs">
+      <DependentUpon>DepartmentManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\DepartmentManagementPanel.aspx.designer.cs">
+      <DependentUpon>DepartmentManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\AreaGroupForm.ascx.cs">
+      <DependentUpon>AreaGroupForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\AreaGroupForm.ascx.designer.cs">
+      <DependentUpon>AreaGroupForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\ArrangementForm.ascx.cs">
+      <DependentUpon>ArrangementForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\ArrangementForm.ascx.designer.cs">
+      <DependentUpon>ArrangementForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\CompanyForm.ascx.cs">
+      <DependentUpon>CompanyForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\CompanyForm.ascx.designer.cs">
+      <DependentUpon>CompanyForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\CustGrp.ascx.cs">
+      <DependentUpon>CustGrp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\CustGrp.ascx.designer.cs">
+      <DependentUpon>CustGrp.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\DepartmentForm.ascx.cs">
+      <DependentUpon>DepartmentForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\DepartmentForm.ascx.designer.cs">
+      <DependentUpon>DepartmentForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\FormulaForm.ascx.cs">
+      <DependentUpon>FormulaForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\FormulaForm.ascx.designer.cs">
+      <DependentUpon>FormulaForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\PriceGroupForm.ascx.cs">
+      <DependentUpon>PriceGroupForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\PriceGroupForm.ascx.designer.cs">
+      <DependentUpon>PriceGroupForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\PriceTypeForm.ascx.cs">
+      <DependentUpon>PriceTypeForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\PriceTypeForm.ascx.designer.cs">
+      <DependentUpon>PriceTypeForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\SubAreaGroupForm.ascx.cs">
+      <DependentUpon>SubAreaGroupForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\SubAreaGroupForm.ascx.designer.cs">
+      <DependentUpon>SubAreaGroupForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\TermForm.ascx.cs">
+      <DependentUpon>TermForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\TermForm.ascx.designer.cs">
+      <DependentUpon>TermForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\UserLevelForm.ascx.cs">
+      <DependentUpon>UserLevelForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\forms\UserLevelForm.ascx.designer.cs">
+      <DependentUpon>UserLevelForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\FormulaManagementPanel.aspx.cs">
+      <DependentUpon>FormulaManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\FormulaManagementPanel.aspx.designer.cs">
+      <DependentUpon>FormulaManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\NewUserAccount.aspx.cs">
+      <DependentUpon>NewUserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\NewUserAccount.aspx.designer.cs">
+      <DependentUpon>NewUserAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\PriceGroupManagementPanel.aspx.cs">
+      <DependentUpon>PriceGroupManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\PriceGroupManagementPanel.aspx.designer.cs">
+      <DependentUpon>PriceGroupManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\PriceTypeManagementPanel.aspx.cs">
+      <DependentUpon>PriceTypeManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\PriceTypeManagementPanel.aspx.designer.cs">
+      <DependentUpon>PriceTypeManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Reports\AreaGroup.aspx.cs">
+      <DependentUpon>AreaGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Reports\AreaGroup.aspx.designer.cs">
+      <DependentUpon>AreaGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Reports\Departments.aspx.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Reports\Departments.aspx.designer.cs">
+      <DependentUpon>Departments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Reports\PriceGroup.aspx.cs">
+      <DependentUpon>PriceGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Reports\PriceGroup.aspx.designer.cs">
+      <DependentUpon>PriceGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\SubAreaGroupManagementPanel.aspx.cs">
+      <DependentUpon>SubAreaGroupManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\SubAreaGroupManagementPanel.aspx.designer.cs">
+      <DependentUpon>SubAreaGroupManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\TermManagementPanel.aspx.cs">
+      <DependentUpon>TermManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\TermManagementPanel.aspx.designer.cs">
+      <DependentUpon>TermManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UpdateUserAccount.aspx.cs">
+      <DependentUpon>UpdateUserAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UpdateUserAccount.aspx.designer.cs">
+      <DependentUpon>UpdateUserAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UserLevelManagementPanel.aspx.cs">
+      <DependentUpon>UserLevelManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UserLevelManagementPanel.aspx.designer.cs">
+      <DependentUpon>UserLevelManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UserLogsPreview.aspx.cs">
+      <DependentUpon>UserLogsPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UserLogsPreview.aspx.designer.cs">
+      <DependentUpon>UserLogsPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UserManagementPanel.aspx.cs">
+      <DependentUpon>UserManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\UserManagementPanel.aspx.designer.cs">
+      <DependentUpon>UserManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing-Admin\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\Marketing.Master.cs">
+      <DependentUpon>Marketing.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\Marketing.Master.designer.cs">
+      <DependentUpon>Marketing.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewFitting.aspx.cs">
+      <DependentUpon>NewFitting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewFitting.aspx.designer.cs">
+      <DependentUpon>NewFitting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewGeneralMemoOutright.aspx.cs">
+      <DependentUpon>NewGeneralMemoOutright.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewGeneralMemoOutright.aspx.designer.cs">
+      <DependentUpon>NewGeneralMemoOutright.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewGenericStyle.aspx.cs">
+      <DependentUpon>NewGenericStyle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewGenericStyle.aspx.designer.cs">
+      <DependentUpon>NewGenericStyle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewItemForm.aspx.cs">
+      <DependentUpon>NewItemForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewItemForm.aspx.designer.cs">
+      <DependentUpon>NewItemForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewMarkDownMemoConcession.aspx.cs">
+      <DependentUpon>NewMarkDownMemoConcession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewMarkDownMemoConcession.aspx.designer.cs">
+      <DependentUpon>NewMarkDownMemoConcession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NonOutletManagementPanel.aspx.cs">
+      <DependentUpon>NonOutletManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NonOutletManagementPanel.aspx.designer.cs">
+      <DependentUpon>NonOutletManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\OutletManagementPanel.aspx.cs">
+      <DependentUpon>OutletManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\OutletManagementPanel.aspx.designer.cs">
+      <DependentUpon>OutletManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\OutRightMarkDownMemoPanel.aspx.cs">
+      <DependentUpon>OutRightMarkDownMemoPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\OutRightMarkDownMemoPanel.aspx.designer.cs">
+      <DependentUpon>OutRightMarkDownMemoPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PriceChecking.aspx.cs">
+      <DependentUpon>PriceChecking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PriceChecking.aspx.designer.cs">
+      <DependentUpon>PriceChecking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PriceCheckingAndItemReprocessingPanel.aspx.cs">
+      <DependentUpon>PriceCheckingAndItemReprocessingPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PriceCheckingAndItemReprocessingPanel.aspx.designer.cs">
+      <DependentUpon>PriceCheckingAndItemReprocessingPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ProductManagementPanel.aspx.cs">
+      <DependentUpon>ProductManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ProductManagementPanel.aspx.designer.cs">
+      <DependentUpon>ProductManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\PulloutRequest.aspx.cs">
+      <DependentUpon>PulloutRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\PulloutRequest.aspx.designer.cs">
+      <DependentUpon>PulloutRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ReprocessItems.aspx.cs">
+      <DependentUpon>ReprocessItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ReprocessItems.aspx.designer.cs">
+      <DependentUpon>ReprocessItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\RequestPanel.aspx.cs">
+      <DependentUpon>RequestPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\RequestPanel.aspx.designer.cs">
+      <DependentUpon>RequestPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\sample.aspx.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\sample.aspx.designer.cs">
+      <DependentUpon>sample.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SizeManagementPanel.aspx.cs">
+      <DependentUpon>SizeManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SizeManagementPanel.aspx.designer.cs">
+      <DependentUpon>SizeManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SizesDisplayIndexManagementPanel.aspx.cs">
+      <DependentUpon>SizesDisplayIndexManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SizesDisplayIndexManagementPanel.aspx.designer.cs">
+      <DependentUpon>SizesDisplayIndexManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SkuBarcodeManagementPanel.aspx.cs">
+      <DependentUpon>SkuBarcodeManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SkuBarcodeManagementPanel.aspx.designer.cs">
+      <DependentUpon>SkuBarcodeManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SMPullOutLetterDetailsPreview.aspx.cs">
+      <DependentUpon>SMPullOutLetterDetailsPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SMPullOutLetterDetailsPreview.aspx.designer.cs">
+      <DependentUpon>SMPullOutLetterDetailsPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SMPullOutLetterManagementPanel.aspx.cs">
+      <DependentUpon>SMPullOutLetterManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SMPullOutLetterManagementPanel.aspx.designer.cs">
+      <DependentUpon>SMPullOutLetterManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\SMPullOutLetterUpdate.aspx.cs">
+      <DependentUpon>SMPullOutLetterUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\SMPullOutLetterUpdate.aspx.designer.cs">
+      <DependentUpon>SMPullOutLetterUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\StockInputReport.aspx.cs">
+      <DependentUpon>StockInputReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\StockInputReport.aspx.designer.cs">
+      <DependentUpon>StockInputReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\StylePanel.aspx.cs">
+      <DependentUpon>StylePanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\StylePanel.aspx.designer.cs">
+      <DependentUpon>StylePanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\TransferManagementPanel.aspx.cs">
+      <DependentUpon>TransferManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\TransferManagementPanel.aspx.designer.cs">
+      <DependentUpon>TransferManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\UpdateGeneralMemoConcession.aspx.cs">
+      <DependentUpon>UpdateGeneralMemoConcession.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\UpdateGeneralMemoConcession.aspx.designer.cs">
+      <DependentUpon>UpdateGeneralMemoConcession.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\UpdateGeneratedCodes-SKUs.aspx.cs">
+      <DependentUpon>UpdateGeneratedCodes-SKUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\UpdateGeneratedCodes-SKUs.aspx.designer.cs">
+      <DependentUpon>UpdateGeneratedCodes-SKUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\UserRolesManagementPanel.aspx.cs">
+      <DependentUpon>UserRolesManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\UserRolesManagementPanel.aspx.designer.cs">
+      <DependentUpon>UserRolesManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\UsersManagementPanel.aspx.cs">
+      <DependentUpon>UsersManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\UsersManagementPanel.aspx.designer.cs">
+      <DependentUpon>UsersManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\UsersPanel.aspx.cs">
+      <DependentUpon>UsersPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\UsersPanel.aspx.designer.cs">
+      <DependentUpon>UsersPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\ViewMessage.aspx.cs">
+      <DependentUpon>ViewMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ViewMessage.aspx.designer.cs">
+      <DependentUpon>ViewMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\PulloutRequest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PulloutRequest.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\PulloutRequestProv.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PulloutRequestProv.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryBTQ28.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryBTQ28.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryBTQ29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryBTQ29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryBTQ30.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryBTQ30.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryBTQ31.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryBTQ31.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryLuzon28.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryLuzon28.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryLuzon29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryLuzon29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryLuzon30.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryLuzon30.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryLuzon31.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryLuzon31.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMINDANAO28.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMINDANAO28.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMINDANAO29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMINDANAO29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMINDANAO30.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMINDANAO30.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMINDANAO31.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMINDANAO31.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMMDS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMMDS.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMMDS28.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMMDS28.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMMDS29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMMDS29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryMMDS30.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryMMDS30.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryPerAreaAndCustomer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryPerAreaAndCustomer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryPerAreaAndCustomerLuzon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryPerAreaAndCustomerLuzon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryVisayas28.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryVisayas28.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryVisayas29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryVisayas29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryVisayas30.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryVisayas30.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptCDISummaryVisayas31.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptCDISummaryVisayas31.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptDRSummaryPerArea.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptDRSummaryPerArea.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\RptDRSummaryPerArea_.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RptDRSummaryPerArea_.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportDocuments\StockInputReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockInputReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\BTQDRSummaryPrintPreview.aspx.cs">
+      <DependentUpon>BTQDRSummaryPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\BTQDRSummaryPrintPreview.aspx.designer.cs">
+      <DependentUpon>BTQDRSummaryPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerLuzonPrintPreview.aspx.cs">
+      <DependentUpon>DRSummaryPerAreaAndCustomerLuzonPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerLuzonPrintPreview.aspx.designer.cs">
+      <DependentUpon>DRSummaryPerAreaAndCustomerLuzonPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerPrintPreview.aspx.cs">
+      <DependentUpon>DRSummaryPerAreaAndCustomerPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerPrintPreview.aspx.designer.cs">
+      <DependentUpon>DRSummaryPerAreaAndCustomerPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DRSummaryPerAreaPrintPreview.aspx.cs">
+      <DependentUpon>DRSummaryPerAreaPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\DRSummaryPerAreaPrintPreview.aspx.designer.cs">
+      <DependentUpon>DRSummaryPerAreaPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\LUZONDRSummaryPrintPreview.aspx.cs">
+      <DependentUpon>LUZONDRSummaryPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\LUZONDRSummaryPrintPreview.aspx.designer.cs">
+      <DependentUpon>LUZONDRSummaryPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\markDownMemoPreview.aspx.cs">
+      <DependentUpon>markDownMemoPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\markDownMemoPreview.aspx.designer.cs">
+      <DependentUpon>markDownMemoPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MarkDownMemoPrintPreview.aspx.cs">
+      <DependentUpon>MarkDownMemoPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MarkDownMemoPrintPreview.aspx.designer.cs">
+      <DependentUpon>MarkDownMemoPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MINDANAODRSummaryPrintPreview.aspx.cs">
+      <DependentUpon>MINDANAODRSummaryPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MINDANAODRSummaryPrintPreview.aspx.designer.cs">
+      <DependentUpon>MINDANAODRSummaryPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MMDSDRSummaryPrintPreview.aspx.cs">
+      <DependentUpon>MMDSDRSummaryPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\MMDSDRSummaryPrintPreview.aspx.designer.cs">
+      <DependentUpon>MMDSDRSummaryPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PrintOutlet.aspx.cs">
+      <DependentUpon>PrintOutlet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PrintOutlet.aspx.designer.cs">
+      <DependentUpon>PrintOutlet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PrintStylePrices.aspx.cs">
+      <DependentUpon>PrintStylePrices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PrintStylePrices.aspx.designer.cs">
+      <DependentUpon>PrintStylePrices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutLetterDetailsPrintPreview.aspx.cs">
+      <DependentUpon>PullOutLetterDetailsPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutLetterDetailsPrintPreview.aspx.designer.cs">
+      <DependentUpon>PullOutLetterDetailsPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutLetterPrintPreview.aspx.cs">
+      <DependentUpon>PullOutLetterPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutLetterPrintPreview.aspx.designer.cs">
+      <DependentUpon>PullOutLetterPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutLetterSummaryPrintPreview.aspx.cs">
+      <DependentUpon>PullOutLetterSummaryPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutLetterSummaryPrintPreview.aspx.designer.cs">
+      <DependentUpon>PullOutLetterSummaryPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PulloutReport.aspx.cs">
+      <DependentUpon>PulloutReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PulloutReport.aspx.designer.cs">
+      <DependentUpon>PulloutReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\StockInputReportPreview.aspx.cs">
+      <DependentUpon>StockInputReportPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\StockInputReportPreview.aspx.designer.cs">
+      <DependentUpon>StockInputReportPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\StockInputReportPrintPreview.aspx.cs">
+      <DependentUpon>StockInputReportPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\StockInputReportPrintPreview.aspx.designer.cs">
+      <DependentUpon>StockInputReportPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\VISAYASDRSummaryPrintPreview.aspx.cs">
+      <DependentUpon>VISAYASDRSummaryPrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\VISAYASDRSummaryPrintPreview.aspx.designer.cs">
+      <DependentUpon>VISAYASDRSummaryPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shared\Constant.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Components\IRMS.Components.csproj">
+      <Project>{550E6C99-45E8-483A-B47D-AAD2E1692130}</Project>
+      <Name>IRMS.Components</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IRMS.BusinessLogic\IRMS.BusinessLogic.csproj">
+      <Project>{61074899-1B6E-468F-8381-1BBAA09ACE95}</Project>
+      <Name>IRMS.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IRMS.Entities\IRMS.Entities.csproj">
+      <Project>{F6D55DDB-D634-4722-BEED-37ECA4CD76B1}</Project>
+      <Name>IRMS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IRMS.ObjectModel\IRMS.ObjectModel.csproj">
+      <Project>{C733A9C1-25EF-4B67-834B-932CC63D4D35}</Project>
+      <Name>IRMS.ObjectModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Marketing\Marketing.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\PulloutRequest.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PulloutRequest.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\PulloutRequestProv.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PulloutRequestProv.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryBTQ28.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryBTQ28.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryBTQ29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryBTQ29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryBTQ30.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryBTQ30.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryBTQ31.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryBTQ31.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryLuzon28.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryLuzon28.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryLuzon29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryLuzon29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryLuzon30.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryLuzon30.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryLuzon31.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryLuzon31.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMINDANAO28.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMINDANAO28.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMINDANAO29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMINDANAO29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMINDANAO30.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMINDANAO30.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMINDANAO31.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMINDANAO31.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMMDS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMMDS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMMDS28.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMMDS28.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMMDS29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMMDS29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryMMDS30.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryMMDS30.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryPerAreaAndCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryPerAreaAndCustomer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryPerAreaAndCustomerLuzon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryPerAreaAndCustomerLuzon.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryVisayas28.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryVisayas28.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryVisayas29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryVisayas29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryVisayas30.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryVisayas30.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptCDISummaryVisayas31.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptCDISummaryVisayas31.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptDRSummaryPerArea.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptDRSummaryPerArea.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\RptDRSummaryPerArea_.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RptDRSummaryPerArea_.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportDocuments\StockInputReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StockInputReport.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Marketing\Marketing-Admin\company-logos\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>42322</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
