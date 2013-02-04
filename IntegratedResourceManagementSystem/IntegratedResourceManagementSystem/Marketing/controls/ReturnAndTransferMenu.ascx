@@ -62,10 +62,10 @@
 	<div class="mnuIcon">
 		<div>
 			<a class="lblMenu" href="../Marketing/TransferManagementPanel.aspx">
-				<img src="../Resources/adjustment.png" title="Manage Transfer Item/s" />
+				<img src="../Resources/adjustment.png" title="Manage Transfer Item/s" height="34px" />
 			</a>
 		</div>
-		<a title="Manage Transfer Item/s" class="lblMenu" style="font-family: Verdana; font-size: 11px;
-			font-weight: bold;" href="../Marketing/TransferManagementPanel.aspx">TRANSFER</a>
+		<a title="Manage Stock Transfer" class="lblMenu" style="font-family: Verdana; font-size: 11px;
+			font-weight: bold;" href="../Marketing/TransferManagementPanel.aspx">STOCK TRANSFER</a>
 	</div>
 </div>
