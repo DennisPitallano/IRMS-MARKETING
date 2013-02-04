@@ -56,6 +56,7 @@ namespace IntegratedResourceManagementSystem.Marketing
            txtTotalQtySummary.Text = POL.TotalQuantity.ToString("###,###");
            gvContainers.DataSource = containerList();
            gvContainers.DataBind();
+           hpLinlUpdateForwarder.NavigateUrl = "~/Marketing/UpdatePullOutLetterForwarder.aspx?PullOutId=" + POL.RecordNumber + "&mode=summary"; ;
         }
 
         protected void Page_Load(object sender, EventArgs e)

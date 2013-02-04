@@ -40,7 +40,7 @@
     <form id="form1" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
-    <div style="font-family: Arial; font-size: 12px; margin-top: 100px; font-weight: bold;">
+    <div style="font-family: Arial; font-size: 12px; margin-top:80px; font-weight: bold;">
         <table style="width: 100%;">
             <tr>
                 <td colspan="2" style="padding-bottom: 15px;">

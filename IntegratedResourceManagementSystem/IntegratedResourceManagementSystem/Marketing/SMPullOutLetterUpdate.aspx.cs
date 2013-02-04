@@ -58,7 +58,7 @@ namespace IntegratedResourceManagementSystem.Marketing
             hfPGMDNo.Value = customer.PriceGroupMarkdownNo.ToString();
             hfPGNo.Value = customer.PriceGroupNo.ToString();
             hfSubAreaGroupNo.Value = customer.SubAreaGroupNo.ToString();
-            hpLinlUpdateForwarder.NavigateUrl = "~/Marketing/UpdatePullOutLetterForwder.aspx?PullOutId="+pullOutLetter.RecordNumber ;
+            hpLinlUpdateForwarder.NavigateUrl = "~/Marketing/UpdatePullOutLetterForwarder.aspx?PullOutId=" + pullOutLetter.RecordNumber+"&mode=smdetails";
         }
 
         protected void Page_Load(object sender, EventArgs e)
