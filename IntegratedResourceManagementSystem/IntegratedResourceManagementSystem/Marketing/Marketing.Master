@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Marketing.master.cs" Inherits="IntegratedResourceManagementSystem.Marketing.Marketing" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register  Src="~/Marketing/controls/UserAccount.ascx" TagName="account" TagPrefix="IRMS" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>IRMS-Marketing Department</title>
+      <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+      <link rel="icon" type="image/x-icon" href="../Resources/favicon.ico">
+      <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+<asp:ToolkitScriptManager ID="MarketingToolkitScriptManager" runat="server">
+        </asp:ToolkitScriptManager>
+    <div class="page">
+        <div class="header">
+       
+            <div class="title">
+             <a href="DashBoardPanel.aspx" >
+            <span>
+                IRMS
+            </span>
+            <br />
+            <span id ="irms_text">Integrated Resource Management System</span>
+                 </a>
+            </div>
+             <div style="float:left; margin:20px 50px 5px 20px;
+                  font-variant:small-caps; height:30px; font-size:20px; color:#4e5913; letter-spacing:2px; font-weight:bold; text-shadow: 1px 1px 0px #A0B051;">
+                  Marketing Department</div>
+           <div class="loginDisplay">
+            <IRMS:account ID="account" runat="server" />
+           <%-- <p>
+            [Version <asp:Label ID="lblVersion" runat="server" Text=""></asp:Label>]
+            <br />
+            Current User : &nbsp;<B><asp:Label ID="lblUser" runat="server" Text="NONE"></asp:Label></B>&nbsp;
+                <asp:LinkButton ID="lnkbtnLogin" runat="server"  onclick="lnkbtnLogin_Click">[Login]</asp:LinkButton>
+                </p>--%>
+            </div>
+      
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Marketing/DashBoardPanel.aspx" Text="MARKETING DASHBOARD"/>
+                        <asp:MenuItem NavigateUrl="~/Marketing/StylePanel.aspx" Text="ITEM MASTER"/>
+                        <asp:MenuItem NavigateUrl="~/Marketing/CustomerMenuPanel.aspx" 
+                            Text="CUSTOMERS" ToolTip="Manage Customer" Value="CUSTOMER MASTER">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Marketing/MarkDownMemoMenu.aspx" 
+                            Text="MARKDOWN" ToolTip="Manage MarkDown" Value="MARKDOWN">
+                        </asp:MenuItem>
+                          <asp:MenuItem NavigateUrl="~/Marketing/ReturnAndTransfer.aspx" 
+                            Text="RETURNS AND TRANSFER" ToolTip="Mange Returns and Transfers" 
+                            Value="RETURNS AND TRANSFER"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Marketing/DeliveryReceiptsMenu.aspx" 
+                            Text="DELIVERIES" Value="DELIVERIES"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+         
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+      
+         Developed by: <a href ="http://www.iserve.biz" target="_blank" >iServe Customer Management Solution Inc.</a>
+        <br />
+        iServe Customer Management Solution Inc. © 2011. All rights reserved. 
+    </div>
+    </form>
+</body>
+</html>
