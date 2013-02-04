@@ -43,7 +43,7 @@
                     <div class="titleForm" style="height: 20px;">
                         PULL OUT LETTER HEADER
                         <div style="float: right; margin-left:3px; margin-right:2px;" runat="server">
-                            <asp:HyperLink ID="hpLinlUpdateForwarder" CssClass="btnUpdate" Height="18px"
+                            <asp:HyperLink ID="hpLinlUpdateForwarder" Target="_top" CssClass="btnUpdate" Height="18px"
                              style="line-height:18px; padding-right:3px; text-decoration:none;" runat="server">assign forwarder</asp:HyperLink>
                         </div>
                         <div style="float: right;">

@@ -309,6 +309,7 @@
     <None Include="Resources\nextresult.png" />
     <None Include="Resources\previousresult.png" />
     <None Include="Resources\close_infobar.png" />
+    <Content Include="Marketing\UpdatePullOutLetterForwarder.aspx" />
     <Content Include="Marketing\UserRolesManagementPanel.aspx" />
     <Content Include="Marketing\UsersManagementPanel.aspx" />
     <Content Include="Marketing\UsersPanel.aspx" />
@@ -1391,6 +1392,13 @@
     </Compile>
     <Compile Include="Marketing\UpdateGeneratedCodes-SKUs.aspx.designer.cs">
       <DependentUpon>UpdateGeneratedCodes-SKUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\UpdatePullOutLetterForwarder.aspx.cs">
+      <DependentUpon>UpdatePullOutLetterForwarder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\UpdatePullOutLetterForwarder.aspx.designer.cs">
+      <DependentUpon>UpdatePullOutLetterForwarder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Marketing\UserRolesManagementPanel.aspx.cs">
       <DependentUpon>UserRolesManagementPanel.aspx</DependentUpon>
