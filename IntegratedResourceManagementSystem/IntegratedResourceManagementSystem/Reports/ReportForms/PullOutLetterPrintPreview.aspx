@@ -8,8 +8,29 @@
     <title>PULL OUT LETTER</title>
     <link href="../../Styles/modal-controls.css" rel="stylesheet" type="text/css" />
     <link href="../../Styles/toolbar-controls.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnShowSignatory").hide("fast");
+
+            $("#btnHideSignatory").click(function () {
+                $("#divSignatory").hide("slow");
+                $(this).hide("fast");
+                $("#btnShowSignatory").show("fast");
+            });
+
+            $("#btnShowSignatory").click(function () {
+                $("#divSignatory").show("slow");
+                $(this).hide("fast");
+                $("#btnHideSignatory").show("fast");
+            });
+        });
+    </script>
+    <style type="text/css">
+        
+    </style>
     <style type="text/css" media="print">
-        #btnPrint, #btnCloseWindow,#hpLinkPreviewDetails
+        #btnPrint, #btnCloseWindow, #hpLinkPreviewDetails, #btnHideSignatory, #btnShowSignatory
         {
             visibility: hidden;
         }
@@ -162,19 +183,27 @@
     <div>
     </div>
     <div style="font-family: Arial; font-size: 10px; margin-top: 15px;">
-        <div style="padding-left: 30px;">
-            Our <span style="font-weight: bold;"><asp:Label ID="lblCompanyName" runat="server" Text=""></asp:Label></span> personnel was given authority to pullout the said items:
-            <br />
-            <br />
-            <span style="margin-right: 100px;">NAME:</span> <span style="margin-right: 20px;">SIGNATURE</span>
-            <span style="margin-right: 100px;">NAME:</span> <span style="margin-right: 30px;">SIGNATURE</span>
-            <span style="margin-right: 100px;">NAME:</span> <span>SIGNATURE</span>
-        </div>
-        <div>
+        <asp:Panel ID="pnlForwarder" Visible="false" runat="server">
+               We authorized <span style="font-weight: bold;">
+                    <asp:Label ID="lblForwarder" runat="server" Text=""></asp:Label></span> Trucking to pullout the said items:
+        </asp:Panel>
+        <div id="divSignatory">
+            <div style="padding-left: 30px;">
+                Our <span style="font-weight: bold;">
+                    <asp:Label ID="lblCompanyName" runat="server" Text=""></asp:Label></span> personnel
+                was given authority to pullout the said items:
+            </div>
+            <div style="padding-left: 30px;">
+                <br />
+                <br />
+                <span style="margin-right: 100px;">NAME:</span> <span style="margin-right: 20px;">SIGNATURE</span>
+                <span style="margin-right: 100px;">NAME:</span> <span style="margin-right: 30px;">SIGNATURE</span>
+                <span style="margin-right: 100px;">NAME:</span> <span>SIGNATURE</span>
+            </div>
             <img src="../../Resources/Signatory.jpg" alt="" style="height: 126px; width: 705px" />
-        </div>
-        <div style="padding-left: 350px;">
-            SIGNATURE
+            <div style="padding-left: 350px;">
+                SIGNATURE
+            </div>
         </div>
     </div>
     <div style="margin-top: 50px; font-family: Arial; font-size: 11px;">
@@ -215,7 +244,36 @@
             <tr>
                 <td>
                     <div style="border-top: 1px dashed black; width: 300px; height: 35px; margin-right: 10px;">
-                        <span style="font-weight: bold;">Dhel Cruz / Mr. Alberto San Gregorio </span>
+                        <span style="font-weight: bold;">
+                            <asp:Label ID="lblMrktAss" Text="Dhel Cruz / Mr. Alberto San Gregorio " runat="server" />
+                            <asp:HoverMenuExtender ID="lblMrktAss_HoverMenuExtender" runat="server" DynamicServicePath=""
+                                Enabled="True" TargetControlID="lblMrktAss" PopupControlID="plnMrktAss" PopupPosition="Right">
+                            </asp:HoverMenuExtender>
+                            <asp:Panel ID="plnMrktAss" runat="server">
+                                <asp:Button ID="btnUpdateMrkAss" CssClass="btnUpdate" Height="18px" title="edit"
+                                    runat="server" Text="" />
+                                <asp:ModalPopupExtender ID="btnUpdateMrkAss_ModalPopupExtender" runat="server" DynamicServicePath=""
+                                    Enabled="True" TargetControlID="btnUpdateMrkAss" PopupControlID="pnlMrktAssModal"
+                                    CancelControlID="btnUpdateMrktAssCancel" BackgroundCssClass="bgModal">
+                                </asp:ModalPopupExtender>
+                            </asp:Panel>
+                        </span>
+                        <asp:Panel ID="pnlMrktAssModal" CssClass="modal" runat="server">
+                            <asp:Panel ID="pnlMrktAssModalDrag" CssClass="modalDrag" runat="server">
+                            </asp:Panel>
+                            <div style="padding: 5px; text-align: center;" class="modalLabel">
+                                Marketing Assistant / Area Sales Manager:
+                                <br />
+                                <asp:TextBox ID="txtMrktAssUpdate" Width="300px" CssClass="modalText" Height="22px"
+                                    runat="server"></asp:TextBox>
+                            </div>
+                            <div style="margin: 5px; text-align: center;">
+                                <asp:Button ID="btnUpdateMrktAss" Height="25px" CssClass="btnSave" runat="server"
+                                    Text="update" OnClick="btnUpdateMrktAss_Click" />
+                                <asp:Button ID="btnUpdateMrktAssCancel" Height="25px" Width="60px" CssClass="btnCancel"
+                                    runat="server" Text="cancel" />
+                            </div>
+                        </asp:Panel>
                         <br />
                         <span>Marketing Assistant / Area Sales Manager</span>
                     </div>
@@ -416,9 +474,11 @@
         cc: ACTG, WH, File, Promo
     </div>
     <div style="text-align: center;">
+        <input id="btnHideSignatory" type="button" class="btnDelete" value="Hide Signatures" />
+        <input id="btnShowSignatory" type="button" class="btnDelete" value="Show Signatures" />
         <input id="btnPrint" type="button" class="btnPrint" onclick="window.print()" value="PRINT" />
-        <asp:HyperLink ID="hpLinkPreviewDetails" Visible ="false" Target="_blank" Height="23px" Style="line-height: 23px;
-            padding-right: 5px;" CssClass="btnPrint" runat="server">VIEW DETAILS</asp:HyperLink>
+        <asp:HyperLink ID="hpLinkPreviewDetails" Visible="false" Target="_blank" Height="23px"
+            Style="line-height: 23px; padding-right: 5px;" CssClass="btnPrint" runat="server">VIEW DETAILS</asp:HyperLink>
         <input id="btnCloseWindow" type="button" class="btnDelete" value="CLOSE" onclick="window.close()" />
     </div>
     </form>

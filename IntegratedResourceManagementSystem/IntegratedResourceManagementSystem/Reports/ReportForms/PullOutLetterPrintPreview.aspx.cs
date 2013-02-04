@@ -39,6 +39,8 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
             txtAttnChange.Text = lblAttention.Text;
             txtChangeTo.Text = lblTo.Text;
             //
+
+            txtMrktAssUpdate.Text = "Dhel Cruz / Mr. Alberto San Gregorio";
             if (pullOutLetter.IsBackLoad)
             {
                 chkBackLoad.Checked = true;
@@ -69,6 +71,11 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                 }
             }
 
+            if (pullOutLetter.Forwarders!="Not Assigned")
+            {
+                lblForwarder.Text = pullOutLetter.Forwarders;
+                pnlForwarder.Visible = true;
+            }
            
         }
 
@@ -85,6 +92,11 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
         protected void btnUpdateTo_Click(object sender, EventArgs e)
         {
             lblTo.Text = txtChangeTo.Text;
+        }
+
+        protected void btnUpdateMrktAss_Click(object sender, EventArgs e)
+        {
+            lblMrktAss.Text = txtMrktAssUpdate.Text;
         }
     }
 }

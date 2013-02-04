@@ -274,6 +274,24 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms {
         protected global::System.Web.UI.WebControls.Label lblTotalQuantity;
         
         /// <summary>
+        /// pnlForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlForwarder;
+        
+        /// <summary>
+        /// lblForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblForwarder;
+        
+        /// <summary>
         /// lblCompanyName control.
         /// </summary>
         /// <remarks>
@@ -281,6 +299,96 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCompanyName;
+        
+        /// <summary>
+        /// lblMrktAss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMrktAss;
+        
+        /// <summary>
+        /// lblMrktAss_HoverMenuExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.HoverMenuExtender lblMrktAss_HoverMenuExtender;
+        
+        /// <summary>
+        /// plnMrktAss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel plnMrktAss;
+        
+        /// <summary>
+        /// btnUpdateMrkAss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateMrkAss;
+        
+        /// <summary>
+        /// btnUpdateMrkAss_ModalPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender btnUpdateMrkAss_ModalPopupExtender;
+        
+        /// <summary>
+        /// pnlMrktAssModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMrktAssModal;
+        
+        /// <summary>
+        /// pnlMrktAssModalDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlMrktAssModalDrag;
+        
+        /// <summary>
+        /// txtMrktAssUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMrktAssUpdate;
+        
+        /// <summary>
+        /// btnUpdateMrktAss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateMrktAss;
+        
+        /// <summary>
+        /// btnUpdateMrktAssCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateMrktAssCancel;
         
         /// <summary>
         /// chkBackLoad control.
