@@ -51,38 +51,53 @@ namespace IRMS.BusinessLogic.Manager
         }
 
         #region filter
-        public void FilterPOL(SqlDataSource POLDataSource, string searchParameter,string searchType, bool forSM)
+        public void FilterPOL(SqlDataSource POLDataSource, string searchParameter,string searchType, string forSM)
         {
             StringBuilder strCmd = new StringBuilder();
-            strCmd.Append("SELECT * FROM [PULL_OUT_LETTERS] WHERE ([IS_ACTIVE] = @IS_ACTIVE AND IS_BACK_LOAD=@ISBACKLOAD) ");
-            if (forSM)
+            strCmd.Append("SELECT * FROM [PULL_OUT_LETTERS] WHERE ([IS_ACTIVE] =1 AND IS_BACK_LOAD=0) ");
+            switch (forSM)
             {
-                strCmd.Append(" AND FOR_SM = 1 ");
-                if (!string.IsNullOrEmpty(searchParameter))
-                {
-                    if (searchType =="SERIES")
+                case "True":
+                     strCmd.Append(" AND FOR_SM = 1 ");
+                    if (!string.IsNullOrEmpty(searchParameter))
                     {
-                        strCmd.Append(" AND SERIES_NO LIKE '%" + searchParameter + "%' ");
+                        if (searchType =="SERIES")
+                        {
+                            strCmd.Append(" AND SERIES_NO LIKE '%" + searchParameter + "%' ");
+                        }
+                        else
+                        {
+                            strCmd.Append(" AND COMPANY_NAME LIKE '%" + searchParameter + "%' ");
+                        }
                     }
-                    else
+                    break;
+                case "False":
+                        strCmd.Append(" AND FOR_SM = 0 ");
+                        if (!string.IsNullOrEmpty(searchParameter))
+                        {
+                            if (searchType == "SERIES")
+                            {
+                                strCmd.Append(" AND SERIES_NO LIKE '%" + searchParameter + "%' ");
+                            }
+                            else
+                            {
+                                strCmd.Append(" AND COMPANY_NAME LIKE '%" + searchParameter + "%' ");
+                            }
+                        }
+                    break;
+                default:
+                    if (!string.IsNullOrEmpty(searchParameter))
                     {
-                        strCmd.Append(" AND COMPANY_NAME LIKE '%" + searchParameter + "%' ");
+                        if (searchType == "SERIES")
+                        {
+                            strCmd.Append(" AND SERIES_NO LIKE '%" + searchParameter + "%' ");
+                        }
+                        else
+                        {
+                            strCmd.Append(" AND COMPANY_NAME LIKE '%" + searchParameter + "%' ");
+                        }
                     }
-                }
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(searchParameter))
-                {
-                    if (searchType == "SERIES")
-                    {
-                        strCmd.Append(" AND SERIES_NO LIKE '%" + searchParameter + "%' ");
-                    }
-                    else
-                    {
-                        strCmd.Append(" AND COMPANY_NAME LIKE '%" + searchParameter + "%' ");
-                    }
-                }
+                    break;
             }
             POLDataSource.SelectCommand = strCmd.ToString();
             POLDataSource.DataBind();

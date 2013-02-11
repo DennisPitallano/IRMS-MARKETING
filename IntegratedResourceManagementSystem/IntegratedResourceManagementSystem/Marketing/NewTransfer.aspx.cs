@@ -43,8 +43,13 @@ namespace IntegratedResourceManagementSystem.Marketing
             }
             else
             {
-                STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue, bool.Parse(rdioFilterPullOutLetterType.SelectedValue));
+                STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue,rdioFilterPullOutLetterType.SelectedValue);
             }
+        }
+
+        protected void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+                STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue, rdioFilterPullOutLetterType.SelectedValue);
         }
     }
 }

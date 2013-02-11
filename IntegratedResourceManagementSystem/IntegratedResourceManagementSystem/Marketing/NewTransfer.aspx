@@ -80,41 +80,39 @@
                     <div class="sizeLogo">
                         PULL OUT LETTERS</div>
                     <div>
-                        <asp:HyperLink CssClass="btnPrint" Height="18px" Target="_blank" Style="line-height: 18px; padding-right: 5px; text-decoration:none; "
-                            ID="hpLinkViewDetails" runat="server">View Details</asp:HyperLink>
+                        <asp:HyperLink CssClass="btnPrint" Height="18px" Target="_blank" Style="line-height: 18px;
+                            padding-right: 5px; text-decoration: none;" ID="hpLinkViewDetails" runat="server">View Details</asp:HyperLink>
                     </div>
                 </asp:Panel>
                 <div style="height: 26px;">
-                    <div class="modalLabel" style="float: left; line-height:18px; margin:2px;">
-                        FILTER:<asp:RadioButtonList ID="rdioFilterPullOutLetterType" 
-                            CssClass="modalText" Height="18px" Font-Size="10px" runat="server" AutoPostBack="True"
-                            RepeatDirection="Horizontal" RepeatLayout="Flow" 
-                            onselectedindexchanged="rdioFilterPullOutLetterType_SelectedIndexChanged">
+                    <div class="modalLabel" style="float: left; line-height: 18px; margin: 2px;">
+                        FILTER:<asp:RadioButtonList ID="rdioFilterPullOutLetterType" CssClass="modalText"
+                            Height="18px" Font-Size="10px" runat="server" AutoPostBack="True" RepeatDirection="Horizontal"
+                            RepeatLayout="Flow" OnSelectedIndexChanged="rdioFilterPullOutLetterType_SelectedIndexChanged">
                             <asp:ListItem Selected="True">ALL</asp:ListItem>
                             <asp:ListItem Value="True">SM</asp:ListItem>
                             <asp:ListItem Value="False">NON-SM</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                     <div style="float: right;" class="SearchTextContainer">
-                        SEARCH BY: 
-                        <asp:RadioButtonList ID="rdioSearchType" runat="server" 
-                            RepeatDirection="Horizontal" RepeatLayout="Flow">
+                        SEARCH BY:
+                        <asp:RadioButtonList ID="rdioSearchType" runat="server" RepeatDirection="Horizontal"
+                            RepeatLayout="Flow">
                             <asp:ListItem Selected="True" Value="SERIES">SERIES #</asp:ListItem>
                             <asp:ListItem>CUSTOMER</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:TextBox ID="txtSearch" runat="server" autofocus placeholder="Search POL" CssClass="modalText"
-                            AutoPostBack="True" Height="16px" Font-Size="10px" Width="150px" ToolTip="Search POL"></asp:TextBox>
+                            AutoPostBack="True" Height="16px" Font-Size="10px" Width="150px" ToolTip="Search POL"
+                            OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                         <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
                             ToolTip="SEARCH" />
                     </div>
                 </div>
                 <div style="margin: 5px;">
                     <asp:GridView ID="gvPullOutLetter" CssClass="table_grid" runat="server" CellPadding="4"
-                        ForeColor="#333333" GridLines="None" AllowPaging="True" 
-                        AllowSorting="True" AutoGenerateColumns="False"
+                        ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"
                         DataKeyNames="ID,PULL_OUT_CODE,SERIES_NO,CUSTOMER_NO,FOR_SM,IS_BACK_LOAD,BRANCH_DEPT_CODE,BRAND_DEPT_CODE,BRAND_CODE,ACCT_NAME,BRANCH_NAME,LETTER_STATUS,FORWARDERS"
-                        DataSourceID="SqlDataSourcePullOutLetters" 
-                        onselectedindexchanged="gvPullOutLetter_SelectedIndexChanged">
+                        DataSourceID="SqlDataSourcePullOutLetters" OnSelectedIndexChanged="gvPullOutLetter_SelectedIndexChanged">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField>
@@ -142,6 +140,12 @@
                                 Visible="False" />
                         </Columns>
                         <EditRowStyle BackColor="#7C6F57" />
+                        <EmptyDataTemplate>
+                            <div style="line-height:32px;">
+                                <img src="../Resources/unhappy.png" alt="" align="left" />
+                                DATA NOT FOUND!
+                            </div>
+                        </EmptyDataTemplate>
                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                         <PagerStyle CssClass="pager" />
@@ -153,7 +157,6 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourcePullOutLetters" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        
                         SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([IS_ACTIVE] = @IS_ACTIVE AND IS_BACK_LOAD=@ISBACKLOAD)">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="True" Name="IS_ACTIVE" Type="Boolean" />
