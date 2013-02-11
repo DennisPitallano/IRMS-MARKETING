@@ -30,15 +30,7 @@
 				</div>
 		</asp:Panel>
 	</div>
-	<div class="mnuIcon" title="Manage Outright MarkDown Memo">
-		<div>
-			<a class="lblMenu" href="../Marketing/RequestPanel.aspx">
-				<img src="../Resources/adjustment.png" height="36px" title="Manage Pull Out Requests" />
-			</a>
-		</div>
-		<a title="Manage Pull Out Requests" class="lblMenu" style="font-size: 10px; font-weight: bold;"
-			href="../Marketing/RequestPanel.aspx">PULL-OUT REQUEST</a>
-	</div>
+	
 	<div class="mnuIcon" title="MarkDown Reports">
 		<div>
 			<a class="lblMenu" href="../Marketing/ReturnsAndTransferReportPanel.aspx">

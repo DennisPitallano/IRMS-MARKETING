@@ -204,15 +204,27 @@ namespace IRMS.BusinessLogic.Manager
         /// <param name="StyleDataSource">Style Data Source</param>
         /// <param name="search_parameter">search string parameter</param>
         /// <returns>Style SqlDataSource</returns>
-        public SqlDataSource SearchStyles(SqlDataSource StyleDataSource, string search_parameter)
+        public SqlDataSource SearchStyles(SqlDataSource StyleDataSource, string search_parameter,string brandName="ALL")
         {
             StringBuilder CommandText = new StringBuilder();
             CommandText.Append(
-                "SELECT [StyleID] AS RECORD_NO, [StyleNo] AS STYLE_NUMBER, [StyleDesc]  AS DESCRIPTION,Cost AS COST_PRICE FROM [STYLE]  ");
-            if (search_parameter != string.Empty)
+                "SELECT [StyleID] AS RECORD_NO, [StyleNo] AS STYLE_NUMBER, [StyleDesc]  AS DESCRIPTION,Cost AS COST_PRICE,BrandName as BRAND FROM [STYLE]  ");
+            if (brandName !="ALL")
             {
-                CommandText.Append(" WHERE StyleNo LIKE '%" + search_parameter + "%' ");
+                CommandText.Append(" WHERE BrandName='"+brandName+"' ");
+                if (search_parameter != string.Empty)
+                {
+                    CommandText.Append(" AND StyleNo LIKE '%" + search_parameter + "%' ");
+                }
             }
+            else
+            {
+                if (search_parameter != string.Empty)
+                {
+                    CommandText.Append(" WHERE StyleNo LIKE '%" + search_parameter + "%' ");
+                }
+            }
+           
             CommandText.Append(" ORDER BY StyleID DESC");
             StyleDataSource.SelectCommand = CommandText.ToString();
             StyleDataSource.SelectCommandType = SqlDataSourceCommandType.Text;

@@ -34,8 +34,14 @@ namespace IntegratedResourceManagementSystem.Marketing
         StyleColorsManager StyleColorManager = new StyleColorsManager();
         StyleSizesManager StyleSizeManager = new StyleSizesManager();
         BrandGarmentsManager BGM = new BrandGarmentsManager();
-
+        PriceManager PriceManager = new PriceManager();
         #endregion
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -44,11 +50,16 @@ namespace IntegratedResourceManagementSystem.Marketing
                 {
                     ProductStyle ProdStyle = GetProductByStyleNumber((string)Request.QueryString["SytleNumber"]);
                     txtStyleNumber.Text = ProdStyle.StyleNumber;
+                    hfStyleNumber.Value = ProdStyle.StyleNumber;
                     txtStyleDescription.Text = ProdStyle.StyleDescription;
                     hfBrand.Value = ProdStyle.BrandName;
                     hfSRP.Value = ProdStyle.Cost.ToString();
                     hfStartSeries.Value = CheckStartSeriesNumber();
                     hfBrandStartSeries.Value = GetBrandStartSeries();
+                    txtSRP.Text = getProductSRP().ToString("###,###.00");
+                    txtCostPrice.Text = ProdStyle.Cost.ToString("###,###.00");
+                    txtUpdateSRP.Text = txtSRP.Text;
+                    lblStyleNnumber.Text = hfStyleNumber.Value;
                    // ITEM_STYLE = ProdStyle;
                     //txtStyleDescription.Text = PreviousPage.STYLE_.Description;
                     //ITEM_STYLE = PreviousPage.STYLE_;
@@ -94,21 +105,33 @@ namespace IntegratedResourceManagementSystem.Marketing
         private void GetAllGeneratedProductSKUS(string StyleNumber)
         {
             var products = PM.GetAllProductsByStyleNumber(StyleNumber);
+           
             var new_list = new List<IRMSProduct>();
-            foreach (IRMSProduct product in products)
+            if (products.Count >0)
             {
-                string[] item_code = product.ItemCode.Split('-');
-                string new_description = "DESCRIPTION: " + product.StyleDescription + "\n";
-                new_description += " COLOR: " + product.StyleColor + "\n";
-                new_description += " SIZE: " + product.StyleSize+"\n";
-                new_description += " SRP: " + product.Price.ToString("Php###,###.00");
-                product.StyleDescription = new_description;
-                new_list.Add(product);
+             
+                foreach (IRMSProduct product in products)
+                {
+                    string[] item_code = product.ItemCode.Split('-');
+                    string new_description = "DESCRIPTION: " + product.StyleDescription + "\n";
+                    new_description += " COLOR: " + product.StyleColor + "\n";
+                    new_description += " SIZE: " + product.StyleSize + "\n";
+                    new_description += " SRP: " + product.Price.ToString("Php###,###.00");
+                    product.StyleDescription = new_description;
+                    new_list.Add(product);
+                }
+                rptrSKU.DataSource = new_list;
+                rptrSKU.DataBind();
+                gvGeneratedSKUS.DataSource = new_list.OrderByDescending(c => c.ProductNumber);
+                gvGeneratedSKUS.DataBind();
+                hpLinkAffectedProducts.NavigateUrl = "~/Marketing/ViewProductsData.aspx?source=update&SN="+hfStyleNumber.Value+"&Brand="+hfBrand.Value;
+                hpLinkAffectedProducts.Visible = true;
             }
-            rptrSKU.DataSource = new_list;
-            rptrSKU.DataBind();
-            gvGeneratedSKUS.DataSource = new_list.OrderByDescending(c => c.ProductNumber);
-            gvGeneratedSKUS.DataBind();
+            else
+            {
+                hpLinkAffectedProducts.Visible = false;
+            }
+           
         }
 
         private void PreviewGeneratedSKUs(string StyleNumber)
@@ -643,5 +666,60 @@ namespace IntegratedResourceManagementSystem.Marketing
             return ap_type;
         }
 
+        private decimal getProductSRP()
+        {
+            decimal srp = 0;
+            try
+            {
+                var result = (from product in PM.AllProduct()
+                              where product.StyleNumber == txtStyleNumber.Text
+                              select product).FirstOrDefault();
+                srp = result.SRP;
+            }
+            catch (Exception)
+            {
+
+                // throw;
+            }
+            return srp;
+        }
+
+        protected void btnSaveUpdateSRP_Click(object sender, EventArgs e)
+        {
+            List<Price> prices = PriceManager.GetPricesPerStyle_Brand(hfStyleNumber.Value, hfBrand.Value);
+            List<IRMSProduct> products = PM.GetAllProductsByStyleNumber(hfStyleNumber.Value);
+            var price = prices.Where(p => p.StyleNo == hfStyleNumber.Value && p.BrandName == hfBrand.Value).SingleOrDefault();
+            float srp = float.Parse(txtUpdateSRP.Text);
+            price.Price_1 =(decimal)(srp + 0.50);
+            price.Price_2 = (decimal)(srp + 0.75);
+            price.Price_3 = (decimal)(srp + 0.95);
+            price.Price_4 = (decimal)(srp + 1.00);
+            price.Price_5 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.285));
+            price.Price_6 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.25));
+            price.Price_7 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.30));
+            price.Price_8 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.35));
+            price.Price_9 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.40));
+            price.Price_10 = (decimal)srp;
+            price.Price_11 = (decimal)(srp + 97);
+            price.Price_12 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.15));
+            price.Price_13 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.20));
+            price.Price_14 = (decimal)(srp + 0.99);
+            price.Price_15 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.31));
+            price.Price_16 = (decimal)((float)price.Price_4 - ((float)price.Price_4 * 0.45));
+            PriceManager.Save(price);
+
+            ItemStyle style = StyleManager.GetStyleNumberByItemStyle(txtStyleNumber.Text);
+            //ProductStyle
+            style.SRP = decimal.Parse(txtUpdateSRP.Text);
+            StyleManager.Save(style);
+            foreach (var prod in products)
+            {
+                prod.Price = decimal.Parse(txtUpdateSRP.Text);
+            }
+            PM.Save(products);
+            DataList1.DataBind();
+            DListPrice.DataBind();
+            txtSRP.Text = txtUpdateSRP.Text;
+        }
     }
 }

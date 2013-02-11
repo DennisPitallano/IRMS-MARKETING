@@ -11,6 +11,10 @@
     <script src="../../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+            $("#btnCloseWindow").click(function () {
+                window.close();
+            });
+
             $("#btnShowSignatory").hide("fast");
 
             $("#btnHideSignatory").click(function () {
@@ -24,6 +28,8 @@
                 $(this).hide("fast");
                 $("#btnHideSignatory").show("fast");
             });
+
+           
         });
     </script>
     <style type="text/css">
@@ -479,7 +485,7 @@
         <input id="btnPrint" type="button" class="btnPrint" onclick="window.print()" value="PRINT" />
         <asp:HyperLink ID="hpLinkPreviewDetails" Visible="false" Target="_blank" Height="23px"
             Style="line-height: 23px; padding-right: 5px;" CssClass="btnPrint" runat="server">VIEW DETAILS</asp:HyperLink>
-        <input id="btnCloseWindow" type="button" class="btnDelete" value="CLOSE" onclick="window.close()" />
+        <input id="btnCloseWindow" type="button" class="btnDelete" value="CLOSE"  />
     </div>
     </form>
 </body>

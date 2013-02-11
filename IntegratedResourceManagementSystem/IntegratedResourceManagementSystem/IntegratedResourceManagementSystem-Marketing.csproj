@@ -314,6 +314,7 @@
     <Content Include="Marketing\UsersManagementPanel.aspx" />
     <Content Include="Marketing\UsersPanel.aspx" />
     <Content Include="Marketing\ViewMessage.aspx" />
+    <Content Include="Marketing\ViewProductsData.aspx" />
     <Content Include="Reports\ReportForms\BTQDRSummaryPrintPreview.aspx" />
     <Content Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerLuzonPrintPreview.aspx" />
     <Content Include="Reports\ReportForms\DRSummaryPerAreaAndCustomerPrintPreview.aspx" />
@@ -331,6 +332,7 @@
     <Content Include="Reports\ReportForms\PulloutReport.aspx" />
     <Content Include="Reports\ReportForms\StockInputReportPreview.aspx" />
     <Content Include="Reports\ReportForms\StockInputReportPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\StylePrintPreview.aspx" />
     <Content Include="Reports\ReportForms\VISAYASDRSummaryPrintPreview.aspx" />
     <Content Include="Resources\account-icon.png" />
     <None Include="Resources\arrow.png" />
@@ -1428,6 +1430,13 @@
     <Compile Include="Marketing\ViewMessage.aspx.designer.cs">
       <DependentUpon>ViewMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Marketing\ViewProductsData.aspx.cs">
+      <DependentUpon>ViewProductsData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\ViewProductsData.aspx.designer.cs">
+      <DependentUpon>ViewProductsData.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1714,6 +1723,13 @@
     </Compile>
     <Compile Include="Reports\ReportForms\StockInputReportPrintPreview.aspx.designer.cs">
       <DependentUpon>StockInputReportPrintPreview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportForms\StylePrintPreview.aspx.cs">
+      <DependentUpon>StylePrintPreview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\StylePrintPreview.aspx.designer.cs">
+      <DependentUpon>StylePrintPreview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReportForms\VISAYASDRSummaryPrintPreview.aspx.cs">
       <DependentUpon>VISAYASDRSummaryPrintPreview.aspx</DependentUpon>

@@ -6,6 +6,7 @@
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <link href="../Styles/product-management.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/permission-note.css" rel="stylesheet" type="text/css" />
+     <link href="../Styles/price-check.css" rel="stylesheet" type="text/css" />
      <script type="text/javascript">
          function SelectAll(frmId, id) {
              var frm = document.getElementById(frmId);
@@ -56,8 +57,37 @@
                              Font-Size="11px" />
                     </div>
                     <div style="float: left; margin-right: 5px;">
-                        <asp:Button ID="btnPrint" runat="server" Text="PRINT" CssClass="btnPrint" Font-Names="Verdana"
-                            Font-Size="12px" />
+                        <asp:HyperLink ID="hpLinkStyleDetails" CssClass="btnPrint"  Target="_blank" Height="23px" style="line-height:23px; text-decoration:none; padding-right:3px;"  runat="server">VIEW DETAILS</asp:HyperLink>
+                    </div>
+                    <div style="float: left; margin-right: 5px;">
+                    <asp:HyperLink ID="hpLinkPrintPreview" CssClass="btnPrint" Target="_blank" Height="23px" style="line-height:23px; text-decoration:none; padding-right:3px;" runat="server">PRINT</asp:HyperLink>
+                     
+                    </div>
+                      <div style="float: left; margin-left: 10px;">
+                        <asp:Label Text="FILTER" CssClass="filter-link" ID="lblFilter" runat="server" />
+                        <asp:HoverMenuExtender ID="lblFilter_HoverMenuExtender" runat="server" DynamicServicePath=""
+                            Enabled="True" PopupControlID="pnlFilter" PopupPosition="Bottom" TargetControlID="lblFilter">
+                        </asp:HoverMenuExtender>
+                        <asp:Panel ID="pnlFilter" runat="server">
+                            <div class="hover-menu-arrow">
+                            </div>
+                            <div class="hover-menu">
+                                <div class="print-link">
+                                    <label>
+                                        BY BRAND:<asp:DropDownList ID="DDLBrands" runat="server" Height="18px" Font-Names="Verdana"
+                                            Font-Size="10px" ForeColor="#663300">
+                                        </asp:DropDownList>
+                                      <%--  <asp:SqlDataSource ID="SqlDataSourceBrands" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
+                                            SelectCommand="SELECT [BRAND_DESCRIPTION], [BRAND_CODE] FROM [BRANDS]"></asp:SqlDataSource>--%>
+                                    </label>
+                                    <asp:Button CssClass="btnFilter" ID="btnFilterByBrand" runat="server" Text="FILTER"
+                                        OnClick="btnFilterByBrand_Click" />
+                                </div>
+                                <div class="print-link" style="text-align: center;">
+                                    <asp:HiddenField ID="hfFilterBrand" Value="ALL" runat="server" />
+                                </div>
+                            </div>
+                        </asp:Panel>
                     </div>
                     <div style="float: left; margin-right: 5px; text-align: center;">
                         <asp:UpdateProgress ID="upProgress" runat="server" AssociatedUpdatePanelID="upnlProducts">
@@ -115,9 +145,10 @@
                     <asp:Panel ID="pnlSizesList" runat="server" Width="400px" Height="435px" ScrollBars="Auto">
                         <asp:GridView ID="gvProductList" runat="server" CellPadding="4" 
                             GridLines="None" AutoGenerateColumns="False" CssClass="table_grid"
-                            OnSelectedIndexChanged="gvProductList_SelectedIndexChanged" DataKeyNames="RECORD_NO"
+                            OnSelectedIndexChanged="gvProductList_SelectedIndexChanged" DataKeyNames="RECORD_NO,BRAND"
                             EnablePersistedSelection="True" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSourceStyles"
-                            PageSize="15">
+                            PageSize="15" onpageindexchanging="gvProductList_PageIndexChanging" 
+                            onsorting="gvProductList_Sorting">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField>
@@ -143,9 +174,10 @@
                                     <ItemStyle Wrap="False" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="COST_PRICE" HeaderText="COST PRICE" 
-                                    SortExpression="COST_PRICE">
+                                    SortExpression="COST_PRICE" DataFormatString="{0:###,###.00}">
                                 <HeaderStyle Wrap="False" />
-                                <ItemStyle Wrap="False" />
+                                <ItemStyle Wrap="False" Font-Bold="True" ForeColor="#CC0000" 
+                                    HorizontalAlign="Center" />
                                 </asp:BoundField>
                             </Columns>
                             <EditRowStyle BackColor="#7C6F57" />
@@ -176,8 +208,7 @@
             </div>
             <div style="float: left; border: 1px Solid Gray; border-radius:5px 5px 0px 0px;-moz-border-radius:5px 5px 0px 0px;-webkit-border-radius:5px 5px 0px 0px;">
                 <div class="titleListDetails">
-                    <asp:Image ID="Image3" runat="server" Height="20px" Width="22px" ImageUrl="~/Resources/Barcode.png"
-                        ImageAlign="AbsMiddle" />
+                    <img src="../Resources/Barcode.png" alt="" height="20px" align="left" />
                     &nbsp;LIST OF SKU&#39;s BY STYLE NUMBER:
                     <asp:Label ID="lblStyleNumber" runat="server" Font-Bold="True" ForeColor="#993300"
                         Font-Names="Verdana" Font-Size="11px"></asp:Label>
