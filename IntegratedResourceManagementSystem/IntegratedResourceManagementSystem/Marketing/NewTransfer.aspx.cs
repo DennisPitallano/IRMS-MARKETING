@@ -15,6 +15,7 @@ namespace IntegratedResourceManagementSystem.Marketing
         PullOutLetterManager POLManager = new PullOutLetterManager();
         PullOutDetailManager POLDetailManager = new PullOutDetailManager();
         PullOutLetterSummaryManager POLSummaryManager = new PullOutLetterSummaryManager();
+        StockTransferManager STManager = new StockTransferManager();
         #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,19 @@ namespace IntegratedResourceManagementSystem.Marketing
           
                this.hpLinkViewDetails.NavigateUrl = "~/Reports/ReportForms/PullOutLetterPrintPreview.aspx?PullOutId=" + pullOutId + "&PullOutCode="
                + pullOutCode + "&PullOutSeries=" + pullOutSeriesNumber;
+        }
+
+        protected void rdioFilterPullOutLetterType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rdioFilterPullOutLetterType.SelectedIndex ==0)
+            {
+                gvPullOutLetter.DataBind();
+                return;
+            }
+            else
+            {
+                STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue, bool.Parse(rdioFilterPullOutLetterType.SelectedValue));
+            }
         }
     }
 }

@@ -88,14 +88,20 @@
                     <div class="modalLabel" style="float: left; line-height:18px; margin:2px;">
                         FILTER:<asp:RadioButtonList ID="rdioFilterPullOutLetterType" 
                             CssClass="modalText" Height="18px" Font-Size="10px" runat="server" AutoPostBack="True"
-                            RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            RepeatDirection="Horizontal" RepeatLayout="Flow" 
+                            onselectedindexchanged="rdioFilterPullOutLetterType_SelectedIndexChanged">
                             <asp:ListItem Selected="True">ALL</asp:ListItem>
-                            <asp:ListItem>SM</asp:ListItem>
-                            <asp:ListItem>NON-SM</asp:ListItem>
+                            <asp:ListItem Value="True">SM</asp:ListItem>
+                            <asp:ListItem Value="False">NON-SM</asp:ListItem>
                         </asp:RadioButtonList>
                     </div>
                     <div style="float: right;" class="SearchTextContainer">
-                        SEARCH:
+                        SEARCH BY: 
+                        <asp:RadioButtonList ID="rdioSearchType" runat="server" 
+                            RepeatDirection="Horizontal" RepeatLayout="Flow">
+                            <asp:ListItem Selected="True" Value="SERIES">SERIES #</asp:ListItem>
+                            <asp:ListItem>CUSTOMER</asp:ListItem>
+                        </asp:RadioButtonList>
                         <asp:TextBox ID="txtSearch" runat="server" autofocus placeholder="Search POL" CssClass="modalText"
                             AutoPostBack="True" Height="16px" Font-Size="10px" Width="150px" ToolTip="Search POL"></asp:TextBox>
                         <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
@@ -147,9 +153,11 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourcePullOutLetters" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([IS_ACTIVE] = @IS_ACTIVE)">
+                        
+                        SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([IS_ACTIVE] = @IS_ACTIVE AND IS_BACK_LOAD=@ISBACKLOAD)">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="True" Name="IS_ACTIVE" Type="Boolean" />
+                            <asp:Parameter DefaultValue="False" Name="ISBACKLOAD" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>

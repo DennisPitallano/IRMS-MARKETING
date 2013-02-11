@@ -86,6 +86,7 @@
     <Compile Include="Size.cs" />
     <Compile Include="ItemStyle.cs" />
     <Compile Include="SizeGroup.cs" />
+    <Compile Include="StockTransfer.cs" />
     <Compile Include="StyleColor.cs" />
     <Compile Include="StyleSize.cs" />
     <Compile Include="SubFitting.cs" />

@@ -97,6 +97,7 @@
     <Compile Include="DataAccess\RankAccessor.cs" />
     <Compile Include="DataAccess\SizeAccessor.cs" />
     <Compile Include="DataAccess\SizeGroupAccessor.cs" />
+    <Compile Include="DataAccess\StockTransferAccessor.cs" />
     <Compile Include="DataAccess\StyleAccessor.cs" />
     <Compile Include="DataAccess\StyleColorsAccessor.cs" />
     <Compile Include="DataAccess\StyleSizesAccessor.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Manager\RankManager.cs" />
     <Compile Include="Manager\SizeGroupManager.cs" />
     <Compile Include="Manager\SizeManager.cs" />
+    <Compile Include="Manager\StockTransferManager.cs" />
     <Compile Include="Manager\StyleColorsManager.cs" />
     <Compile Include="Manager\StyleManager.cs" />
     <Compile Include="Manager\StyleSizesManager.cs" />
