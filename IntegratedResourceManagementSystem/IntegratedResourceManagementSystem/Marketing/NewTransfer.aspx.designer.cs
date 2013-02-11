@@ -13,13 +13,22 @@ namespace IntegratedResourceManagementSystem.Marketing {
     public partial class NewTransfer {
         
         /// <summary>
-        /// txtPullOutLetterNumber control.
+        /// upnlStockTransfer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPullOutLetterNumber;
+        protected global::System.Web.UI.UpdatePanel upnlStockTransfer;
+        
+        /// <summary>
+        /// txtPOLSeriesNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPOLSeriesNumber;
         
         /// <summary>
         /// btnBrowsePullOutLetter control.
@@ -29,6 +38,60 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBrowsePullOutLetter;
+        
+        /// <summary>
+        /// btnBrowsePullOutLetter_ModalPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender btnBrowsePullOutLetter_ModalPopupExtender;
+        
+        /// <summary>
+        /// uprogressGenerator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress uprogressGenerator;
+        
+        /// <summary>
+        /// txtFromCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFromCustomer;
+        
+        /// <summary>
+        /// txtAccountName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAccountName;
+        
+        /// <summary>
+        /// txtToCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToCustomer;
+        
+        /// <summary>
+        /// btnBrowseToCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBrowseToCustomer;
         
         /// <summary>
         /// pnlPullOutLetterModal control.
@@ -110,5 +173,23 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePullOutLetters;
+        
+        /// <summary>
+        /// btnSelectOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSelectOK;
+        
+        /// <summary>
+        /// btnCancelSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelSelect;
     }
 }

@@ -37,63 +37,112 @@
     </div>
     <asp:UpdatePanel ID="upnlStockTransfer" runat="server">
         <ContentTemplate>
-            <div style="min-height:450px;">
+            <div style="min-height: 450px;">
                 <div class="titleForm" style="height: 12px;">
                     NEW STOCK TRANSFER
                 </div>
-                <div class="form">
-                    <table style="">
-                        <tr>
-                            <td class="modalLabel">
-                                PULL OUT LETTER REF#:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtPOLSeriesNumber" CssClass="modalText" Height="22px"  runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:Button ID="btnBrowsePullOutLetter" runat="server" Text="browse..." CssClass="btnFilter" />
-                                <asp:ModalPopupExtender ID="btnBrowsePullOutLetter_ModalPopupExtender" CancelControlID="btnCancelSelect"
-                                    BackgroundCssClass="bgModal" runat="server" DynamicServicePath="" Enabled="True"
-                                    PopupControlID="pnlPullOutLetterModal" PopupDragHandleControlID="pnlPullOutLetterModalDrag"
-                                    TargetControlID="btnBrowsePullOutLetter">
-                                    <Animations>
+                <div>
+                    <div  class="form" style="float: left;">
+                        <table style="">
+                            <tr>
+                                <td class="modalLabel">
+                                    PULL OUT LETTER REF#:
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtPOLSeriesNumber" CssClass="modalText" Height="22px" runat="server"></asp:TextBox>
+                                    <asp:Button ID="btnBrowsePullOutLetter" runat="server" CssClass="btnFilter" Text="browse..." />
+                                    <asp:ModalPopupExtender ID="btnBrowsePullOutLetter_ModalPopupExtender" runat="server"
+                                        BackgroundCssClass="bgModal" CancelControlID="btnCancelSelect" DynamicServicePath=""
+                                        Enabled="True" PopupControlID="pnlPullOutLetterModal" PopupDragHandleControlID="pnlPullOutLetterModalDrag"
+                                        TargetControlID="btnBrowsePullOutLetter">
+                                        <Animations>
                                         <OnShown>
                                             <FadeIn Duration=".2" />
                                         </OnShown>
-                                    </Animations>
-                                </asp:ModalPopupExtender>
-                                <asp:UpdateProgress ID="uprogressGenerator" runat="server" AssociatedUpdatePanelID="upnlStockTransfer">
-                                    <ProgressTemplate>
-                                        <asp:PlaceHolder ID="plcHLoader" runat="server">
-                                            <UC:LOADER ID="loader" runat="server" />
-                                        </asp:PlaceHolder>
-                                    </ProgressTemplate>
-                                </asp:UpdateProgress>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="modalLabel">
-                             FROM CUSTOMER NAME:
-                            </td>
-                            <td>
-                                <asp:TextBox CssClass="modalText" Height="22px" ID="txtFromCustomer" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                &nbsp;
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;
-                            </td>
-                            <td>
-                                &nbsp;
-                            </td>
-                            <td>
-                                &nbsp;
-                            </td>
-                        </tr>
-                    </table>
+                                        </Animations>
+                                    </asp:ModalPopupExtender>
+                                </td>
+                                <td>
+                                    <asp:UpdateProgress ID="uprogressGenerator" runat="server" AssociatedUpdatePanelID="upnlStockTransfer">
+                                        <ProgressTemplate>
+                                            <asp:PlaceHolder ID="plcHLoader" runat="server">
+                                                <UC:LOADER ID="loader" runat="server" />
+                                            </asp:PlaceHolder>
+                                        </ProgressTemplate>
+                                    </asp:UpdateProgress>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                    FROM CUSTOMER NAME:
+                                </td>
+                                <td>
+                                    <asp:TextBox CssClass="modalText" Height="22px" Width="300px" ID="txtFromCustomer"
+                                        runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                   ACCOUNT NAME:</td>
+                                <td>
+                                   <asp:TextBox CssClass="modalText" Height="22px" Width="300px" ID="txtAccountName"
+                                        runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div  class="form" style="float: left; margin-left:5px;">
+                        <table style="">
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                  TO CUSTOMER:
+                                </td>
+                                <td>
+                                     <asp:TextBox CssClass="modalText" Height="22px" Width="300px" ID="txtToCustomer"
+                                        runat="server"></asp:TextBox> <asp:Button ID="btnBrowseToCustomer" runat="server" CssClass="btnFilter" Text="browse..." />
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <asp:Panel ID="pnlPullOutLetterModal" runat="server" CssClass="modal">
                         <asp:Panel ID="pnlPullOutLetterModalDrag" runat="server" CssClass="modalDrag">
                             <div class="sizeLogo">
@@ -103,7 +152,7 @@
                                     padding-right: 5px; text-decoration: none;" ID="hpLinkViewDetails" runat="server">View Details</asp:HyperLink>
                             </div>
                         </asp:Panel>
-                        <div style="height: 26px; margin:3px 2px;">
+                        <div style="height: 26px; margin: 3px 2px;">
                             <div class="modalLabel" style="float: left; line-height: 18px; margin: 2px;">
                                 FILTER:<asp:RadioButtonList ID="rdioFilterPullOutLetterType" CssClass="modalText"
                                     Height="18px" Font-Size="10px" runat="server" AutoPostBack="True" RepeatDirection="Horizontal"
