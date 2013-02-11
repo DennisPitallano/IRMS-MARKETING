@@ -32,6 +32,7 @@ namespace IntegratedResourceManagementSystem.Marketing
           
                this.hpLinkViewDetails.NavigateUrl = "~/Reports/ReportForms/PullOutLetterPrintPreview.aspx?PullOutId=" + pullOutId + "&PullOutCode="
                + pullOutCode + "&PullOutSeries=" + pullOutSeriesNumber;
+               btnBrowsePullOutLetter_ModalPopupExtender.Show();
         }
 
         protected void rdioFilterPullOutLetterType_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,17 +40,40 @@ namespace IntegratedResourceManagementSystem.Marketing
             if (rdioFilterPullOutLetterType.SelectedIndex ==0)
             {
                 gvPullOutLetter.DataBind();
+                btnBrowsePullOutLetter_ModalPopupExtender.Show();
                 return;
             }
             else
             {
-                STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue,rdioFilterPullOutLetterType.SelectedValue);
+                SearchPOL();
             }
+           
         }
 
         protected void txtSearch_TextChanged(object sender, EventArgs e)
         {
-                STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue, rdioFilterPullOutLetterType.SelectedValue);
+            SearchPOL();
+        }
+
+        private void SearchPOL()
+        {
+            STManager.FilterPOL(this.SqlDataSourcePullOutLetters, txtSearch.Text, rdioSearchType.SelectedValue, rdioFilterPullOutLetterType.SelectedValue);
+            btnBrowsePullOutLetter_ModalPopupExtender.Show();
+        }
+
+        protected void imgBtnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            SearchPOL();
+        }
+
+        protected void gvPullOutLetter_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            SearchPOL();
+        }
+
+        protected void gvPullOutLetter_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            SearchPOL();
         }
     }
 }
