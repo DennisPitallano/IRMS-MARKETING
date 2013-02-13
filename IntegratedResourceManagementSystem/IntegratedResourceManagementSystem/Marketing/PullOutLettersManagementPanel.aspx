@@ -147,7 +147,7 @@
                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourcePullOutLetters" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = @FOR_SM)">
+                        SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = @FOR_SM) ORDER BY ID DESC">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="False" Name="FOR_SM" Type="Boolean" />
                         </SelectParameters>

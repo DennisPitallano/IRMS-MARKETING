@@ -62,6 +62,14 @@ namespace IntegratedResourceManagementSystem.Marketing
                 ddlForwarders.Items.Add(new ListItem(forwarder.ForwarderName, forwarder.ForwarderName));
             }
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            PullOutLetter POL = POLManager.FetchById(int.Parse(Request.QueryString["PullOutId"]));
+            POL.Forwarders = ddlForwarders.SelectedValue;
+            POLManager.Save(POL);
+            hfSuccessfulModalHandler_ModalPopupExtender.Show();
+        }
        
     }
 }

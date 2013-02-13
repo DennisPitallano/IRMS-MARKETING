@@ -152,6 +152,9 @@
     <Content Include="Marketing\NewPullOutLetterBoxSack.aspx" />
     <Content Include="Marketing\NewSMPullOutLetter.aspx" />
     <Content Include="Marketing\NewTransfer.aspx" />
+    <Content Include="Marketing\NewTransferDefault.aspx" />
+    <Content Include="Marketing\NewTransferDetails.aspx" />
+    <Content Include="Marketing\NewTransferSummary.aspx" />
     <Content Include="Marketing\PriceHistory.aspx" />
     <Content Include="Marketing\PullOutLettersManagementPanel.aspx" />
     <Content Include="Marketing\PullOutLetterSummaryUpdate.aspx" />
@@ -869,6 +872,27 @@
     </Compile>
     <Compile Include="Marketing\NewTransfer.aspx.designer.cs">
       <DependentUpon>NewTransfer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewTransferDefault.aspx.cs">
+      <DependentUpon>NewTransferDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewTransferDefault.aspx.designer.cs">
+      <DependentUpon>NewTransferDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewTransferDetails.aspx.cs">
+      <DependentUpon>NewTransferDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewTransferDetails.aspx.designer.cs">
+      <DependentUpon>NewTransferDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\NewTransferSummary.aspx.cs">
+      <DependentUpon>NewTransferSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\NewTransferSummary.aspx.designer.cs">
+      <DependentUpon>NewTransferSummary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Marketing\PriceHistory.aspx.cs">
       <DependentUpon>PriceHistory.aspx</DependentUpon>

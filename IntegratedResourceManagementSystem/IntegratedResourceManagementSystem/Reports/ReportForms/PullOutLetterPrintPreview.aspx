@@ -189,7 +189,7 @@
     <div>
     </div>
     <div style="font-family: Arial; font-size: 10px; margin-top: 15px;">
-        <asp:Panel ID="pnlForwarder" Visible="false" runat="server">
+        <asp:Panel ID="pnlForwarder" Visible="false" style="margin-bottom:4px;" runat="server">
                We authorized <span style="font-weight: bold;">
                     <asp:Label ID="lblForwarder" runat="server" Text=""></asp:Label></span> Trucking to pullout the said items:
         </asp:Panel>

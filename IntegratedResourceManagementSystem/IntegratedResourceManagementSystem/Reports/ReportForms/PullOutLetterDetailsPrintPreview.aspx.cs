@@ -77,16 +77,16 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                 totalAmt += item.TtlAmount;
             }
 
-            PullOutLetterDetail pullOutSummary = new PullOutLetterDetail
-            {
-                ContainerType = "GRAND TOTAL:",
-                Quantity = totalQty,
-                StyleNumber = totalStyles.ToString(),
-                TtlAmount = totalAmt,
-                SRP = decimal.Parse("0"),
+            //PullOutLetterDetail pullOutSummary = new PullOutLetterDetail
+            //{
+            //    ContainerType = "GRAND TOTAL:",
+            //    Quantity = totalQty,
+            //    StyleNumber = totalStyles.ToString(),
+            //    TtlAmount = totalAmt,
+            //    SRP = decimal.Parse("0"),
 
-            };
-            containerDetails.Add(pullOutSummary);
+            //};
+            //containerDetails.Add(pullOutSummary);
 
             var Con = (from con in containers
                        select new { BoxNumber = con.BoxNumber, ImageUrl = con.ImageUrl, qty = con.ItemsQuantity }).Distinct();
@@ -123,7 +123,7 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                 }
                 detailsSummaries.Add(pdSum);
             }
-            detailsSummaries.Add(pullOutSummary);
+           // detailsSummaries.Add(pullOutSummary);
             gvBoxContainerDetails.DataSource = detailsSummaries;
             gvBoxContainerDetails.DataBind();
 

@@ -40,6 +40,51 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.DropDownList ddlForwarders;
         
         /// <summary>
+        /// lblSuccessModalHandler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSuccessModalHandler;
+        
+        /// <summary>
+        /// hfSuccessfulModalHandler_ModalPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender hfSuccessfulModalHandler_ModalPopupExtender;
+        
+        /// <summary>
+        /// pnlSuccessfulSaveModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSuccessfulSaveModal;
+        
+        /// <summary>
+        /// pnlSuccessfulSaveModalDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSuccessfulSaveModalDrag;
+        
+        /// <summary>
+        /// btnOK control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOK;
+        
+        /// <summary>
         /// btnSave control.
         /// </summary>
         /// <remarks>

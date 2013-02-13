@@ -38,10 +38,7 @@
                             <asp:HyperLink ID="hpLinkUpdate" Height="23px" Style="padding-right: 5px; line-height: 23px;
                                 text-decoration: none;" CssClass="btnUpdate" runat="server">UPDATE</asp:HyperLink>
                         </div>
-                        <div style="float: left; margin-right: 5px; line-height: 23px;">
-                            <asp:HyperLink ID="hpLinkPullOutLetterDetails" Target="_blank" Height="23px" CssClass="btnPrint print-details"
-                                runat="server">DETAILS</asp:HyperLink>
-                        </div>
+                      
                         <div style="float: left; margin-right: 5px;">
                             <asp:Button ID="btnDelete" runat="server" Enabled="false"  Text="DELETE" CssClass="btnDelete" Font-Names="Verdana"
                                 ViewStateMode="Disabled" />
@@ -136,7 +133,7 @@
                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourcePullOutLetters" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = @FOR_SM)">
+                        SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = @FOR_SM) ORDER BY ID DESC">
                         <SelectParameters>
                             <asp:Parameter DefaultValue="True" Name="FOR_SM" Type="Boolean" />
                         </SelectParameters>

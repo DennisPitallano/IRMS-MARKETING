@@ -7,29 +7,19 @@
     <link href="../Styles/sm-pull-out-details.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="width:500px;">
+    <div style="width: 500px;">
         <div class="titleForm" style="height: 20px;">
-           Assign Forwarder
+            Assign Forwarder
         </div>
         <div class="form">
-            <table >
-              <tr>
+            <table>
+                <tr>
                     <td class="modalLabel">
-                       PULLOUT SERIES#:
-                    </td>
-                    <td >
-                        <asp:Label ID="lblPullOutSeriesNumber" style="line-height:20px; padding:0px 2px 0px 2px;" CssClass="modalText" Height="20px" runat="server" Text="Label"></asp:Label>
+                        PULLOUT SERIES#:
                     </td>
                     <td>
-                        &nbsp;
-                    </td>
-                </tr>
-                 <tr>
-                    <td class="modalLabel">
-                       PULLOUT LETTER FOR:
-                    </td>
-                    <td >
-                        <asp:Label ID="lblCustomer" style="line-height:20px; padding:0px 2px 0px 2px;" CssClass="modalText" Height="20px" runat="server" Text="Label"></asp:Label>
+                        <asp:Label ID="lblPullOutSeriesNumber" Style="line-height: 20px; padding: 0px 2px 0px 2px;"
+                            CssClass="modalText" Height="20px" runat="server" Text="Label"></asp:Label>
                     </td>
                     <td>
                         &nbsp;
@@ -37,7 +27,19 @@
                 </tr>
                 <tr>
                     <td class="modalLabel">
-                       FORWARDERS:
+                        PULLOUT LETTER FOR:
+                    </td>
+                    <td>
+                        <asp:Label ID="lblCustomer" Style="line-height: 20px; padding: 0px 2px 0px 2px;"
+                            CssClass="modalText" Height="20px" runat="server" Text="Label"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="modalLabel">
+                        FORWARDERS:
                     </td>
                     <td>
                         <asp:DropDownList ID="ddlForwarders" CssClass="modalText" Height="22px" runat="server">
@@ -49,7 +51,27 @@
                 </tr>
                 <tr>
                     <td>
-                        &nbsp;
+                        <asp:Label ID="lblSuccessModalHandler" runat="server" Text=""></asp:Label>
+                        <asp:ModalPopupExtender ID="hfSuccessfulModalHandler_ModalPopupExtender" runat="server"
+                            DynamicServicePath="" CancelControlID="lblSuccessModalHandler" Enabled="True" PopupControlID="pnlSuccessfulSaveModal"
+                            PopupDragHandleControlID="pnlSuccessfulSaveModalDrag" TargetControlID="lblSuccessModalHandler">
+                        </asp:ModalPopupExtender>
+                        <asp:Panel ID="pnlSuccessfulSaveModal" CssClass="modal" runat="server">
+                            <asp:Panel ID="pnlSuccessfulSaveModalDrag" CssClass="modalDrag" runat="server">
+                                <div class="sizeLogo">
+                                    <img alt="new brand" src="../Resources/info.png" height="15" align="top" />
+                                    SUCCESSFUL!
+                                </div>
+                            </asp:Panel>
+                            <div class="modalLabel" style="text-align: center; padding: 10px; font-size: 1em;
+                                line-height: 40px;">
+                                <img src="../Resources/info.png" alt="" align="left" />
+                                Data has been successfully saved!
+                            </div>
+                            <div style="text-align: center; margin: 5px;">
+                                <asp:Button ID="btnOK" runat="server" CssClass="modalWarningButtonYes" Text="OK" />
+                            </div>
+                        </asp:Panel>
                     </td>
                     <td>
                         &nbsp;
@@ -63,8 +85,9 @@
                         &nbsp;
                     </td>
                     <td>
-                        <asp:Button ID="btnSave" CssClass="btnSave" runat="server" Text="SAVE" />
-                        <asp:HyperLink ID="hpLinkBack" Height="16px" Width="100px" style="line-height:16px;" CssClass="btnCancel" runat="server">BACK TO LIST</asp:HyperLink>
+                        <asp:Button ID="btnSave" CssClass="btnSave" runat="server" Text="SAVE" OnClick="btnSave_Click" />
+                        <asp:HyperLink ID="hpLinkBack" Height="16px" Width="100px" Style="line-height: 16px;"
+                            CssClass="btnCancel" runat="server">BACK TO LIST</asp:HyperLink>
                     </td>
                     <td>
                         &nbsp;

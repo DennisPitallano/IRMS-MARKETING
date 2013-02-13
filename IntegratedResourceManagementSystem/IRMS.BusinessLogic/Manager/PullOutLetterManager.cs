@@ -161,18 +161,38 @@ namespace IRMS.BusinessLogic.Manager
         /// <param name="customerDataSource"></param>
         /// <param name="searchParameter"></param>
         /// <param name="brandName"></param>
-        public void SearchCustomers(SqlDataSource customerDataSource, string searchParameter, string brandName = "")
+        public void SearchCustomers(SqlDataSource customerDataSource, string searchParameter, bool forSM = true, string brandName = "")
         {
             StringBuilder strCmd = new StringBuilder();
             strCmd.Append("SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) ");
-            if (!string.IsNullOrEmpty(searchParameter))
+            if (forSM)
             {
-                strCmd.Append(" and CompName like '%" + searchParameter + "%' ");
+                if (!string.IsNullOrEmpty(searchParameter))
+                {
+                    strCmd.Append(" and CompName like '%SHOEMART " + searchParameter + "%' ");
+                }
+                else
+                {
+                    strCmd.Append(" AND CompName LIKE '%SHOEMART%' ");
+
+                }
+                if (brandName != "")
+                {
+                    strCmd.Append(" and brand='" + brandName + "' ");
+                }
             }
-            if (brandName != "")
+            else
             {
-                strCmd.Append(" and brand='" + brandName + "' ");
+                if (!string.IsNullOrEmpty(searchParameter))
+                {
+                    strCmd.Append(" and CompName like '%" + searchParameter + "%' ");
+                }
+                if (brandName != "")
+                {
+                    strCmd.Append(" and brand='" + brandName + "' ");
+                }
             }
+           
             customerDataSource.SelectCommand = strCmd.ToString();
             customerDataSource.DataBind();
         }

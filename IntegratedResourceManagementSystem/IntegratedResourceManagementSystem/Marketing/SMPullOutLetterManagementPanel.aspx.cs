@@ -24,7 +24,6 @@ namespace IntegratedResourceManagementSystem.Marketing
             string pullOutCode = gvPullOutLetters.SelectedDataKey[1].ToString();
             string pullOutId = gvPullOutLetters.SelectedValue.ToString();
             string pullOutSeriesNumber = gvPullOutLetters.SelectedDataKey[3].ToString();
-            hpLinkPullOutLetterDetails.NavigateUrl = "~/Marketing/SMPullOutLetterDetailsPreview.aspx?PullOutCode="+pullOutCode;
             hpLinkPrint.NavigateUrl = "~/Reports/ReportForms/PullOutLetterPrintPreview.aspx?PullOutId=" + pullOutId + "&PullOutCode="
                 + pullOutCode + "&PullOutSeries=" + pullOutSeriesNumber;
             this.hpLinkUpdate.NavigateUrl = "~/Marketing/SMPullOutLetterUpdate.aspx?PullOutId=" + pullOutId + "&PullOutCode="

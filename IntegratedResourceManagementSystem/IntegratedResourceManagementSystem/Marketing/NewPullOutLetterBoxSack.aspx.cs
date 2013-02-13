@@ -107,13 +107,13 @@ namespace IntegratedResourceManagementSystem.Marketing
 
         protected void DDLCustomerBrands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, DDLCustomerBrands.SelectedValue);
+            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text,false, DDLCustomerBrands.SelectedValue);
             btnBrowseStoreOutlet_ModalPopupExtender.Show();
         }
 
         protected void iBtnSearchCustomer_Click(object sender, ImageClickEventArgs e)
         {
-            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, DDLCustomerBrands.SelectedValue);
+            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text,false, DDLCustomerBrands.SelectedValue);
             btnBrowseStoreOutlet_ModalPopupExtender.Show();
         }
 

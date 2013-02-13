@@ -75,6 +75,9 @@
             <SortedDescendingCellStyle BackColor="#FFFDF8" />
             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
+        <div style="margin:5px;">
+            <input id="Button1"  class ="btnPrint" type="button" onclick="window.print()" value="PRINT" />
+        </div>
     </div>
     <div style="float: left; margin-left: 10px;">
         <div style="font-family:Arial;">
@@ -201,17 +204,15 @@
                     Visible="False" />
             </Columns>
         </asp:GridView>
-        <div style="font-family:Arial; font-size:10px; font-weight:bold;">
+        <div style="font-family:Arial; font-size:10px; font-weight:bold; margin:5px;">
             <asp:Panel ID="pnlSummary" Visible="false"  runat="server">
             <table>
                 <tr>
-                    <td>
+                    <td style="text-align:right;">
                         OVER ALL TOTAL QTY:
                     </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
+                    
+                    <td style="text-align:left;">
                         <asp:Label ID="lblTotalQty" Text="total qty" runat="server" />
                     </td>
                     <td>
@@ -219,12 +220,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="text-align:right;">
                         OVER ALL TOTAL PRICE:</td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
+                    
+                    <td style="text-align:left;">
                         <asp:Label ID="lblTotalPrice" runat="server" Text="total price" />
                     </td>
                     <td>
@@ -232,13 +231,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td style="text-align:right;">
                         TOTAL # OF CONTAINER:
                     </td>
-                    <td>
-                        &nbsp;
-                    </td>
-                    <td>
+                    
+                    <td style="text-align:left;">
                      <asp:Label ID="lblTotalNumberOfContainer" runat="server" Text="total # of container" /></td>
                     <td>
                         &nbsp;

@@ -26,6 +26,8 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
             lblDate.Text = DateTime.UtcNow.ToString("MMMM dd, yyyy");
             lblSeriesNumber.Text = Request.QueryString["PullOutSeries"];
             PullOutLetter pullOutLetter = POLManager.FetchById(PullOutId);
+
+
             lblDepartmentCode.Text = "Dept. Code: " + pullOutLetter.BrandDepartmentCode;
             lblTo.Text = pullOutLetter.CompanyName;
             lblBranch.Text= pullOutLetter.BranchName+" BRANCH";
@@ -75,6 +77,7 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
             {
                 lblForwarder.Text = pullOutLetter.Forwarders;
                 pnlForwarder.Visible = true;
+                lblDepartmentCode.Visible = false;
             }
            
         }
