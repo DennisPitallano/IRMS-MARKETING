@@ -355,6 +355,7 @@
     <Content Include="Resources\code-icon.png" />
     <Content Include="Resources\contacts.png" />
     <Content Include="Resources\dennis.png" />
+    <Content Include="Resources\detailicon.png" />
     <Content Include="Resources\dup1.png" />
     <Content Include="Resources\dup2.png" />
     <Content Include="Resources\error.png" />

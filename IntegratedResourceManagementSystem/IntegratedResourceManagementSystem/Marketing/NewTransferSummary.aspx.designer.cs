@@ -265,31 +265,31 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.Button btnOKError;
         
         /// <summary>
-        /// btnRemoveItem control.
+        /// gvPOLSummaries control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemoveItem;
+        protected global::System.Web.UI.WebControls.GridView gvPOLSummaries;
         
         /// <summary>
-        /// gvPullOutDetails control.
+        /// btnAddDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPullOutDetails;
+        protected global::System.Web.UI.WebControls.Button btnAddDetails;
         
         /// <summary>
-        /// SqlDataSourceDetails control.
+        /// gvContainerDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceDetails;
+        protected global::System.Web.UI.WebControls.GridView gvContainerDetails;
         
         /// <summary>
         /// pnlCustomerOutletModal control.
@@ -362,5 +362,59 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSelectCustomer;
+        
+        /// <summary>
+        /// pnlStylesModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlStylesModal;
+        
+        /// <summary>
+        /// pnlStylesModalDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlStylesModalDrag;
+        
+        /// <summary>
+        /// txtSearchStyleNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSearchStyleNumber;
+        
+        /// <summary>
+        /// imgBtnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnSearch;
+        
+        /// <summary>
+        /// gvStyles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvStyles;
+        
+        /// <summary>
+        /// SqlDataSourceStyles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceStyles;
     }
 }

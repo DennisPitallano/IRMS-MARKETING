@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using IRMS.BusinessLogic.Manager;
 using IRMS.ObjectModel;
-
+using IntegratedResourceManagementSystem.Shared;
 namespace IntegratedResourceManagementSystem.Marketing
 {
     public partial class NewTransferSummary : System.Web.UI.Page
@@ -26,6 +26,7 @@ namespace IntegratedResourceManagementSystem.Marketing
             string PullOutSeriesNumber = Request.QueryString["PullOutSeries"];
 
             PullOutLetter PullOutLetter = POLManager.FetchById(PullOutId);
+
             hfFromBrand.Value = PullOutLetter.BrandName;
             txtAccountName.Text = PullOutLetter.AccountName;
             txtBranchName.Text = PullOutLetter.BranchName;
@@ -33,17 +34,26 @@ namespace IntegratedResourceManagementSystem.Marketing
             txtPOLSeriesNumber.Text = PullOutLetter.SeriesNumber;
             Label1.Text = PullOutLetter.ForSM.ToString();
             txtTotalQTY.Text = PullOutLetter.TotalQuantity.ToString("###,###");
+
+            var POLSummaries = POLSummaryManager.PullOutLetterSummariesByPullOutCode(PullOutCode);
+            foreach (var summary in POLSummaries)
+            {
+                if (summary.ContainerType=="Box")
+                {
+                    summary.PullOutCode = Constant.BoxImageUrl;
+                }
+                else
+                {
+                    summary.PullOutCode = Constant.SackImageUrl;
+                }
+            }
+            gvPOLSummaries.DataSource = POLSummaries;
+            gvPOLSummaries.DataBind();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        protected void DDLCustomerBrands_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, false, hfFromBrand.Value);
-            btnBrowseToCustomer_ModalPopupExtender.Show();
         }
 
         protected void iBtnSearchCustomer_Click(object sender, ImageClickEventArgs e)
@@ -97,6 +107,24 @@ namespace IntegratedResourceManagementSystem.Marketing
             txtToBranchName.Text = POLManager.GetBranchNameByCustomerNumber(customerNumber);
             txtToAccountName.Text = POLManager.GetAccountNameByCustomerNumber(customerNumber);
 
+        }
+
+        protected void txtSearchStyleNumber_TextChanged(object sender, EventArgs e)
+        {
+            POLManager.SearchStyles(SqlDataSourceStyles, txtSearchStyleNumber.Text, hfFromBrand.Value);
+        }
+
+        protected void imgBtnSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            POLManager.SearchStyles(SqlDataSourceStyles, txtSearchStyleNumber.Text, hfFromBrand.Value);
+        }
+
+        protected void gvStyles_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearchStyleNumber.Text))
+            {
+                POLManager.SearchStyles(SqlDataSourceStyles, txtSearchStyleNumber.Text, hfFromBrand.Value);
+            }
         }
     }
 }

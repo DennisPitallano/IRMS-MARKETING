@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Marketing/Marketing.Master" AutoEventWireup="true" CodeBehind="NewTransferSummary.aspx.cs" Inherits="IntegratedResourceManagementSystem.Marketing.NewTransferSummary" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Marketing/Marketing.Master" AutoEventWireup="true"
+    CodeBehind="NewTransferSummary.aspx.cs" Inherits="IntegratedResourceManagementSystem.Marketing.NewTransferSummary" %>
+
 <%@ Register Src="~/Marketing/controls/UCLoader.ascx" TagName="LOADER" TagPrefix="UC" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
@@ -97,7 +99,7 @@
                                 </td>
                                 <td>
                                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                                     <asp:HiddenField ID="hfFromBrand" runat="server" />
+                                    <asp:HiddenField ID="hfFromBrand" runat="server" />
                                 </td>
                             </tr>
                             <tr>
@@ -217,78 +219,55 @@
                         </table>
                     </div>
                 </div>
-                <div style="margin: 5px; width: 700px;">
-                    <div class="titleForm">
-                        LIST OF STOCKS TOBE TRANSFERED
-                        <div style="float: right;">
-                            <asp:Button ID="btnRemoveItem" CssClass="btnDelete" runat="server" Text="" Height="19px" />
+                <div style="margin: 10px;">
+                    <div style=" margin-right:5px; width: 300px; float: left;">
+                        <div class="titleForm">
+                            LIST OF STOCKS TOBE TRANSFERED
+                           
+                        </div>
+                        <div class="form">
+                            <asp:GridView ID="gvPOLSummaries" CssClass="table_grid" runat="server" CellPadding="4"
+                                ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
+                                <AlternatingRowStyle BackColor="White" />
+                                <Columns>
+                                    <asp:TemplateField ShowHeader="False">
+                                        <ItemTemplate>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Select"
+                                                Text="">
+                                                <asp:Image ID="imgContainer" ImageUrl='<%# Eval("PullOutCode") %>' runat="server" />
+                                            </asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="ContainerType" HeaderText="CON." />
+                                    <asp:BoundField DataField="ContainerNumber" HeaderText="CON.#" />
+                                    <asp:BoundField DataField="TotalQuantity" HeaderText="TOTAL QTY">
+                                        <ItemStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
+                                    </asp:BoundField>
+                                </Columns>
+                                <EditRowStyle BackColor="#7C6F57" />
+                                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#E3EAEB" />
+                                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                <SortedDescendingHeaderStyle BackColor="#15524A" />
+                            </asp:GridView>
                         </div>
                     </div>
-                    <div class="form">
-                        <asp:GridView ID="gvPullOutDetails" CssClass="table_grid" runat="server" AutoGenerateColumns="False"
-                            DataKeyNames="ID,PULL_OUT_CODE" DataSourceID="SqlDataSourceDetails" CellPadding="4"
-                            ForeColor="#333333" GridLines="None" AllowSorting="True">
-                            <AlternatingRowStyle BackColor="White" />
-                            <Columns>
-                                <asp:TemplateField>
-                                    <EditItemTemplate>
-                                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/product_brand.png" Height="16px" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField>
-                                    <EditItemTemplate>
-                                        <asp:CheckBox ID="CheckBox1" runat="server" />
-                                    </EditItemTemplate>
-                                    <ItemTemplate>
-                                        <asp:CheckBox ID="chkStyle" runat="server" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:BoundField DataField="CONTAINER_TYPE" HeaderText="CON." 
-                                    SortExpression="CONTAINER_TYPE">
-                                    <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="CONTAINER_NO" HeaderText="CON.#" 
-                                    SortExpression="CONTAINER_NO">
-                                    <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="STYLE_NO" HeaderText="STYLE #" 
-                                    SortExpression="STYLE_NO" >
-                                <ItemStyle Font-Bold="True" ForeColor="#993300" HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="STYLE_DESCRIPTION" HeaderText="DESCRIPTION" SortExpression="STYLE_DESCRIPTION" />
-                                <asp:BoundField DataField="QUANTITY" HeaderText="QTY" SortExpression="QUANTITY">
-                                    <ItemStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="SRP" HeaderText="SRP" SortExpression="SRP" DataFormatString="{0:###,###.00}">
-                                    <ItemStyle Font-Bold="True" ForeColor="#CC0000" HorizontalAlign="Right" />
-                                </asp:BoundField>
-                                <asp:BoundField DataField="TOTAL_AMOUNT" HeaderText="TOTAL AMT" SortExpression="TOTAL_AMOUNT"
-                                    DataFormatString="{0:###,###.00}">
-                                    <ItemStyle Font-Bold="True" ForeColor="#CC0000" HorizontalAlign="Right" />
-                                </asp:BoundField>
-                                <asp:CheckBoxField DataField="LOST_TAG" HeaderText="LOST_TAG" SortExpression="LOST_TAG"
-                                    Visible="False" />
-                            </Columns>
-                            <EditRowStyle BackColor="#7C6F57" />
-                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#E3EAEB" />
-                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                            <SortedAscendingHeaderStyle BackColor="#246B61" />
-                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                            <SortedDescendingHeaderStyle BackColor="#15524A" />
-                        </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                            SelectCommand="SELECT * FROM [PULL_OUT_LETTER_DETAILS] WHERE ([PULL_OUT_CODE] = @PULL_OUT_CODE)">
-                            <SelectParameters>
-                                <asp:QueryStringParameter Name="PULL_OUT_CODE" QueryStringField="PullOutCode" Type="String" />
-                            </SelectParameters>
-                        </asp:SqlDataSource>
+                    <div style="float:left; min-width:300px;">
+                        <div class ="titleForm">
+                            CONTAINER DETAILS
+                             <div style="float: right;">
+                                <asp:Button ID="btnAddDetails" CssClass="btnAddDetails" runat="server" Text="add style details" Height="19px" />
+                            </div>
+                        </div>
+                        <div class="form">
+                            <asp:GridView ID="gvContainerDetails" runat="server">
+                            </asp:GridView>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -353,11 +332,10 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        
-                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND brand=@BRAND">
+                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND brand=@BRAND"
+                        EnableCaching="True">
                         <SelectParameters>
-                            <asp:ControlParameter ControlID="hfFromBrand" Name="BRAND" 
-                                PropertyName="Value" />
+                            <asp:ControlParameter ControlID="hfFromBrand" Name="BRAND" PropertyName="Value" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
@@ -365,6 +343,105 @@
                     <asp:Button ID="btnSelectCustomer" CssClass="modalWarningButtonYes" runat="server"
                         Enabled="false" Text="OK" OnClick="btnSelectCustomer_Click" />
                 </div>
+            </asp:Panel>
+
+            <asp:Panel ID="pnlStylesModal" CssClass="modal" runat="server">  
+                <asp:Panel ID="pnlStylesModalDrag" CssClass="modalDrag" runat="server">
+                    <div class="sizeLogo">
+                    STYLES
+                    </div>
+                </asp:Panel> 
+                 <div class="form" style="display: inline-block; float: left; margin-bottom: 10px;">
+                            <div class="modalText" style="font-size: 10px; height: 20px; line-height: 22px; font-weight: bold;
+                                padding: 3px 1px 10px 3px; margin-bottom: 2px;">
+                                <div style="float: left;" class="SearchTextContainer">
+                                    SEARCH:
+                                    <asp:TextBox ID="txtSearchStyleNumber" runat="server" autofocus placeholder="Search Style"
+                                        CssClass="modalText" AutoPostBack="True" Height="16px" Font-Size="10px" Width="100px"
+                                        ToolTip="Search Style" OnTextChanged="txtSearchStyleNumber_TextChanged"></asp:TextBox>
+                                    <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
+                                        ToolTip="SEARCH" OnClick="imgBtnSearch_Click" />
+                                </div>
+                            </div>
+                            <asp:GridView ID="gvStyles" CssClass="table_grid" runat="server" AllowPaging="True"
+                                AllowSorting="True" AutoGenerateColumns="False" DataSourceID="SqlDataSourceStyles"
+                                CellPadding="4" ForeColor="#333333" GridLines="None" OnPageIndexChanging="gvStyles_PageIndexChanging">
+                                <AlternatingRowStyle BackColor="White" />
+                                <Columns>
+                                    <asp:TemplateField>
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/product.png" Height="16px" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField>
+                                        <EditItemTemplate>
+                                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                                        </EditItemTemplate>
+                                        <HeaderTemplate>
+                                            <asp:CheckBox ID="chkAll" runat="server" title="Select All" ClientIDMode="Static"
+                                                onclick="SelectAll('MainContent_gvStyles','chkAll')" />
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkItems" runat="server" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField DataField="StyleNo" HeaderText="STYLE#" SortExpression="StyleNo">
+                                        <ItemStyle Font-Bold="True" />
+                                    </asp:BoundField>
+                                    <asp:BoundField DataField="BrandName" HeaderText="BRAND" SortExpression="BrandName" />
+                                    <asp:BoundField DataField="StyleDesc" HeaderText="DESCRIPTION" SortExpression="StyleDesc">
+                                        <ItemStyle Width="180px" />
+                                    </asp:BoundField>
+                                    <asp:TemplateField HeaderText="QTY">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:TextBox ID="txtQty" CssClass="modalText" Height="20px" Width="40px" runat="server"></asp:TextBox>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="LOST TAG?" Visible="False">
+                                        <EditItemTemplate>
+                                            <asp:CheckBox ID="CheckBox2" runat="server" />
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkIsLostTag" runat="server" />
+                                        </ItemTemplate>
+                                        <HeaderStyle Font-Size="8px" />
+                                        <ItemStyle HorizontalAlign="Center" Font-Size="8px" />
+                                    </asp:TemplateField>
+                                </Columns>
+                                <EditRowStyle BackColor="#7C6F57" />
+                                <EmptyDataTemplate>
+                                    <div style="line-height: 32px;">
+                                        <img src="../Resources/unhappy.png" alt="" align="left" />
+                                        STYLE NOT FOUND!
+                                    </div>
+                                </EmptyDataTemplate>
+                                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                <PagerSettings Mode="NumericFirstLast" />
+                                <PagerStyle CssClass="pager" />
+                                <RowStyle BackColor="#E3EAEB" />
+                                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle CssClass="asc_cell_style" />
+                                <SortedAscendingHeaderStyle CssClass="asc_cell_style_h" />
+                                <SortedDescendingCellStyle CssClass="desc_cell_style" />
+                                <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
+                            </asp:GridView>
+                            <asp:SqlDataSource ID="SqlDataSourceStyles" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
+                                SelectCommand="SELECT [StyleNo], [BrandName], [StyleDesc] FROM [Style] WHERE ([IsActive] = @IsActive) and BrandName =@BRAND ORDER BY StyleNo DESC">
+                                <SelectParameters>
+                                    <asp:Parameter DefaultValue="True" Name="IsActive" Type="Boolean" />
+                                    <asp:ControlParameter ControlID="hfFromBrand" DefaultValue="" Name="BRAND" 
+                                        PropertyName="Value" />
+                                    
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                        </div>
             </asp:Panel>
         </ContentTemplate>
     </asp:UpdatePanel>
