@@ -135,7 +135,7 @@
                                     TO CUSTOMER:
                                 </td>
                                 <td>
-                                    <asp:TextBox CssClass="modalText" Height="22px" Width="280px" ID="txtToCustomer"
+                                    <asp:TextBox CssClass="modalText" Height="22px" Font-Size="10px" Width="280px" ID="txtToCustomer"
                                         runat="server"></asp:TextBox>
                                     <asp:Button ID="btnBrowseToCustomer" runat="server" CssClass="btnFilter" Text="browse..." />
                                     <asp:ModalPopupExtender ID="btnBrowseToCustomer_ModalPopupExtender" runat="server"
@@ -170,8 +170,46 @@
                                     BRANCH NAME:
                                 </td>
                                 <td>
-                                    <asp:TextBox CssClass="modalText" Font-Size="10px" Height="22px" Width="200px" ID="TextBox2"
+                                    <asp:TextBox CssClass="modalText" Font-Size="10px" Height="22px" Width="200px" ID="txtToBranchName"
                                         runat="server" ReadOnly="True"></asp:TextBox>
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                    <asp:HiddenField ID="hfPGMDNo" runat="server" />
+                                    <asp:HiddenField ID="hfSubAreaGroupNo" runat="server" />
+                                    <asp:HiddenField ID="hfAreaGroupNo" runat="server" />
+                                    <asp:HiddenField ID="hfPGNo" runat="server" />
+                                    <asp:HiddenField ID="hfCustomerNumber" runat="server" />
+                                    <asp:HiddenField ID="hfBrandCode" runat="server" />
+                                    <asp:HiddenField ID="hfForwarder" runat="server" />
+                                    <asp:HiddenField ID="hfPullOutLetterCode" runat="server" />
+                                </td>
+                                <td>
+                                    <asp:HiddenField ID="hfErrorModalHandLer" runat="server" />
+                                    <asp:ModalPopupExtender ID="hfErrorModalHandLer_ModalPopupExtender" runat="server"
+                                        DynamicServicePath="" Enabled="True" TargetControlID="hfErrorModalHandLer" CancelControlID="btnOKError"
+                                        PopupControlID="pnlErrorMessageModal" PopupDragHandleControlID="pnlErrorMessageModalDrag"
+                                        BackgroundCssClass="bgModal">
+                                    </asp:ModalPopupExtender>
+                                    <asp:Panel ID="pnlErrorMessageModal" CssClass="modal" runat="server">
+                                        <asp:Panel ID="pnlErrorMessageModalDrag" CssClass="modalDrag" runat="server">
+                                            <div class="sizeLogo">
+                                                <img alt="new brand" src="../Resources/error.png" height="15" align="top" />
+                                                WARNING!
+                                            </div>
+                                        </asp:Panel>
+                                        <div class="modalLabel" style="text-align: center; padding: 10px; font-size: 1em;">
+                                            <img src="../Resources/error.png" alt="" align="left" />
+                                            <asp:Label ID="lblErrorMessage" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <div style="text-align: center; margin: 5px;">
+                                            <asp:Button ID="btnOKError" runat="server" Text="OK" CssClass="modalWarningButtonYes" />
+                                        </div>
+                                    </asp:Panel>
                                 </td>
                                 <td>
                                     &nbsp;
@@ -322,7 +360,7 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND CompName LIKE '%SHOEMART%'">
+                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) ">
                     </asp:SqlDataSource>
                 </div>
                 <div style="margin: 5px; text-align: center;">
