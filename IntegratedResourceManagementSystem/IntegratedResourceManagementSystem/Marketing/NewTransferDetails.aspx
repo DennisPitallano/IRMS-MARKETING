@@ -99,6 +99,7 @@
                                 </td>
                                 <td>
                                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                     <asp:HiddenField ID="hfFromBrand" runat="server" />
                                 </td>
                             </tr>
                             <tr>
@@ -247,13 +248,18 @@
                                         <asp:CheckBox ID="chkStyle" runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="CONTAINER_TYPE" HeaderText="CONTAINER" SortExpression="CONTAINER_TYPE">
+                                <asp:BoundField DataField="CONTAINER_TYPE" HeaderText="CON." 
+                                    SortExpression="CONTAINER_TYPE">
                                     <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="CONTAINER_NO" HeaderText="CONTAINER#" SortExpression="CONTAINER_NO">
+                                <asp:BoundField DataField="CONTAINER_NO" HeaderText="CON.#" 
+                                    SortExpression="CONTAINER_NO">
                                     <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="STYLE_NO" HeaderText="STYLE #" SortExpression="STYLE_NO" />
+                                <asp:BoundField DataField="STYLE_NO" HeaderText="STYLE #" 
+                                    SortExpression="STYLE_NO" >
+                                <ItemStyle Font-Bold="True" ForeColor="#993300" HorizontalAlign="Center" />
+                                </asp:BoundField>
                                 <asp:BoundField DataField="STYLE_DESCRIPTION" HeaderText="DESCRIPTION" SortExpression="STYLE_DESCRIPTION" />
                                 <asp:BoundField DataField="QUANTITY" HeaderText="QTY" SortExpression="QUANTITY">
                                     <ItemStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
@@ -300,17 +306,6 @@
                     </div>
                 </asp:Panel>
                 <div style="padding: 2px 2px; height: 28px;">
-                    <div style="float: left;">
-                        <asp:Panel ID="pnlCustomerBrands" CssClass="btnFilter" Height="29px" runat="server">
-                            <label id="lblBrand" class="modalLabel" style="font-weight: bold; font-size: 10px;">
-                                BRAND
-                            </label>
-                            <br />
-                            <asp:DropDownList ID="DDLCustomerBrands" Font-Size="9px" Height="16px" CssClass="modalText"
-                                runat="server" AutoPostBack="True" OnSelectedIndexChanged="DDLCustomerBrands_SelectedIndexChanged">
-                            </asp:DropDownList>
-                        </asp:Panel>
-                    </div>
                     <div class="SearchTextContainer">
                         SEARCH:
                         <asp:TextBox ID="txtSearchCustomer" Height="16px" Font-Size="10px" Width="120px"
@@ -360,7 +355,12 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) ">
+                        
+                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND brand=@BRAND">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="hfFromBrand" Name="BRAND" 
+                                PropertyName="Value" />
+                        </SelectParameters>
                     </asp:SqlDataSource>
                 </div>
                 <div style="margin: 5px; text-align: center;">

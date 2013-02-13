@@ -76,6 +76,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// hfFromBrand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfFromBrand;
+        
+        /// <summary>
         /// txtTotalQTY control.
         /// </summary>
         /// <remarks>
@@ -308,24 +317,6 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgBtnpnlCustomerOutletModal;
-        
-        /// <summary>
-        /// pnlCustomerBrands control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCustomerBrands;
-        
-        /// <summary>
-        /// DDLCustomerBrands control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLCustomerBrands;
         
         /// <summary>
         /// txtSearchCustomer control.

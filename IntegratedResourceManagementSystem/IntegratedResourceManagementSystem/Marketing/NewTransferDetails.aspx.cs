@@ -26,24 +26,13 @@ namespace IntegratedResourceManagementSystem.Marketing
             string PullOutSeriesNumber = Request.QueryString["PullOutSeries"];
 
             PullOutLetter PullOutLetter = POLManager.FetchById(PullOutId);
-
+            hfFromBrand.Value = PullOutLetter.BrandName;
             txtAccountName.Text = PullOutLetter.AccountName;
             txtBranchName.Text = PullOutLetter.BranchName;
             txtFromCustomer.Text = PullOutLetter.CompanyName;
             txtPOLSeriesNumber.Text = PullOutLetter.SeriesNumber;
             Label1.Text = PullOutLetter.ForSM.ToString();
             txtTotalQTY.Text = PullOutLetter.TotalQuantity.ToString("###,###");
-            initializedBrandList();
-        }
-
-        private void initializedBrandList()
-        {
-            DDLCustomerBrands.Items.Clear();
-            DDLCustomerBrands.Items.Add(new ListItem("-SELECT BRAND-", ""));
-            foreach (Brand brand in BrandManager.Brands())
-            {
-                DDLCustomerBrands.Items.Add(new ListItem(brand.BrandDescription, brand.BrandDescription));
-            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -53,13 +42,13 @@ namespace IntegratedResourceManagementSystem.Marketing
 
         protected void DDLCustomerBrands_SelectedIndexChanged(object sender, EventArgs e)
         {
-            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, false, DDLCustomerBrands.SelectedValue);
+            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, false, hfFromBrand.Value);
             btnBrowseToCustomer_ModalPopupExtender.Show();
         }
 
         protected void iBtnSearchCustomer_Click(object sender, ImageClickEventArgs e)
         {
-            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, false, DDLCustomerBrands.SelectedValue);
+            POLManager.SearchCustomers(SqlDataSourceCustomers, txtSearchCustomer.Text, false, hfFromBrand.Value);
             btnBrowseToCustomer_ModalPopupExtender.Show();
         }
 
@@ -87,7 +76,16 @@ namespace IntegratedResourceManagementSystem.Marketing
 
         protected void btnSelectCustomer_Click(object sender, EventArgs e)
         {
-            
+            txtToCustomer.Text = gvCustomers.SelectedDataKey[1].ToString();
+            if (string.Equals(txtFromCustomer.Text, txtToCustomer.Text) == true)
+            {
+                lblErrorMessage.Text = "WARNING! <br />Cannot transfer into thesame Outlet!";
+                txtToCustomer.Text = string.Empty;
+                txtToBranchName.Text = string.Empty;
+                txtToAccountName.Text = string.Empty;
+                hfErrorModalHandLer_ModalPopupExtender.Show();
+                return;
+            }
             int customerNumber = int.Parse(gvCustomers.SelectedValue.ToString());
             hfAreaGroupNo.Value = gvCustomers.SelectedDataKey[5].ToString();
             hfCustomerNumber.Value = gvCustomers.SelectedValue.ToString();
@@ -96,15 +94,9 @@ namespace IntegratedResourceManagementSystem.Marketing
             hfSubAreaGroupNo.Value = gvCustomers.SelectedDataKey[6].ToString();
             string brandName = gvCustomers.SelectedDataKey[2].ToString();
             hfBrandCode.Value = BrandManager.GetBrandByBrandName(brandName).BrandCode;
-            txtToCustomer.Text = gvCustomers.SelectedDataKey[1].ToString();
             txtToBranchName.Text = POLManager.GetBranchNameByCustomerNumber(customerNumber);
             txtToAccountName.Text = POLManager.GetAccountNameByCustomerNumber(customerNumber);
-            if (string.Equals(txtFromCustomer.Text, txtToCustomer.Text) == true)
-            {
-                lblErrorMessage.Text = "Cannot transfer into thesame Outlet!";
-                hfErrorModalHandLer_ModalPopupExtender.Show();
-                  return;
-            }
+            
         }
     }
 }
