@@ -38,6 +38,17 @@
                     <asp:ListItem>CANCEL</asp:ListItem>
                 </asp:RadioButtonList>
             </div>
+            <div class="group-area" style="width:170px;">
+                <div style="margin: 5px 5px;">
+                    POL FOR:</div>
+                <asp:RadioButtonList ID="rdioPOLFor" runat="server" AutoPostBack="True" 
+                    RepeatDirection="Horizontal" 
+                    onselectedindexchanged="rdioPOLFor_SelectedIndexChanged">
+                    <asp:ListItem Selected="True">ALL</asp:ListItem>
+                    <asp:ListItem Value="True">SM</asp:ListItem>
+                    <asp:ListItem Value="False">NON-SM</asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
             <div style="height: 25px; margin:5px; text-align: center;">
                 <asp:HyperLink ID="hpLinkPrint"  Height="18px" Target="_blank" CssClass="btnPrint print-link"
                     runat="server">GENERATE REPORT</asp:HyperLink>

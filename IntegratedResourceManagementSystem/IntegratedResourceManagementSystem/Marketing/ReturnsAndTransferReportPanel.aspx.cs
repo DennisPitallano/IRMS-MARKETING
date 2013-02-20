@@ -37,7 +37,8 @@ namespace IntegratedResourceManagementSystem.Marketing
         private string getGeneratedReportLink()
         {
             string link = string.Empty;
-            link = "~/Reports/ReportForms/PullOutletterReport.aspx?Brand="+DDLBrands.SelectedValue.ToString()+"&Status="+rdioAreaGroup.SelectedValue;
+            link = "~/Reports/ReportForms/PullOutletterReport.aspx?Brand="+DDLBrands.SelectedValue.ToString()+"&Status="+rdioAreaGroup.SelectedValue +
+                "&polfor="+rdioPOLFor.SelectedValue;
             return link;
         }
 
@@ -47,6 +48,11 @@ namespace IntegratedResourceManagementSystem.Marketing
         }
 
         protected void rdioAreaGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hpLinkPrint.NavigateUrl = getGeneratedReportLink();
+        }
+
+        protected void rdioPOLFor_SelectedIndexChanged(object sender, EventArgs e)
         {
             hpLinkPrint.NavigateUrl = getGeneratedReportLink();
         }
