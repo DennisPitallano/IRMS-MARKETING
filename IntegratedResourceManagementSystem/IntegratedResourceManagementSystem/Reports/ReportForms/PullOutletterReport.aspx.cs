@@ -34,58 +34,84 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                     lblFor.Text = "NON SM & OTHER STORES";
                 }
             }
+            else
+            {
+                lblFor.Text = "ALL";
+            }
             LoadPullOutLetterReport(Request.QueryString["Brand"], Request.QueryString["Status"],Request.QueryString["polfor"]);
         }
 
-        private void LoadPullOutLetterReport(string Brand, string Status,string polFor)
+        private void LoadPullOutLetterReport(string Brand, string Status, string polFor)
         {
             List<PullOutLetter> pullOutLetters = POLManager.FetchAll();
+            List<PullOutLetter> pullOutLettersFilter = new List<PullOutLetter>();
             if (Brand !="ALL" && Status!="ALL")
             {
                 if (polFor !="ALL")
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol => pol.BrandName == Brand && 
-                        pol.LetterStatus == Status && pol.ForSM == bool.Parse(polFor));
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.BrandName == Brand && 
+                        pol.LetterStatus == Status && pol.ForSM == bool.Parse(polFor)).ToList();
                 }
                 else
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol => pol.BrandName == Brand && pol.LetterStatus == Status);
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.BrandName == Brand && pol.LetterStatus == Status).ToList();
                 }
             }else 
             if (Brand !="ALL" && Status =="ALL")
             {
                 if (polFor != "ALL")
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol => pol.BrandName == Brand && pol.ForSM == bool.Parse(polFor));
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.BrandName == Brand && pol.ForSM == bool.Parse(polFor)).ToList();
                 }
                 else
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol => pol.BrandName == Brand);
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.BrandName == Brand).ToList();
                 }
             }else 
             if (Brand == "ALL" && Status != "ALL")
             {
                 if (polFor != "ALL")
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol => pol.LetterStatus == Status && pol.ForSM == bool.Parse(polFor));
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.LetterStatus == Status && pol.ForSM == bool.Parse(polFor)).ToList() ;
                 }
                 else
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol => pol.LetterStatus == Status);
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.LetterStatus == Status).ToList();
                 }
             }
             else
             {
                 if (polFor != "ALL")
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters.Where(pol=>pol.ForSM == bool.Parse(polFor));
+                    pullOutLettersFilter = pullOutLetters.Where(pol => pol.ForSM == bool.Parse(polFor)).ToList();
                 }
                 else
                 {
-                    gvPullOutLetters.DataSource = pullOutLetters;
+                    pullOutLettersFilter = pullOutLetters;
                 }
             }
+           
+            switch (rdioFilter.SelectedIndex)
+            {
+                case 0:
+                    gvPullOutLetters.DataSource = pullOutLettersFilter;
+                    break;
+                case 1:
+                    gvPullOutLetters.DataSource = pullOutLettersFilter.Where(pol => pol.IsBackLoad == true);
+                    break;
+                case 2:
+                    gvPullOutLetters.DataSource = pullOutLettersFilter.Where(pol => pol.IsBackLoad == false );
+                    break;
+                default:
+                    gvPullOutLetters.DataSource = pullOutLettersFilter;
+                    break;
+            }
             gvPullOutLetters.DataBind();
+        }
+
+        protected void rdioFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPullOutLetterReport(Request.QueryString["Brand"], Request.QueryString["Status"], Request.QueryString["polfor"]);
         }
     }
 }

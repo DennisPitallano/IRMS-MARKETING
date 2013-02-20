@@ -94,6 +94,7 @@
                                         ReadOnly="True" SortExpression="RECORD_NO">
                                         <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                     </asp:BoundField>
+                                    <asp:BoundField DataField="FITTING_SERIES_CODE" HeaderText="CODE" />
                                     <asp:BoundField DataField="FIITING_CODE" HeaderText="FIITING_CODE" SortExpression="FIITING_CODE"
                                         Visible="False" />
                                     <asp:BoundField DataField="FITTING_NAME" HeaderText="FITTING NAME" SortExpression="FITTING_NAME" />

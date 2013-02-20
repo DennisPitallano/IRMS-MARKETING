@@ -69,7 +69,7 @@ namespace IntegratedResourceManagementSystem.Marketing
 
             fSubFitting.FittingCode = gvFittings.SelectedDataKey[1].ToString();
 
-            fFitting.FittingName = gvFittings.SelectedRow.Cells[4].Text;
+            fFitting.FittingName = gvFittings.SelectedRow.Cells[5].Text;
             fFitting.Category = HttpUtility.HtmlDecode(gvFittings.SelectedRow.Cells[5].Text.Trim());
             
         }
