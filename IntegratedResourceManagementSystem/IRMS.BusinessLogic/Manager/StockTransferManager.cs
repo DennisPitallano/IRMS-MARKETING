@@ -5,9 +5,23 @@ using System.Text;
 using IRMS.BusinessLogic.DataAccess;
 using IRMS.ObjectModel;
 using System.Web.UI.WebControls;
+using BLToolkit.DataAccess;
+using BLToolkit.Data;
 
 namespace IRMS.BusinessLogic.Manager
 {
+    /// <summary>
+    /// Author :Dennis Pitallano
+    /// </summary>
+    /// <Author>
+    /// Dennis Pitallano
+    /// </Author>
+    /// <DateCreated>
+    /// 2/13/2013 10PM
+    /// </DateCreated>
+    /// <Description>
+    /// Stock Transfer Manager Class
+    /// </Description>
     public class StockTransferManager : LogManager<StockTransfer>, IBaseManager<StockTransfer>
     {
         #region Accessor
@@ -24,33 +38,103 @@ namespace IRMS.BusinessLogic.Manager
         }
         #endregion
 
-
-        public void Save(StockTransfer model)
+        /// <summary>
+        /// Save/Update Stock Transfer
+        /// </summary>
+        /// <param name="stockTransfer">Stock Transfer</param>
+        public void Save(StockTransfer stockTransfer)
         {
-            throw new NotImplementedException();
+            using (DbManager dbm = new DbManager())
+            {
+                if (stockTransfer.RecordNumber >0)
+                {
+                    Accessor.Query.Update(dbm, stockTransfer);
+                }
+                else
+                {
+                   Identity = Accessor.Query.InsertAndGetIdentity(dbm, stockTransfer);
+                }
+            }
         }
 
-        public void Delete(StockTransfer model)
+        /// <summary>
+        /// Save/Update Stock Transfers
+        /// </summary>
+        /// <param name="stockTransfers">Stock Transfers Collection</param>
+        public void Save(List<StockTransfer> stockTransfers)
         {
-            throw new NotImplementedException();
+            foreach (var st in stockTransfers)
+            {
+                Save(st);
+            }
         }
 
-        public void Delete(List<StockTransfer> collection)
+        /// <summary>
+        /// Delete Stock Transfer
+        /// </summary>
+        /// <param name="stockTransfer">Stock Transfer</param>
+        public void Delete(StockTransfer stockTransfer)
         {
-            throw new NotImplementedException();
+            using (DbManager dbm = new DbManager())
+            {
+                Accessor.Query.Delete(dbm,stockTransfer);
+            }
         }
 
+        /// <summary>
+        /// Delete Stock Transfers
+        /// </summary>
+        /// <param name="stockTransfers">Stock Transfers Collection</param>
+        public void Delete(List<StockTransfer> stockTransfers)
+        {
+            foreach (var st in stockTransfers)
+            {
+                Delete(st);   
+            }
+        }
+
+        /// <summary>
+        /// Fetch All Stock Transfers
+        /// </summary>
+        /// <returns>Stock Transfers Collectios</returns>
         public List<StockTransfer> FetchAll()
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectAll<StockTransfer>() ?? new List<StockTransfer>();
         }
 
+        /// <summary>
+        /// Fetch Stock Transfer By Identity
+        /// </summary>
+        /// <param name="key">Identity</param>
+        /// <returns>Stock Transfer</returns>
         public StockTransfer FetchById(int key)
         {
-            throw new NotImplementedException();
+            return Accessor.Query.SelectByKey<StockTransfer>(key) ?? new StockTransfer();
+        }
+
+        /// <summary>
+        /// Fetch Stock Transfer By ST CODE
+        /// </summary>
+        /// <param name="stCode">ST CODE</param>
+        /// <returns>Stock Transfer</returns>
+        public StockTransfer FetchByCode(string stCode)
+        {
+            return FetchAll().FirstOrDefault(st => st.StockTransferCode == stCode) ?? new StockTransfer();
+        }
+
+        public long getDRNumberSequenceNumber(int CompanyNumber)
+        {
+            return Accessor.getDRNumberSequenceNumber(CompanyNumber, "IRMS");
         }
 
         #region filter
+        /// <summary>
+        /// Filter POL List Collection
+        /// </summary>
+        /// <param name="POLDataSource">POL DataSource</param>
+        /// <param name="searchParameter">search Parameter</param>
+        /// <param name="searchType"></param>
+        /// <param name="forSM"></param>
         public void FilterPOL(SqlDataSource POLDataSource, string searchParameter,string searchType, string forSM)
         {
             StringBuilder strCmd = new StringBuilder();
@@ -70,6 +154,7 @@ namespace IRMS.BusinessLogic.Manager
                             strCmd.Append(" AND COMPANY_NAME LIKE '%" + searchParameter + "%' ");
                         }
                     }
+                    
                     break;
                 case "False":
                         strCmd.Append(" AND FOR_SM = 0 ");
@@ -99,6 +184,7 @@ namespace IRMS.BusinessLogic.Manager
                     }
                     break;
             }
+            strCmd.Append(" AND ID NOT IN (SELECT POL_ID FROM STOCK_TRANSFERS)");
             POLDataSource.SelectCommand = strCmd.ToString();
             POLDataSource.DataBind();
         }

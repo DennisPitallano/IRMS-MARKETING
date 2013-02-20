@@ -54,6 +54,7 @@ namespace IntegratedResourceManagementSystem.Marketing
            txtBranchName.Text = POL.BranchName;
            txtBrand.Text = POL.BrandName;
            txtTotalQtySummary.Text = POL.TotalQuantity.ToString("###,###");
+           txtForwarder.Text = POL.Forwarders;
            gvContainers.DataSource = containerList();
            gvContainers.DataBind();
            hpLinlUpdateForwarder.NavigateUrl = "~/Marketing/UpdatePullOutLetterForwarder.aspx?PullOutId=" + POL.RecordNumber + "&mode=summary"; ;

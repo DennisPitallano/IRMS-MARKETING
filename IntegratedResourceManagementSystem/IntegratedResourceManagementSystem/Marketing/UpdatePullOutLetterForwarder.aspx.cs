@@ -57,6 +57,7 @@ namespace IntegratedResourceManagementSystem.Marketing
         public void InitializedForwarders()
         {
             ddlForwarders.Items.Clear();
+            ddlForwarders.Items.Add(new ListItem("Not Assigned", "Not Assigned"));
             foreach (var forwarder in ForwarderManager.Forwarders())
             {
                 ddlForwarders.Items.Add(new ListItem(forwarder.ForwarderName, forwarder.ForwarderName));

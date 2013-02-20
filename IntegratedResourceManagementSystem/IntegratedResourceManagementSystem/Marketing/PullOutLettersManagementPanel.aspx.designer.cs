@@ -31,6 +31,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.UpdatePanel upnlPullOutLetters;
         
         /// <summary>
+        /// rdioSearchType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdioSearchType;
+        
+        /// <summary>
         /// txtSearch control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,51 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.HyperLink hpLinkUpdate;
         
         /// <summary>
+        /// hpLinkUpdate_HoverMenuExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.HoverMenuExtender hpLinkUpdate_HoverMenuExtender;
+        
+        /// <summary>
+        /// pnlUpdateOption control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlUpdateOption;
+        
+        /// <summary>
+        /// hpLinkUpdateContents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hpLinkUpdateContents;
+        
+        /// <summary>
+        /// DDLLetterStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLLetterStatus;
+        
+        /// <summary>
+        /// btnUpdateStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateStatus;
+        
+        /// <summary>
         /// btnDelete control.
         /// </summary>
         /// <remarks>
@@ -110,6 +164,87 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpLinkPrint;
+        
+        /// <summary>
+        /// lblFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFilter;
+        
+        /// <summary>
+        /// lblFilter_HoverMenuExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.HoverMenuExtender lblFilter_HoverMenuExtender;
+        
+        /// <summary>
+        /// pnlFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFilter;
+        
+        /// <summary>
+        /// DDLBrands control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLBrands;
+        
+        /// <summary>
+        /// btnFilterByBrand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFilterByBrand;
+        
+        /// <summary>
+        /// DDLFilterStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLFilterStatus;
+        
+        /// <summary>
+        /// btnFilterByStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFilterByStatus;
+        
+        /// <summary>
+        /// btnReFresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnReFresh;
+        
+        /// <summary>
+        /// hfFilterBrand control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfFilterBrand;
         
         /// <summary>
         /// upProgress control.

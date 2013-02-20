@@ -331,12 +331,14 @@
     <Content Include="Reports\ReportForms\PrintStylePrices.aspx" />
     <Content Include="Reports\ReportForms\PullOutLetterDetailsPrintPreview.aspx" />
     <Content Include="Reports\ReportForms\PullOutLetterPrintPreview.aspx" />
+    <Content Include="Reports\ReportForms\PullOutletterReport.aspx" />
     <Content Include="Reports\ReportForms\PullOutLetterSummaryPrintPreview.aspx" />
     <Content Include="Reports\ReportForms\PulloutReport.aspx" />
     <Content Include="Reports\ReportForms\StockInputReportPreview.aspx" />
     <Content Include="Reports\ReportForms\StockInputReportPrintPreview.aspx" />
     <Content Include="Reports\ReportForms\StylePrintPreview.aspx" />
     <Content Include="Reports\ReportForms\VISAYASDRSummaryPrintPreview.aspx" />
+    <Content Include="Resources\294.gif" />
     <Content Include="Resources\account-icon.png" />
     <None Include="Resources\arrow.png" />
     <Content Include="Resources\box-icon.png" />
@@ -395,6 +397,7 @@
     <Content Include="Resources\private.png" />
     <Content Include="Resources\question.png" />
     <Content Include="Resources\Refresh.png" />
+    <Content Include="Resources\removeicon.png" />
     <Content Include="Resources\right.png" />
     <Content Include="Resources\Sack16.png" />
     <Content Include="Resources\Sack32.png" />
@@ -410,6 +413,8 @@
     <Content Include="Resources\ThumbUp.png" />
     <Content Include="Resources\ThumbUpGray.png" />
     <Content Include="Resources\transfer_loading_waiting.png" />
+    <Content Include="Resources\truck-icon.png" />
+    <Content Include="Resources\truck-icon24.png" />
     <Content Include="Resources\usermode.png" />
     <None Include="Resources\users.png" />
     <None Include="Resources\user_roles_grant.png" />
@@ -1721,6 +1726,13 @@
     <Compile Include="Reports\ReportForms\PullOutLetterPrintPreview.aspx.designer.cs">
       <DependentUpon>PullOutLetterPrintPreview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportForms\PullOutletterReport.aspx.cs">
+      <DependentUpon>PullOutletterReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportForms\PullOutletterReport.aspx.designer.cs">
+      <DependentUpon>PullOutletterReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportForms\PullOutLetterSummaryPrintPreview.aspx.cs">
       <DependentUpon>PullOutLetterSummaryPrintPreview.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1764,6 +1776,7 @@
       <DependentUpon>VISAYASDRSummaryPrintPreview.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shared\Constant.cs" />
+    <Compile Include="Shared\ProgressLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Components\IRMS.Components.csproj">

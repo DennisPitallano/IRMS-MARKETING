@@ -183,6 +183,15 @@
                                 <td>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                FORWARDER:
+                                </td>
+                                 <td colspan="3">
+                                  <asp:TextBox ID="txtForwarder" Font-Size="10px" ReadOnly="true" Height="23px" CssClass="modalText"
+                                        Width="300px" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -339,7 +348,7 @@
                     TargetControlID="btnSave">
                 </asp:ModalPopupExtender>
                 <a href="PullOutLettersManagementPanel.aspx" style="text-decoration: none;">
-                    <input id="btnCancel" class="btnCancel" type="button" value="CANCEL" />
+                    <input id="btnCancel" style="width:110px" class="btnCancel" type="button" value="BACK TO LIST" />
                 </a>
                 <asp:Panel ID="pnlSaveModal" CssClass="modal" runat="server">
                     <asp:Panel ID="pnlSaveModalDrag" CssClass="modalDrag" runat="server">

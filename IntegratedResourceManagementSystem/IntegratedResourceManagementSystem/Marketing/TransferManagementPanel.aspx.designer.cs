@@ -175,6 +175,24 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.UpdateProgress upProgress;
         
         /// <summary>
+        /// gvStockTransfer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvStockTransfer;
+        
+        /// <summary>
+        /// SqlDataSourceStockTransfers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceStockTransfers;
+        
+        /// <summary>
         /// pnlDeleteModal control.
         /// </summary>
         /// <remarks>
@@ -299,6 +317,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePullOutLetters;
+        
+        /// <summary>
+        /// upProgressPOL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress upProgressPOL;
         
         /// <summary>
         /// hpLinkUseSelectedPullOutLetter control.

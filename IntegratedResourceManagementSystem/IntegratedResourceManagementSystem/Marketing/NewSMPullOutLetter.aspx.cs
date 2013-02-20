@@ -42,6 +42,16 @@ namespace IntegratedResourceManagementSystem.Marketing
             hfPullOutLetterCode.Value = Security.CreateCode(25, random);
             txtPullOutDate.Text = DateTime.UtcNow.ToShortDateString();
             initializedBrandList();
+            initForwarders();
+        }
+
+        private void initForwarders()
+        {
+            DDLForwarders.Items.Clear();
+            foreach (var forwarder in ForwarderManager.Forwarders())
+            {
+                DDLForwarders.Items.Add(new ListItem(forwarder.ForwarderName, forwarder.ForwarderName));
+            }
         }
 
         private void initializedBrandList()
@@ -497,8 +507,24 @@ namespace IntegratedResourceManagementSystem.Marketing
             string BrandDeptCode = BrandDeptCodeManager.FethByBrandName(brandName).DepartmentCode;
             string BranchDeptCode = BranchDeptCodeManager.FetchByBranchName(txtBranchName.Text).DepartmentCode;
 
-            //long forwarderNumber = ForwarderManager.GetDefaultForwarder(long.Parse(hfCustomerNumber.Value)).ForwarderNumber;
-            //hfForwarder.Value = ForwarderManager.GetForwarderByKey(forwarderNumber).ForwarderName;
+            if (rdioPLType.SelectedIndex !=0)
+            {
+                long forwarderNumber = ForwarderManager.GetDefaultForwarder(long.Parse(hfCustomerNumber.Value)).ForwarderNumber;
+                hfForwarder.Value = ForwarderManager.GetForwarderByKey(forwarderNumber).ForwarderName;
+                txtCustomerDefaultForwarder.Text = hfForwarder.Value;
+            }
+            else
+            {
+                hfForwarder.Value = "Not Assigned";
+                txtCustomerDefaultForwarder.Text = hfForwarder.Value;
+            }
+
+            if (string.IsNullOrEmpty(txtCustomerDefaultForwarder.Text))
+            {
+                hfForwarder.Value = "Not Assigned";
+                txtCustomerDefaultForwarder.Text = hfForwarder.Value;
+            }
+
             //txtPullOutDate.Text = hfForwarder.Value;
             if (string.IsNullOrEmpty(BranchDeptCode) || string.IsNullOrEmpty(BrandDeptCode))
             {
@@ -537,6 +563,8 @@ namespace IntegratedResourceManagementSystem.Marketing
                 txtSeriesNumber.Text = generateSeriesNumber(txtBranchDepartmentCodePreview.Text ,int.Parse( hfLastPullOutLetterNumber.Value))[1];
             }
             btnCreateBoxes.Enabled = true;
+            btnUpdateForwarder.CssClass = "btnAddForwarder";
+            btnUpdateForwarder.Enabled = true;
         }
 
         protected void gvCustomers_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -1242,7 +1270,7 @@ namespace IntegratedResourceManagementSystem.Marketing
                         CompanyName = txtOuletStore.Text,
                         CustomerNumber = long.Parse(hfCustomerNumber.Value),
                         ForSM = true,
-                        Forwarders = "Not Assigned",
+                        Forwarders = txtCustomerDefaultForwarder.Text,
                         IsActive = true,
                         LetterStatus = LetterStatus.PENDING.ToString(),
                         PullOutCode = hfPullOutLetterCode.Value,
@@ -1481,10 +1509,14 @@ namespace IntegratedResourceManagementSystem.Marketing
                     sack.IsSelected = false;
                     sack.ImageUrl = Constant.SackImageUrl;
                 }
-             
             }
             this.rptrSacks.DataSource = containerSackList;
             rptrSacks.DataBind();
+        }
+
+        protected void btnSelectForwarder_Click(object sender, EventArgs e)
+        {
+            txtCustomerDefaultForwarder.Text = DDLForwarders.SelectedValue;
         }
 
     }

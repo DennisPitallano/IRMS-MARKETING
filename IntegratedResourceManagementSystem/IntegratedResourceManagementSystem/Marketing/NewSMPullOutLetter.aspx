@@ -35,11 +35,54 @@
                 <img alt="BACK" src="../Resources/reply.png" alt="BACK" /></a>
         </div>
     </div>
-    <div class="titleList" style="width: 750px;">
-        PULL-OUT LETTER FORM
-    </div>
     <asp:UpdatePanel ID="upnlPullOut" runat="server">
         <ContentTemplate>
+            <div class="titleList" style="width: 750px;">
+                PULL-OUT LETTER FORM
+                <div style="float: right;">
+                    <asp:Button ID="btnUpdateForwarder" Enabled="false" CssClass="btnAddForwarderDisAble" runat="server"
+                        Text="forwarder" />
+                    <asp:HoverMenuExtender ID="btnUpdateForwarder_HoverMenuExtender" runat="server" DynamicServicePath=""
+                        Enabled="True" PopupControlID="pnlReferenceNumberInfo" PopupPosition="Bottom"
+                        TargetControlID="btnUpdateForwarder">
+                    </asp:HoverMenuExtender>
+                    <asp:Panel ID="pnlReferenceNumberInfo" runat="server">
+                        <div class="hover-menu-arrow">
+                        </div>
+                        <div class="hover-menu">
+                            <div class="modalLabel" style="text-align: left; width: 250px; margin: 3px;">
+                                FORWARDER:<asp:TextBox ID="txtCustomerDefaultForwarder" ReadOnly="true" Width="250px"
+                                    Font-Size="10px" CssClass="modalText" Height="22px" runat="server"></asp:TextBox>
+                            </div>
+                            <div style="margin: 3px; text-align: center;">
+                                <asp:Button ID="btnEditForwarder" runat="server" CssClass="btnAddForwarder" Text="change forwarder" />
+                                <asp:ModalPopupExtender ID="btnEditForwarder_ModalPopupExtender" runat="server" DynamicServicePath=""
+                                    PopupControlID="pnlForwarderPanelChangeModal" PopupDragHandleControlID="pnlForwarderPanelChangeModalDrag"
+                                    CancelControlID="btnSelectForwarderCancel" Enabled="True" TargetControlID="btnEditForwarder">
+                                </asp:ModalPopupExtender>
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlForwarderPanelChangeModal" CssClass="modal" runat="server">
+                        <asp:Panel ID="pnlForwarderPanelChangeModalDrag" CssClass="modalDrag" runat="server">
+                            <div class="sizeLogo">
+                                FORWARDERS
+                            </div>
+                        </asp:Panel>
+                        <div class="modalLabel" style="margin: 5px; text-align: center;">
+                            FORWARDERS:<asp:DropDownList ID="DDLForwarders" CssClass="modalText" Height="22px"
+                                runat="server">
+                            </asp:DropDownList>
+                        </div>
+                        <div style="margin: 5px; text-align: center;">
+                            <asp:Button ID="btnSelectForwarder" runat="server" CssClass="btnAddForwarder" Text="SELECT"
+                                OnClick="btnSelectForwarder_Click" />
+                            <asp:Button ID="btnSelectForwarderCancel" runat="server" CssClass="btnAddForwarder"
+                                Text="CANCEL" />
+                        </div>
+                    </asp:Panel>
+                </div>
+            </div>
             <div class="form" id="pnlLetterHeader" style="width: 750px;" class="form">
                 <table style="">
                     <tr>

@@ -77,6 +77,8 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                 totalAmt += item.TtlAmount;
             }
 
+          
+
             //PullOutLetterDetail pullOutSummary = new PullOutLetterDetail
             //{
             //    ContainerType = "GRAND TOTAL:",
@@ -123,6 +125,9 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                 }
                 detailsSummaries.Add(pdSum);
             }
+
+            gvDetails.DataSource = containerDetails;
+            gvDetails.DataBind();
            // detailsSummaries.Add(pullOutSummary);
             gvBoxContainerDetails.DataSource = detailsSummaries;
             gvBoxContainerDetails.DataBind();
@@ -186,6 +191,24 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
         {
             imgLogo.ImageUrl = "~/Marketing/Marketing-Admin/company-logos/"+gvCompanyLogos.SelectedValue.ToString();
             btnChangeLogo_ModalPopupExtender.Show();
+        }
+
+        protected void rdioTemplate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rdioTemplate.SelectedIndex ==1)
+            {
+                gvDetails.Visible = true;
+                gvBoxContainerDetails.Visible = false;
+                lblTotalContainerLabel.Visible = false;
+                lblTotalNumberOfContainer.Visible = false;
+            }
+            else
+            {
+                gvDetails.Visible = false;
+                gvBoxContainerDetails.Visible = true;
+                lblTotalContainerLabel.Visible = true;
+                lblTotalNumberOfContainer.Visible = true;
+            }
         }
     }
 }

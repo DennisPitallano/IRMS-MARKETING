@@ -74,7 +74,8 @@
       
          Developed by: <a href ="http://www.iserve.biz" target="_blank" >iServe Customer Management Solution Inc.</a>
         <br />
-        iServe Customer Management Solution Inc. © 2011. All rights reserved. 
+        iServe Customer Management Solution Inc. © 
+        <asp:Label ID="lblDateYear" runat="server" Text=""></asp:Label>. All rights reserved. 
     </div>
     </form>
 </body>

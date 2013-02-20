@@ -21,12 +21,17 @@
             <ContentTemplate>
                 <div style="height: 26px; margin-bottom: 1px;" class="modalDrag">
                     <div style="float: right;" class="SearchTextContainer">
-                        SEARCH:
+                        SEARCH BY:
+                        <asp:RadioButtonList ID="rdioSearchType" runat="server" RepeatDirection="Horizontal"
+                            RepeatLayout="Flow">
+                            <asp:ListItem Selected="True">CUSTOMER</asp:ListItem>
+                            <asp:ListItem>SERIES#</asp:ListItem>
+                        </asp:RadioButtonList>
                         <asp:TextBox ID="txtSearch" runat="server" autofocus placeholder="Search Pull-Out Letter"
                             CssClass="modalText" AutoPostBack="True" Height="16px" Font-Size="10px" Width="150px"
-                            ToolTip="Search Pull-Out Letter"></asp:TextBox>
+                            ToolTip="Search Pull-Out Letter" OnTextChanged="txtSearch_TextChanged"></asp:TextBox>
                         <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
-                            ToolTip="SEARCH" />
+                            ToolTip="SEARCH" OnClick="imgBtnSearch_Click" />
                     </div>
                     <div style="float: left;">
                         <div style="float: left; margin-right: 5px;">
@@ -37,11 +42,41 @@
                         <div style="float: left; margin-right: 5px;">
                             <asp:HyperLink ID="hpLinkUpdate" Height="23px" Style="padding-right: 5px; line-height: 23px;
                                 text-decoration: none;" CssClass="btnUpdate" runat="server">UPDATE</asp:HyperLink>
+                            <asp:HoverMenuExtender ID="hpLinkUpdate_HoverMenuExtender" runat="server" DynamicServicePath=""
+                                Enabled="True" TargetControlID="hpLinkUpdate" PopupControlID="pnlUpdateOption"
+                                PopupPosition="Bottom">
+                            </asp:HoverMenuExtender>
+                            <asp:Panel ID="pnlUpdateOption" runat="server">
+                                <div class="hover-menu-arrow">
+                                </div>
+                                <div class="hover-menu">
+                                    <div class="new-link">
+                                        <asp:HyperLink ID="hpLinkUpdateContents" Style="text-decoration: none;" title="Update Pull Out Letter Contents"
+                                            runat="server">
+                                            <img src="../Resources/edit_normal.png" alt="" align="left"  />
+                                            UPDATE CONTENTS</asp:HyperLink>
+                                    </div>
+                                    <div class="new-link">
+                                        <label for="MainContent_DDLLetterStatus">
+                                            STATUS:</label>
+                                        <asp:DropDownList ID="DDLLetterStatus" Enabled="false" Font-Size="10px" CssClass="modalText"
+                                            Height="20px" runat="server">
+                                            <asp:ListItem>PENDING</asp:ListItem>
+                                            <asp:ListItem>SENT</asp:ListItem>
+                                            <asp:ListItem>RECEIVED</asp:ListItem>
+                                            <asp:ListItem>CANCELLED</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:Button ID="btnUpdateStatus" Enabled="false" CssClass="btnTag" runat="server"
+                                            Text="update" OnClick="btnUpdateStatus_Click" />
+                                    </div>
+                                    <div class="new-link" style="height: 5px;">
+                                    </div>
+                                </div>
+                            </asp:Panel>
                         </div>
-                      
                         <div style="float: left; margin-right: 5px;">
-                            <asp:Button ID="btnDelete" runat="server" Enabled="false"  Text="DELETE" CssClass="btnDelete" Font-Names="Verdana"
-                                ViewStateMode="Disabled" />
+                            <asp:Button ID="btnDelete" runat="server" Enabled="false" Text="DELETE" CssClass="btnDelete"
+                                Font-Names="Verdana" ViewStateMode="Disabled" />
                             <asp:ModalPopupExtender ID="btnDelete_ModalPopupExtender" runat="server" CancelControlID="btnNo"
                                 DynamicServicePath="" Enabled="True" PopupControlID="pnlDeleteModal" PopupDragHandleControlID="pnlDeleteModalDrag"
                                 TargetControlID="btnDelete" BackgroundCssClass="bgModal">
@@ -55,6 +90,47 @@
                         <div style="float: left; margin-right: 5px;">
                             <asp:HyperLink ID="hpLinkPrint" Target="_blank" Style="padding-right: 3px; line-height: 23px;
                                 text-decoration: none;" CssClass="btnPrint" Height="23px" runat="server">PRINT</asp:HyperLink>
+                        </div>
+                        <div style="float: left; margin-left: 10px;">
+                            <asp:Label Text="FILTER" CssClass="filter-link" ID="lblFilter" runat="server" />
+                            <asp:HoverMenuExtender ID="lblFilter_HoverMenuExtender" runat="server" DynamicServicePath=""
+                                Enabled="True" PopupControlID="pnlFilter" PopupPosition="Bottom" TargetControlID="lblFilter">
+                            </asp:HoverMenuExtender>
+                            <asp:Panel ID="pnlFilter" runat="server">
+                                <div class="hover-menu-arrow">
+                                </div>
+                                <div class="hover-menu">
+                                    <div class="print-link">
+                                        <label>
+                                            BY BRAND:<asp:DropDownList ID="DDLBrands" runat="server" Height="18px" Font-Names="Verdana"
+                                                Font-Size="10px" ForeColor="#663300">
+                                            </asp:DropDownList>
+                                        </label>
+                                        <asp:Button CssClass="btnFilter" ID="btnFilterByBrand" runat="server" Text="FILTER"
+                                            OnClick="btnFilterByBrand_Click" />
+                                    </div>
+                                    <div class="print-link">
+                                        <label>
+                                            BY STATUS:<asp:DropDownList ID="DDLFilterStatus" runat="server" Height="18px" Font-Names="Verdana"
+                                                Font-Size="10px" ForeColor="#663300">
+                                            <asp:ListItem>ALL</asp:ListItem>
+                                            <asp:ListItem>PENDING</asp:ListItem>
+                                            <asp:ListItem>SENT</asp:ListItem>
+                                            <asp:ListItem>RECEIVED</asp:ListItem>
+                                            <asp:ListItem>CANCELLED</asp:ListItem>
+                                            </asp:DropDownList>
+                                        </label>
+                                        <asp:Button CssClass="btnFilter" ID="btnFilterByStatus" runat="server" 
+                                            Text="FILTER" onclick="btnFilterByStatus_Click" />
+                                    </div>
+
+                                    <div class="print-link" style="text-align: center;">
+                                        <asp:Button CssClass="btnReload" ID="btnReFresh" runat="server" Text="REFRESH TABLE LIST"
+                                            OnClick="btnReFresh_Click" />
+                                        <asp:HiddenField ID="hfFilterBrand" Value="ALL" runat="server" />
+                                    </div>
+                                </div>
+                            </asp:Panel>
                         </div>
                         <div style="float: left; padding-left: 15px; padding-top: 7px; cursor: pointer;">
                             <asp:Image ID="imgSettings" runat="server" title="Parameter Settings [Brand Department Code]/[Branch Department Code]"
@@ -95,9 +171,14 @@
                         LIST OF PULL OUT LETTERS
                     </div>
                     <asp:GridView ID="gvPullOutLetters" CssClass="table_grid" runat="server" CellPadding="4"
-                        ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"
-                        DataKeyNames="ID,PULL_OUT_CODE,CUSTOMER_NO,SERIES_NO" DataSourceID="SqlDataSourcePullOutLetters"
-                        OnSelectedIndexChanged="gvPullOutLetters_SelectedIndexChanged" EnableViewState="False">
+                        ForeColor="#333333" GridLines="None" AllowPaging="True" 
+                        AllowSorting="True" AutoGenerateColumns="False"
+                        DataKeyNames="ID,PULL_OUT_CODE,CUSTOMER_NO,SERIES_NO,LETTER_STATUS" DataSourceID="SqlDataSourcePullOutLetters"
+                        OnSelectedIndexChanged="gvPullOutLetters_SelectedIndexChanged" 
+                        EnableViewState="False" PageSize="15" EnablePersistedSelection="True" 
+                        onpageindexchanging="gvPullOutLetters_PageIndexChanging" 
+                        onselectedindexchanging="gvPullOutLetters_SelectedIndexChanging" 
+                        onsorting="gvPullOutLetters_Sorting">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField>
@@ -109,28 +190,39 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:CommandField ShowSelectButton="True" />
-                            <asp:BoundField DataField="SERIES_NO" HeaderText="SERIES#" SortExpression="SERIES_NO" />
+                            <asp:BoundField DataField="SERIES_NO" HeaderText="SERIES#" SortExpression="SERIES_NO">
+                                <ItemStyle Font-Bold="True" Font-Italic="True" ForeColor="#CC6600" />
+                            </asp:BoundField>
                             <asp:BoundField DataField="COMPANY_NAME" HeaderText="COMPANY NAME" SortExpression="COMPANY_NAME" />
                             <asp:BoundField DataField="ACCT_NAME" HeaderText="ACCOUNT NAME" SortExpression="ACCT_NAME" />
                             <asp:BoundField DataField="BRANCH_NAME" HeaderText="BRANCH NAME" SortExpression="BRANCH_NAME" />
-                            <asp:BoundField DataField="PULLOUT_DATE" HeaderText="PULLOUT DATE" 
-                                SortExpression="PULLOUT_DATE" DataFormatString="{0:MMMM dd, yyyy}" >
-                            <ItemStyle Font-Bold="True" />
+                            <asp:BoundField DataField="PULLOUT_DATE" HeaderText="PULLOUT DATE" SortExpression="PULLOUT_DATE"
+                                DataFormatString="{0:MMMM dd, yyyy}">
+                                <ItemStyle Font-Bold="True" />
                             </asp:BoundField>
                             <asp:BoundField DataField="BRAND_NAME" HeaderText="BRAND" SortExpression="BRAND_NAME" />
-                            <asp:BoundField DataField="LETTER_STATUS" HeaderText="LETTER STATUS" SortExpression="LETTER_STATUS" />
+                            <asp:BoundField DataField="LETTER_STATUS" HeaderText="LETTER STATUS" SortExpression="LETTER_STATUS">
+                                <ItemStyle Font-Bold="True" ForeColor="#993300" HorizontalAlign="Center" />
+                            </asp:BoundField>
                             <asp:BoundField DataField="TRANSACTION_DATE" HeaderText="TRANSACTION DATE" SortExpression="TRANSACTION_DATE" />
                         </Columns>
+                        <EmptyDataTemplate>
+                            <div class="modalLabel" style="line-height: 32px;">
+                                <img src="../Resources/unhappy.png" alt="" align="left" />
+                                ITEMS NOT FOUND!
+                            </div>
+                        </EmptyDataTemplate>
                         <EditRowStyle BackColor="#7C6F57" />
                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                        <PagerSettings Mode="NumericFirstLast" />
+                        <PagerStyle CssClass="pager" />
                         <RowStyle BackColor="#E3EAEB" />
                         <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                        <SortedAscendingHeaderStyle BackColor="#246B61" />
-                        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                        <SortedDescendingHeaderStyle BackColor="#15524A" />
+                        <SortedAscendingCellStyle  CssClass="asc_cell_style" />
+                        <SortedAscendingHeaderStyle CssClass="asc_cell_style_h" />
+                        <SortedDescendingCellStyle CssClass="desc_cell_style" />
+                        <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourcePullOutLetters" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
                         SelectCommand="SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = @FOR_SM) ORDER BY ID DESC">
@@ -153,13 +245,12 @@
                         <img alt="error update" src="../Resources/warning.png" height="22px" align="middle" />
                         Warning: This action cannot be undo.
                     </div>
-                    <div style="text-align: center; font-family: Verdana; font-size: 11px;
-                        margin: 5px 2px;">
-                        <asp:Label ID="lblPOLToDelete" CssClass ="modalLabel" runat="server" Text="No data to delete. Select from the list and try again."></asp:Label>
+                    <div style="text-align: center; font-family: Verdana; font-size: 11px; margin: 5px 2px;">
+                        <asp:Label ID="lblPOLToDelete" CssClass="modalLabel" runat="server" Text="No data to delete. Select from the list and try again."></asp:Label>
                     </div>
                     <div style="text-align: center; margin: 5px 0px;">
                         <asp:Button ID="btnYes" runat="server" Text="YES" CssClass="modalWarningButtonYes"
-                            ToolTip="Delete"  onclick="btnYes_Click" />
+                            ToolTip="Delete" OnClick="btnYes_Click" />
                         <asp:Button ID="btnNo" runat="server" Text="NO" CssClass="modalWarningButtonNo" ToolTip="Cancel"
                             ViewStateMode="Disabled" />
                     </div>

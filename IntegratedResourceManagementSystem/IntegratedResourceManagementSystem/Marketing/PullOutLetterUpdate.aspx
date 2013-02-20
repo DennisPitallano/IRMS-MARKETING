@@ -37,7 +37,7 @@
     <asp:UpdatePanel ID="upnlUpdate" runat="server">
         <ContentTemplate>
             <div>
-                <div style="width: 700px;">
+                <div style="width: 750px;">
                     <div class="titleForm" style="height: 20px;">
                         PULL OUT LETTER HEADER
                           <div id="Div1" style="float: right; margin-left:3px; margin-right:2px;" runat="server">
@@ -64,9 +64,12 @@
                                         <asp:ListItem Value="ST">ST (Stock Transfer)</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
-                                <td>
+                                <td class="modalLabel">
+                                FORWARDER:
                                 </td>
                                 <td>
+                                 <asp:TextBox ID="txtForwarder" EnableViewState="false" CssClass="modalText" Font-Size="10px" Height="22px"
+                                        Width="250px" runat="server" ReadOnly="True"></asp:TextBox>
                                     <asp:UpdateProgress ID="upProgress" runat="server" AssociatedUpdatePanelID="upnlUpdate">
                                         <ProgressTemplate>
                                             <asp:PlaceHolder ID="plcHLoader" runat="server">
@@ -82,13 +85,14 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtSeriesNumber" EnableViewState="false" CssClass="modalText" Height="22px"
-                                        Width="200px" runat="server" ReadOnly="True"></asp:TextBox>
+                                        Width="200px" runat="server" ReadOnly="True" Font-Bold="True" 
+                                        Font-Italic="True" ForeColor="Black"></asp:TextBox>
                                     <asp:HiddenField ID="hfPullOutCode" runat="server" />
                                 </td>
                                 <td class="modalLabel">
                                     PULL OUT DATE:
                                 </td>
-                                <td class="modalLabel">
+                                <td class="modalLabel" style="text-align:left;">
                                     <asp:TextBox ID="txtPullOutDate" Enabled="false" CssClass="modalText calendar" Height="22px"
                                         Width="170px" runat="server"></asp:TextBox>
                                     <asp:CalendarExtender ID="txtPullOutDate_CalendarExtender" runat="server" Enabled="True"
@@ -101,8 +105,8 @@
                                     CUSTOMER/OUTLET:
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtOutLetName" CssClass="modalText" Height="22px" runat="server"
-                                        Width="300px" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox ID="txtOutLetName" Font-Size="10px" CssClass="modalText" Height="22px" runat="server"
+                                        Width="280px" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td>
                                     &nbsp;
@@ -116,7 +120,7 @@
                                     ACCOUNT NAME:
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtAccountName" CssClass="modalText" Height="22px" Width="150px"
+                                    <asp:TextBox ID="txtAccountName" Font-Size="10px" CssClass="modalText" Height="22px" Width="150px"
                                         runat="server" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td>
@@ -131,7 +135,7 @@
                                     BRANCH NAME:
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtBranchName" CssClass="modalText" Height="22px" runat="server"
+                                    <asp:TextBox ID="txtBranchName" Font-Size="10px" CssClass="modalText" Height="22px" runat="server"
                                         Width="270px" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td class="modalLabel">

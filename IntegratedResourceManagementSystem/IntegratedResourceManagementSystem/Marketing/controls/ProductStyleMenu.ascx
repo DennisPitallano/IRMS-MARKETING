@@ -11,6 +11,11 @@
         padding-top: 3px;
       
         opacity: 0.70;
+         -webkit-transition:all .3s ease;
+        -moz-transition:all .3s ease;
+        -o-transition:all .3s ease;
+        -ms-transition:all .3s ease;
+        transition: all .3s ease;
     }
     .mnuIcon:hover
     {

@@ -39,6 +39,7 @@ namespace IntegratedResourceManagementSystem.Marketing
             txtOutLetName.Text = pullOutLetter.CompanyName;
             txtPullOutDate.Text = pullOutLetter.PulloutDate.ToString("MMMM dd, yyyy");
             txtSeriesNumber.Text = pullOutLetter.SeriesNumber;
+            txtForwarderName.Text = pullOutLetter.Forwarders;
             if (pullOutLetter.IsBackLoad)
             {
                 rdioPLType.SelectedIndex = 0;

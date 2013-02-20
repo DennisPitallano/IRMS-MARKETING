@@ -39,12 +39,12 @@
     <asp:UpdatePanel ID="upnlUpdate" runat="server">
         <ContentTemplate>
             <div>
-                <div style="width: 700px;">
+                <div style="width: 730px;">
                     <div class="titleForm" style="height: 20px;">
                         PULL OUT LETTER HEADER
                         <div style="float: right; margin-left:3px; margin-right:2px;" runat="server">
                             <asp:HyperLink ID="hpLinlUpdateForwarder"  CssClass="btnUpdate" Height="18px"
-                             style="line-height:18px; padding-right:3px; text-decoration:none;" runat="server">assign forwarder</asp:HyperLink>
+                             style="line-height:18px; padding-right:3px; text-decoration:none;" runat="server">update forwarder</asp:HyperLink>
                         </div>
                         <div style="float: right;">
                             <asp:Button ID="btnUpdateHeader" runat="server" Height="18px" CssClass="btnUpdate"
@@ -66,9 +66,12 @@
                                         <asp:ListItem Value="ST">ST (Stock Transfer)</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
-                                <td>
+                                <td class="modalLabel">
+                                FORWARDER:
                                 </td>
                                 <td>
+                                <asp:TextBox ID="txtForwarderName" EnableViewState="false" CssClass="modalText" Height="22px"
+                                        Width="200px" runat="server" ReadOnly="True"></asp:TextBox>
                                     <asp:UpdateProgress ID="upProgress" runat="server" AssociatedUpdatePanelID="upnlUpdate">
                                         <ProgressTemplate>
                                             <asp:PlaceHolder ID="plcHLoader" runat="server">
@@ -90,7 +93,7 @@
                                 <td class="modalLabel">
                                     PULL OUT DATE:
                                 </td>
-                                <td class="modalLabel">
+                                <td class="modalLabel" style="text-align:left;">
                                     <asp:TextBox ID="txtPullOutDate" Enabled="false" CssClass="modalText calendar" Height="22px"
                                         Width="170px" runat="server"></asp:TextBox>
                                     <asp:CalendarExtender ID="txtPullOutDate_CalendarExtender" runat="server" Enabled="True"

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using IRMS.BusinessLogic.Manager;
 using IRMS.ObjectModel;
+using IntegratedResourceManagementSystem.Shared;
 
 namespace IntegratedResourceManagementSystem.Marketing
 {
@@ -17,6 +18,10 @@ namespace IntegratedResourceManagementSystem.Marketing
         PullOutLetterSummaryManager POLSummaryManager = new PullOutLetterSummaryManager();
         StockTransferManager STManager = new StockTransferManager();
         #endregion
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,6 +29,7 @@ namespace IntegratedResourceManagementSystem.Marketing
 
         protected void gvPullOutLetter_SelectedIndexChanged(object sender, EventArgs e)
         {
+           
             string pullOutCode = gvPullOutLetter.SelectedDataKey[1].ToString();
             int pullOutId = int.Parse(gvPullOutLetter.SelectedValue.ToString());
             string pullOutSeriesNumber = gvPullOutLetter.SelectedDataKey[2].ToString();
@@ -88,9 +94,15 @@ namespace IntegratedResourceManagementSystem.Marketing
             SearchPOL();
         }
 
+
         protected void gvPullOutLetter_Sorting(object sender, GridViewSortEventArgs e)
         {
+         
             SearchPOL();
+        }
+
+        protected void gvStockTransfer_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
         }
     }
 }

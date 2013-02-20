@@ -67,15 +67,6 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.TextBox txtBranchName;
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// hfFromBrand control.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,42 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.HiddenField hfFromBrand;
         
         /// <summary>
+        /// hfFromCustomerNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfFromCustomerNumber;
+        
+        /// <summary>
+        /// hfPullOutLetterCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPullOutLetterCode;
+        
+        /// <summary>
+        /// hfPullOutLetterId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPullOutLetterId;
+        
+        /// <summary>
+        /// hfPullOutSeriesNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPullOutSeriesNumber;
+        
+        /// <summary>
         /// txtTotalQTY control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,24 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotalQTY;
+        
+        /// <summary>
+        /// txtSTDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSTDate;
+        
+        /// <summary>
+        /// txtSRDate_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtSRDate_CalendarExtender;
         
         /// <summary>
         /// txtToCustomer control.
@@ -202,13 +247,49 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.HiddenField hfForwarder;
         
         /// <summary>
-        /// hfPullOutLetterCode control.
+        /// hfStockTransferCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfPullOutLetterCode;
+        protected global::System.Web.UI.WebControls.HiddenField hfStockTransferCode;
+        
+        /// <summary>
+        /// txtReferenceNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReferenceNumber;
+        
+        /// <summary>
+        /// imgReferenceNumberInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgReferenceNumberInfo;
+        
+        /// <summary>
+        /// imgReferenceNumberInfo_HoverMenuExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.HoverMenuExtender imgReferenceNumberInfo_HoverMenuExtender;
+        
+        /// <summary>
+        /// pnlReferenceNumberInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlReferenceNumberInfo;
         
         /// <summary>
         /// hfErrorModalHandLer control.
@@ -274,6 +355,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.GridView gvPOLSummaries;
         
         /// <summary>
+        /// btnDeleteDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteDetails;
+        
+        /// <summary>
         /// btnAddDetails control.
         /// </summary>
         /// <remarks>
@@ -283,13 +373,58 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.Button btnAddDetails;
         
         /// <summary>
-        /// gvContainerDetails control.
+        /// btnAddDetails_ModalPopupExtender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvContainerDetails;
+        protected global::AjaxControlToolkit.ModalPopupExtender btnAddDetails_ModalPopupExtender;
+        
+        /// <summary>
+        /// lblTotalSelected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalSelected;
+        
+        /// <summary>
+        /// lblTotalAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAmount;
+        
+        /// <summary>
+        /// gvSelectedStyles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvSelectedStyles;
+        
+        /// <summary>
+        /// btnSaveTransfer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveTransfer;
+        
+        /// <summary>
+        /// btnSaveTransfer_ModalPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender btnSaveTransfer_ModalPopupExtender;
         
         /// <summary>
         /// pnlCustomerOutletModal control.
@@ -355,6 +490,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceCustomers;
         
         /// <summary>
+        /// UpdateProgress2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress2;
+        
+        /// <summary>
         /// btnSelectCustomer control.
         /// </summary>
         /// <remarks>
@@ -380,6 +524,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlStylesModalDrag;
+        
+        /// <summary>
+        /// imgCloseStyles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton imgCloseStyles;
         
         /// <summary>
         /// txtSearchStyleNumber control.
@@ -416,5 +569,113 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceStyles;
+        
+        /// <summary>
+        /// lblSelected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelected;
+        
+        /// <summary>
+        /// UpdateProgress1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress UpdateProgress1;
+        
+        /// <summary>
+        /// btnAddToDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddToDetails;
+        
+        /// <summary>
+        /// pnlSaveModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSaveModal;
+        
+        /// <summary>
+        /// pnlSaveModalDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSaveModalDrag;
+        
+        /// <summary>
+        /// iBtnPnlSaveModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton iBtnPnlSaveModal;
+        
+        /// <summary>
+        /// btnSaveYes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveYes;
+        
+        /// <summary>
+        /// btnCancelSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelSave;
+        
+        /// <summary>
+        /// hfSuccessfulModalHandler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfSuccessfulModalHandler;
+        
+        /// <summary>
+        /// hfSuccessfulModalHandler_ModalPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender hfSuccessfulModalHandler_ModalPopupExtender;
+        
+        /// <summary>
+        /// pnlSuccessfulSaveModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSuccessfulSaveModal;
+        
+        /// <summary>
+        /// pnlSuccessfulSaveModalDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSuccessfulSaveModalDrag;
     }
 }

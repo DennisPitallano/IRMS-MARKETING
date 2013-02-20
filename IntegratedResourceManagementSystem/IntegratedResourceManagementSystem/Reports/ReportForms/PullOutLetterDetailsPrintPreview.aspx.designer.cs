@@ -49,6 +49,15 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms {
         protected global::System.Web.UI.WebControls.GridView gvContainers;
         
         /// <summary>
+        /// rdioTemplate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdioTemplate;
+        
+        /// <summary>
         /// imgLogo control.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms {
         protected global::System.Web.UI.WebControls.GridView gvBoxContainerDetails;
         
         /// <summary>
+        /// gvDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDetails;
+        
+        /// <summary>
         /// pnlSummary control.
         /// </summary>
         /// <remarks>
@@ -209,6 +227,15 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalPrice;
+        
+        /// <summary>
+        /// lblTotalContainerLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalContainerLabel;
         
         /// <summary>
         /// lblTotalNumberOfContainer control.

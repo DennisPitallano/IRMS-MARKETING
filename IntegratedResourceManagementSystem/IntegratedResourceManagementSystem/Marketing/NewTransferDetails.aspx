@@ -37,11 +37,11 @@
     </div>
     <asp:UpdatePanel ID="upnlStockTransfer" runat="server">
         <ContentTemplate>
-            <div style="min-height: 450px;">
+            <div style="min-height: 470px;">
                 <div class="titleForm" style="height: 12px;">
                     NEW STOCK TRANSFER
                 </div>
-                <div style="min-height: 190px;">
+                <div style="min-height:230px;">
                     <div class="form" style="float: left;">
                         <div class="btnTag" style="line-height: 16px; text-align: left;">
                             FROM OUTLET/CUSTOMER
@@ -99,7 +99,11 @@
                                 </td>
                                 <td>
                                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                                     <asp:HiddenField ID="hfFromBrand" runat="server" />
+                                    <asp:HiddenField ID="hfFromBrand" runat="server" />
+                                     <asp:HiddenField ID="hfFromCustomerNumber" runat="server" />
+                                    <asp:HiddenField ID="hfPullOutLetterId" runat="server" />
+                                    <asp:HiddenField ID="hfPullOutSeriesNumber" runat="server" />
+                                    <asp:HiddenField ID="hfPullOutLetterCode" runat="server" />
                                 </td>
                             </tr>
                             <tr>
@@ -113,6 +117,17 @@
                                 <td>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                    TOTAL AMOUNT:
+                                </td>
+                                <td>
+                                    <asp:TextBox CssClass="modalText" Height="22px" Width="100px" ID="txtTotalAmount" runat="server"
+                                        ForeColor="#CC0000" Font-Bold="true" ReadOnly="True"></asp:TextBox>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                     <div class="form" style="float: left; margin-left: 5px;">
@@ -121,11 +136,14 @@
                         </div>
                         <table style="">
                             <tr>
-                                <td>
-                                    &nbsp;
+                                <td class="modalLabel">
+                                    ST DATE:
                                 </td>
-                                <td>
-                                    &nbsp;
+                                <td class="modalLabel" style="text-align: left;">
+                                    <asp:TextBox ID="txtSTDate" CssClass="modalText calendar" Height="22px" runat="server"></asp:TextBox>
+                                    <asp:CalendarExtender ID="txtSRDate_CalendarExtender" runat="server" Enabled="True"
+                                        TargetControlID="txtSTDate">
+                                    </asp:CalendarExtender>
                                 </td>
                                 <td>
                                     &nbsp;
@@ -144,9 +162,9 @@
                                         Enabled="True" PopupControlID="pnlCustomerOutletModal" PopupDragHandleControlID="pnlCustomerOutletModalDrag"
                                         TargetControlID="btnBrowseToCustomer">
                                         <Animations>
-                                <OnShown>
-                                    <FadeIn Duration=".2" />
-                                </OnShown>
+                                            <OnShown>
+                                                <FadeIn Duration=".2" />
+                                            </OnShown>
                                         </Animations>
                                     </asp:ModalPopupExtender>
                                 </td>
@@ -180,6 +198,7 @@
                             </tr>
                             <tr>
                                 <td class="modalLabel">
+                                    REFERENCE #:
                                     <asp:HiddenField ID="hfPGMDNo" runat="server" />
                                     <asp:HiddenField ID="hfSubAreaGroupNo" runat="server" />
                                     <asp:HiddenField ID="hfAreaGroupNo" runat="server" />
@@ -187,9 +206,29 @@
                                     <asp:HiddenField ID="hfCustomerNumber" runat="server" />
                                     <asp:HiddenField ID="hfBrandCode" runat="server" />
                                     <asp:HiddenField ID="hfForwarder" runat="server" />
-                                    <asp:HiddenField ID="hfPullOutLetterCode" runat="server" />
+                                     <asp:HiddenField ID="hfStockTransferCode" runat="server" />
                                 </td>
                                 <td>
+                                    <asp:TextBox CssClass="modalText" Font-Size="10px" Height="22px" Width="200px" ID="txtReferenceNumber"
+                                        runat="server" ReadOnly="True"></asp:TextBox>
+                                    <asp:Image ID="imgReferenceNumberInfo" runat="server" Height="18px" ToolTip="What is this?"
+                                        ImageUrl="~/Resources/info.png" ImageAlign="AbsMiddle" />
+                                    <asp:HoverMenuExtender ID="imgReferenceNumberInfo_HoverMenuExtender" runat="server"
+                                        DynamicServicePath="" Enabled="True" PopupControlID="pnlReferenceNumberInfo"
+                                        PopupPosition="Bottom" TargetControlID="imgReferenceNumberInfo">
+                                    </asp:HoverMenuExtender>
+                                    <asp:Panel ID="pnlReferenceNumberInfo" runat="server">
+                                        <div class="hover-menu-arrow">
+                                        </div>
+                                        <div class="hover-menu">
+                                            <div class="modalLabel" style="text-align: left; width: 250px;">
+                                                <img src="../Resources/info.png" alt="" align="left" />
+                                                <span>REREFENCE NUMBER</span> is a auto generated for Delivery Reciept Creation.
+                                                <br />
+                                                Reference as Delivery Number.
+                                            </div>
+                                        </div>
+                                    </asp:Panel>
                                     <asp:HiddenField ID="hfErrorModalHandLer" runat="server" />
                                     <asp:ModalPopupExtender ID="hfErrorModalHandLer_ModalPopupExtender" runat="server"
                                         DynamicServicePath="" Enabled="True" TargetControlID="hfErrorModalHandLer" CancelControlID="btnOKError"
@@ -222,14 +261,15 @@
                 <div style="margin: 5px; width: 700px;">
                     <div class="titleForm">
                         LIST OF STOCKS TOBE TRANSFERED
-                        <div style="float: right;">
+                        <%--<div style="float: right;">
                             <asp:Button ID="btnRemoveItem" CssClass="btnDelete" runat="server" Text="" Height="19px" />
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="form">
                         <asp:GridView ID="gvPullOutDetails" CssClass="table_grid" runat="server" AutoGenerateColumns="False"
                             DataKeyNames="ID,PULL_OUT_CODE" DataSourceID="SqlDataSourceDetails" CellPadding="4"
-                            ForeColor="#333333" GridLines="None" AllowSorting="True">
+                            ForeColor="#333333" GridLines="None" AllowSorting="True" 
+                            onrowdatabound="gvPullOutDetails_RowDataBound">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:TemplateField>
@@ -245,20 +285,17 @@
                                         <asp:CheckBox ID="CheckBox1" runat="server" />
                                     </EditItemTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkStyle" runat="server" />
+                                        <asp:CheckBox ID="chkItems" runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="CONTAINER_TYPE" HeaderText="CON." 
-                                    SortExpression="CONTAINER_TYPE">
+                                <asp:BoundField DataField="CONTAINER_TYPE" HeaderText="CON." SortExpression="CONTAINER_TYPE">
                                     <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="CONTAINER_NO" HeaderText="CON.#" 
-                                    SortExpression="CONTAINER_NO">
+                                <asp:BoundField DataField="CONTAINER_NO" HeaderText="CON.#" SortExpression="CONTAINER_NO">
                                     <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="STYLE_NO" HeaderText="STYLE #" 
-                                    SortExpression="STYLE_NO" >
-                                <ItemStyle Font-Bold="True" ForeColor="#993300" HorizontalAlign="Center" />
+                                <asp:BoundField DataField="STYLE_NO" HeaderText="STYLE #" SortExpression="STYLE_NO">
+                                    <ItemStyle Font-Bold="True" ForeColor="#993300" HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="STYLE_DESCRIPTION" HeaderText="DESCRIPTION" SortExpression="STYLE_DESCRIPTION" />
                                 <asp:BoundField DataField="QUANTITY" HeaderText="QTY" SortExpression="QUANTITY">
@@ -293,6 +330,16 @@
                         </asp:SqlDataSource>
                     </div>
                 </div>
+            </div>
+            <div style="margin: 20px; text-align: center;">
+                <asp:Button ID="btnSaveTransfer" runat="server" CssClass="btnSave" Text="SAVE" Enabled="False" />
+                <asp:ModalPopupExtender ID="btnSaveTransfer_ModalPopupExtender" runat="server" BackgroundCssClass="bgModal"
+                    CancelControlID="iBtnPnlSaveModal" DynamicServicePath="" Enabled="True" PopupControlID="pnlSaveModal"
+                    PopupDragHandleControlID="pnlSaveModalDrag" TargetControlID="btnSaveTransfer">
+                </asp:ModalPopupExtender>
+                <a href="TransferManagementPanel.aspx">
+                    <input id="btnBackToList" class="btnCancel" type="button" style="width: 110px;" value="BACK TO LIST" />
+                </a>
             </div>
             <asp:Panel ID="pnlCustomerOutletModal" CssClass="modal" runat="server">
                 <asp:Panel ID="pnlCustomerOutletModalDrag" CssClass="modalDrag" runat="server">
@@ -355,17 +402,70 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        
-                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND brand=@BRAND">
+                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND brand=@BRAND"
+                        EnableCaching="True">
                         <SelectParameters>
-                            <asp:ControlParameter ControlID="hfFromBrand" Name="BRAND" 
-                                PropertyName="Value" />
+                            <asp:ControlParameter ControlID="hfFromBrand" Name="BRAND" PropertyName="Value" />
                         </SelectParameters>
                     </asp:SqlDataSource>
+                </div>
+                 <div class="modalLabel" style="margin: 3px; text-align: center;">
+                    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upnlStockTransfer">
+                        <ProgressTemplate>
+                            <img src="../Resources/294.gif" alt="" />
+                            <br />
+                            Please wait...
+                        </ProgressTemplate>
+                    </asp:UpdateProgress>
                 </div>
                 <div style="margin: 5px; text-align: center;">
                     <asp:Button ID="btnSelectCustomer" CssClass="modalWarningButtonYes" runat="server"
                         Enabled="false" Text="OK" OnClick="btnSelectCustomer_Click" />
+                </div>
+            </asp:Panel>
+             <asp:Panel ID="pnlSaveModal" CssClass="modal" runat="server">
+                <asp:Panel ID="pnlSaveModalDrag" CssClass="modalDrag" runat="server">
+                    <div class="close_btn">
+                        <asp:ImageButton ID="iBtnPnlSaveModal" runat="server" CssClass="btnClose" ImageUrl="~/Resources/cancel_gray.png"
+                            ToolTip="CLOSE" />
+                    </div>
+                    <div class="sizeLogo">
+                        <img alt="new brand" src="../Resources/question.png" height="15" align="top" />
+                        CONFIRMATION!
+                    </div>
+                </asp:Panel>
+                <div class="modalLabel" style="text-align: center; padding: 10px; font-size: 1em;
+                    line-height: 40px;">
+                    <img src="../Resources/question.png" alt="" align="left" />
+                    Are you sure you want to save this data?
+                </div>
+                <div style="text-align: center; margin: 5px;">
+                    <asp:Button ID="btnSaveYes" runat="server" Text="YES" CssClass="modalWarningButtonYes"
+                        OnClick="btnSaveYes_Click" />
+                    <asp:Button ID="btnCancelSave" runat="server" Text="NO" CssClass="modalWarningButtonNo" />
+                </div>
+            </asp:Panel>
+            <asp:HiddenField ID="hfSuccessfulModalHandler" runat="server" />
+            <asp:ModalPopupExtender ID="hfSuccessfulModalHandler_ModalPopupExtender" runat="server"
+                DynamicServicePath="" Enabled="True" PopupControlID="pnlSuccessfulSaveModal"
+                PopupDragHandleControlID="pnlSuccessfulSaveModalDrag" TargetControlID="hfSuccessfulModalHandler">
+            </asp:ModalPopupExtender>
+            <asp:Panel ID="pnlSuccessfulSaveModal" CssClass="modal" runat="server">
+                <asp:Panel ID="pnlSuccessfulSaveModalDrag" CssClass="modalDrag" runat="server">
+                    <div class="sizeLogo">
+                        <img alt="new brand" src="../Resources/info.png" height="15" align="top" />
+                        SUCCESSFUL!
+                    </div>
+                </asp:Panel>
+                <div class="modalLabel" style="text-align: center; padding: 10px; font-size: 1em;
+                    line-height: 40px;">
+                    <img src="../Resources/info.png" alt="" align="left" />
+                    Data has been successfully saved!
+                </div>
+                <div style="text-align: center; margin: 5px;">
+                    <a href="TransferManagementPanel.aspx" style="text-decoration: none;">
+                        <input id="btnSuccessfulOK" type="button" class="modalWarningButtonYes" value="OK" />
+                    </a>
                 </div>
             </asp:Panel>
         </ContentTemplate>

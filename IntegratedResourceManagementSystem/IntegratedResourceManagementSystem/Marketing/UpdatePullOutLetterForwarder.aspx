@@ -86,8 +86,8 @@
                     </td>
                     <td>
                         <asp:Button ID="btnSave" CssClass="btnSave" runat="server" Text="SAVE" OnClick="btnSave_Click" />
-                        <asp:HyperLink ID="hpLinkBack" Height="16px" Width="100px" Style="line-height: 16px;"
-                            CssClass="btnCancel" runat="server">BACK TO LIST</asp:HyperLink>
+                        <asp:HyperLink CssClass="btnCancel" ID="hpLinkBack" Height="16px" Width="50px"  Style="line-height: 16px;"
+                            runat="server">BACK</asp:HyperLink>
                     </td>
                     <td>
                         &nbsp;
