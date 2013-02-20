@@ -25,7 +25,7 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
 
         private void LoadPullOutLetterReport(string Brand, string Status)
         {
-            var pullOutLetters = POLManager.FetchAll().Where(pol => pol.BranchName == Brand & pol.LetterStatus == Status);
+            var pullOutLetters = POLManager.FetchAll().Where(pol => pol.BrandName == Brand & pol.LetterStatus == Status);
             gvPullOutLetters.DataSource = pullOutLetters;
             gvPullOutLetters.DataBind();
         }
