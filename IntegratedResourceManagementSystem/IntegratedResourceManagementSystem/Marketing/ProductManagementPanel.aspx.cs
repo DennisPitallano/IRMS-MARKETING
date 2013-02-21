@@ -40,8 +40,21 @@ namespace IntegratedResourceManagementSystem.Marketing
         #endregion
 
         #region Page_init
+
+        private void InitBrandList()
+        {
+            DDLBrands.Items.Clear();
+            DDLBrands.DataSource = BM.Brands();
+            DDLBrands.Items.Add(new ListItem("ALL", "ALL"));
+            foreach (var brand in BM.Brands())
+            {
+                DDLBrands.Items.Add(new ListItem(brand.BrandDescription, brand.BrandDescription));
+            }
+        }
+
         protected void Page_Init(object sender, EventArgs e)
         {
+            InitBrandList();
             #region check roles
             Permission.PERMITTED_USER = (UsersClass)Session["USER_ACCOUNT"];
            
@@ -123,6 +136,8 @@ namespace IntegratedResourceManagementSystem.Marketing
                     btnUpdateProductCategory.Visible = false;
                    
                 }
+                hpLinkStyleDetails.NavigateUrl = "~/Marketing/ViewProductsData.aspx?source=details&SN=" + hfStyleNumber.Value + "&Brand=" + gvProductList.SelectedDataKey[1].ToString();
+                hpLinkPrintPreview.NavigateUrl = "~/Reports/ReportForms/StylePrintPreview.aspx?SN=" + hfStyleNumber.Value + "&Brand=" + gvProductList.SelectedDataKey[1].ToString();
             }
             catch (Exception ex)
             {
@@ -158,8 +173,9 @@ namespace IntegratedResourceManagementSystem.Marketing
 
         private void LoadAllStyles(string approve_status="")
         {
-            StyleManager.FilterStyles(SqlDataSourceStyles, approve_status);
-           
+          //  StyleManager.FilterStyles(SqlDataSourceStyles, approve_status);
+            gvProductList.DataBind();
+            DDLBrands.SelectedIndex = 0;
         }
 
         protected void btnGenerateItemCodeAndSKUS_Click(object sender, EventArgs e)
@@ -339,6 +355,31 @@ namespace IntegratedResourceManagementSystem.Marketing
                 return;
             }
             StyleManager.SearchStyles(SqlDataSourceStyles, txtSearch.Text);
+        }
+
+        protected void btnFilterByBrand_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearch.Text) || !string.Equals(DDLBrands.SelectedValue, "ALL"))
+            {
+                StyleManager.SearchStyles(SqlDataSourceStyles, txtSearch.Text, DDLBrands.SelectedValue);
+            }
+        }
+
+        protected void gvProductList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearch.Text) || !string.Equals(DDLBrands.SelectedValue,"ALL"))
+            {
+                StyleManager.SearchStyles(SqlDataSourceStyles, txtSearch.Text, DDLBrands.SelectedValue);
+            }
+            
+        }
+
+        protected void gvProductList_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearch.Text) || !string.Equals(DDLBrands.SelectedValue, "ALL"))
+            {
+                StyleManager.SearchStyles(SqlDataSourceStyles, txtSearch.Text, DDLBrands.SelectedValue);
+            }
         }
     }
 }

@@ -30,15 +30,7 @@
 				</div>
 		</asp:Panel>
 	</div>
-	<div class="mnuIcon" title="Manage Outright MarkDown Memo">
-		<div>
-			<a class="lblMenu" href="../Marketing/RequestPanel.aspx">
-				<img src="../Resources/adjustment.png" height="36px" title="Manage Pull Out Requests" />
-			</a>
-		</div>
-		<a title="Manage Pull Out Requests" class="lblMenu" style="font-size: 10px; font-weight: bold;"
-			href="../Marketing/RequestPanel.aspx">PULL-OUT REQUEST</a>
-	</div>
+	
 	<div class="mnuIcon" title="MarkDown Reports">
 		<div>
 			<a class="lblMenu" href="../Marketing/ReturnsAndTransferReportPanel.aspx">
@@ -62,10 +54,10 @@
 	<div class="mnuIcon">
 		<div>
 			<a class="lblMenu" href="../Marketing/TransferManagementPanel.aspx">
-				<img src="../Resources/adjustment.png" title="Manage Transfer Item/s" />
+				<img src="../Resources/adjustment.png" title="Manage Transfer Item/s" height="34px" />
 			</a>
 		</div>
-		<a title="Manage Transfer Item/s" class="lblMenu" style="font-family: Verdana; font-size: 11px;
-			font-weight: bold;" href="../Marketing/TransferManagementPanel.aspx">TRANSFER</a>
+		<a title="Manage Stock Transfer" class="lblMenu" style="font-family: Verdana; font-size: 11px;
+			font-weight: bold;" href="../Marketing/TransferManagementPanel.aspx">STOCK TRANSFER</a>
 	</div>
 </div>

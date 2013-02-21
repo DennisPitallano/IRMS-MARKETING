@@ -7,6 +7,7 @@
 <%@ Register Src="~/Marketing/controls/UCLoader.ascx" TagName="LOADER" TagPrefix="UC" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <link href="../Styles/marketing-item-master.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/pull-out-letter.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
      .txtwatermark
      {
@@ -92,7 +93,10 @@
             </div>
             <asp:MultiView ID="mvwItemManagement" runat="server">
                 <asp:View ID="vStyleCreator" runat="server">
-                    <div>
+                <div class="titleForm" style="height:14px; width:753px;">
+                    STYLE GENERATOR
+                </div>
+                    <div class="form" style="width:750px;">
                         <asp:Panel ID="pnlGenerateItemCodeSKU" runat="server" Width="790px">
                             <div>
                                 <table style="width: 100%;">
@@ -110,7 +114,7 @@
                                             &nbsp;
                                         </td>
                                         <td>
-                                            &nbsp;
+                                           
                                         </td>
                                     </tr>
                                     <tr>

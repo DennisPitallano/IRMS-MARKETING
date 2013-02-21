@@ -31,6 +31,105 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.UpdatePanel upnlPullOutLetter;
         
         /// <summary>
+        /// btnUpdateForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdateForwarder;
+        
+        /// <summary>
+        /// btnUpdateForwarder_HoverMenuExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.HoverMenuExtender btnUpdateForwarder_HoverMenuExtender;
+        
+        /// <summary>
+        /// pnlReferenceNumberInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlReferenceNumberInfo;
+        
+        /// <summary>
+        /// txtCustomerDefaultForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCustomerDefaultForwarder;
+        
+        /// <summary>
+        /// btnEditForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditForwarder;
+        
+        /// <summary>
+        /// btnEditForwarder_ModalPopupExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender btnEditForwarder_ModalPopupExtender;
+        
+        /// <summary>
+        /// pnlForwarderPanelChangeModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlForwarderPanelChangeModal;
+        
+        /// <summary>
+        /// pnlForwarderPanelChangeModalDrag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlForwarderPanelChangeModalDrag;
+        
+        /// <summary>
+        /// DDLForwarders control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLForwarders;
+        
+        /// <summary>
+        /// btnSelectForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSelectForwarder;
+        
+        /// <summary>
+        /// btnSelectForwarderCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSelectForwarderCancel;
+        
+        /// <summary>
         /// rdioPLType control.
         /// </summary>
         /// <remarks>

@@ -31,6 +31,10 @@
                 <div style="float: left;">
                     <div class="titleForm">
                         PULL-OUT LETTER FORM
+                        <div id="Div1" style="float: right; margin-left:3px; margin-right:2px;" runat="server">
+                            <asp:HyperLink ID="hpLinlUpdateForwarder"  CssClass="btnUpdate" Height="18px"
+                             style="line-height:18px; padding-right:3px; text-decoration:none;" runat="server">assign forwarder</asp:HyperLink>
+                        </div>
                     </div>
                     <div id="pnlLetterHeader" style="" class="form">
                         <table style="">
@@ -177,6 +181,15 @@
                                 <td>
                                 </td>
                                 <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="modalLabel">
+                                FORWARDER:
+                                </td>
+                                 <td colspan="3">
+                                  <asp:TextBox ID="txtForwarder" Font-Size="10px" ReadOnly="true" Height="23px" CssClass="modalText"
+                                        Width="300px" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -335,7 +348,7 @@
                     TargetControlID="btnSave">
                 </asp:ModalPopupExtender>
                 <a href="PullOutLettersManagementPanel.aspx" style="text-decoration: none;">
-                    <input id="btnCancel" class="btnCancel" type="button" value="CANCEL" />
+                    <input id="btnCancel" style="width:110px" class="btnCancel" type="button" value="BACK TO LIST" />
                 </a>
                 <asp:Panel ID="pnlSaveModal" CssClass="modal" runat="server">
                     <asp:Panel ID="pnlSaveModalDrag" CssClass="modalDrag" runat="server">

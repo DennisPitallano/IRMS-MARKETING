@@ -10,6 +10,26 @@
       <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
       <link rel="icon" type="image/x-icon" href="../Resources/favicon.ico">
       <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+       <script src='<%# ResolveUrl("Scripts/jquery-1.7.2.min.js") %>' type="text/javascript">
+    </script>
+    <script language="javascript" type="text/javascript">
+        var test = "<%# form1.ClientID %>";
+        jQuery(document).ready(function () {
+            // binds form submission and fields to the validation engine
+            jQuery("#<%# form1.ClientID %>").validationEngine();
+        });
+        function ConfirmMsg(msg) {
+            if (confirm(msg)) {
+                return true;
+            } else { return false; }
+        }
+    </script>
+    <link rel="stylesheet" href="../Styles/validationEngine.jquery.css" type="text/css" />
+    <script src="../Scripts/jquery.validationEngine-en.js" type="text/javascript"></script>
+     <script src="../Scripts/jquery.validationEngine.js" type="text/javascript"></script>
+    <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="css/iecss.css" />
+    <![endif]-->
     <asp:ContentPlaceHolder ID="head" runat="server">
 
     </asp:ContentPlaceHolder>
@@ -74,7 +94,8 @@
       
          Developed by: <a href ="http://www.iserve.biz" target="_blank" >iServe Customer Management Solution Inc.</a>
         <br />
-        iServe Customer Management Solution Inc. © 2011. All rights reserved. 
+        iServe Customer Management Solution Inc. © 
+        <asp:Label ID="lblDateYear" runat="server" Text=""></asp:Label>. All rights reserved. 
     </div>
     </form>
 </body>

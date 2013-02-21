@@ -161,7 +161,7 @@ namespace IRMS.BusinessLogic.Manager
 
         public List<IRMSProduct> GetAllProductsByStyleNumber(string StyleNumber)
         {
-            return Accessor.GetAllProductsByStyleNumber(StyleNumber);
+            return Accessor.GetAllProductsByStyleNumber(StyleNumber) ?? new List<IRMSProduct>();
         }
 
         public void DeleteProduct(IRMSProduct product)
@@ -169,6 +169,29 @@ namespace IRMS.BusinessLogic.Manager
             using (DbManager dbm = new DbManager())
             {
                 Accessor.Query.Delete(dbm, product);
+            }
+        }
+
+        public void Save(IRMSProduct product)
+        {
+            using (DbManager db = new DbManager())
+            {
+                if (product.ProductNumber  != 0)
+                {
+                    Accessor.Query.Update(db, product);
+                }
+                else
+                {
+                    Identity = Accessor.Query.InsertAndGetIdentity(db, product);
+                }
+            }
+        }
+
+        public void Save(List<IRMSProduct> products)
+        {
+            foreach (IRMSProduct product in products)
+            {
+                Save(product);
             }
         }
 

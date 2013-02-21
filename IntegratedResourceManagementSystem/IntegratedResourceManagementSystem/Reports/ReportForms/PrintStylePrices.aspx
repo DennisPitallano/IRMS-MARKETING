@@ -267,9 +267,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
                     <asp:GridView ID="gvRegularBottom" runat="server" AutoGenerateColumns="False" OnRowCreated="gvPriceStyles_RowCreated">
                         <Columns>
                             <asp:BoundField DataField="StyleNo" HeaderText="STYLE #">
-                                <ItemStyle Font-Bold="True" />
+                                <HeaderStyle Wrap="False" />
+                                <ItemStyle Font-Bold="True" Wrap="False" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="GrpNo" HeaderText="DESCRIPTION" />
+                            <asp:BoundField DataField="GrpNo" HeaderText="DESCRIPTION" >
+                            <ItemStyle Wrap="False" />
+                            </asp:BoundField>
                             <asp:BoundField DataField="Price" DataFormatString="{0:###,###.00}" 
                                 HeaderText="SRP">
                                 <ItemStyle ForeColor="#CC0000" HorizontalAlign="Center" />

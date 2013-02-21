@@ -35,41 +35,83 @@
                 <img alt="BACK" src="../Resources/reply.png" alt="BACK" /></a>
         </div>
     </div>
-    <div class="titleList" style="width: 750px;">
-        PULL-OUT LETTER FORM
-    </div>
     <asp:UpdatePanel ID="upnlPullOut" runat="server">
         <ContentTemplate>
+            <div class="titleList" style="width: 750px;">
+                PULL-OUT LETTER FORM
+                <div style="float: right;">
+                    <asp:Button ID="btnUpdateForwarder" Enabled="false" CssClass="btnAddForwarderDisAble" runat="server"
+                        Text="forwarder" />
+                    <asp:HoverMenuExtender ID="btnUpdateForwarder_HoverMenuExtender" runat="server" DynamicServicePath=""
+                        Enabled="True" PopupControlID="pnlReferenceNumberInfo" PopupPosition="Bottom"
+                        TargetControlID="btnUpdateForwarder">
+                    </asp:HoverMenuExtender>
+                    <asp:Panel ID="pnlReferenceNumberInfo" runat="server">
+                        <div class="hover-menu-arrow">
+                        </div>
+                        <div class="hover-menu">
+                            <div class="modalLabel" style="text-align: left; width: 250px; margin: 3px;">
+                                FORWARDER:<asp:TextBox ID="txtCustomerDefaultForwarder" ReadOnly="true" Width="250px"
+                                    Font-Size="10px" CssClass="modalText" Height="22px" runat="server"></asp:TextBox>
+                            </div>
+                            <div style="margin: 3px; text-align: center;">
+                                <asp:Button ID="btnEditForwarder" runat="server" CssClass="btnAddForwarder" Text="change forwarder" />
+                                <asp:ModalPopupExtender ID="btnEditForwarder_ModalPopupExtender" runat="server" DynamicServicePath=""
+                                    PopupControlID="pnlForwarderPanelChangeModal" PopupDragHandleControlID="pnlForwarderPanelChangeModalDrag"
+                                    CancelControlID="btnSelectForwarderCancel" Enabled="True" TargetControlID="btnEditForwarder">
+                                </asp:ModalPopupExtender>
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel ID="pnlForwarderPanelChangeModal" CssClass="modal" runat="server">
+                        <asp:Panel ID="pnlForwarderPanelChangeModalDrag" CssClass="modalDrag" runat="server">
+                            <div class="sizeLogo">
+                                FORWARDERS
+                            </div>
+                        </asp:Panel>
+                        <div class="modalLabel" style="margin: 5px; text-align: center;">
+                            FORWARDERS:<asp:DropDownList ID="DDLForwarders" CssClass="modalText" Height="22px"
+                                runat="server">
+                            </asp:DropDownList>
+                        </div>
+                        <div style="margin: 5px; text-align: center;">
+                            <asp:Button ID="btnSelectForwarder" runat="server" CssClass="btnAddForwarder" Text="SELECT"
+                                OnClick="btnSelectForwarder_Click" />
+                            <asp:Button ID="btnSelectForwarderCancel" runat="server" CssClass="btnAddForwarder"
+                                Text="CANCEL" />
+                        </div>
+                    </asp:Panel>
+                </div>
+            </div>
             <div class="form" id="pnlLetterHeader" style="width: 750px;" class="form">
                 <table style="">
-                <tr>
-                    <td class="modalLabel">
-                    PULL-OUT LETTER FOR:
-                    </td>
-                    <td>
-                        <asp:RadioButtonList ID="rdioPLType" AutoPostBack="true" CssClass="modalText" runat="server" 
-                            RepeatDirection="Horizontal" 
-                            onselectedindexchanged="rdioPLType_SelectedIndexChanged">
-                            <asp:ListItem Selected="True" Value="BL">BL (Back Load)</asp:ListItem>
-                            <asp:ListItem Value="ST">ST (Stock Transfer)</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="modalLabel">
+                            PULL-OUT LETTER FOR:
+                        </td>
+                        <td>
+                            <asp:RadioButtonList ID="rdioPLType" AutoPostBack="true" CssClass="modalText" runat="server"
+                                RepeatDirection="Horizontal" OnSelectedIndexChanged="rdioPLType_SelectedIndexChanged">
+                                <asp:ListItem Selected="True" Value="BL">BL (Back Load)</asp:ListItem>
+                                <asp:ListItem Value="ST">ST (Stock Transfer)</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
                     <tr>
                         <td class="modalLabel">
                             SERIES #:
                         </td>
                         <td colspan="2">
-                            <asp:TextBox ID="txtSeriesNumber" ReadOnly="true" Font-Bold="true" Font-Italic="true"  Width="180px" Height="20px" CssClass="modalText"
-                                runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtSeriesNumber" ReadOnly="true" Font-Bold="true" Font-Italic="true"
+                                Width="180px" Height="20px" CssClass="modalText" runat="server"></asp:TextBox>
                             <asp:HiddenField ID="hfLastPullOutLetterNumber" runat="server" />
                         </td>
                         <td>
@@ -402,9 +444,9 @@
                     </div>
                     <div style="min-height: 420px;">
                         <div class="form" style="display: inline-block; float: left; margin-bottom: 10px;">
-                            <div class="modalText" style="font-size: 10px; height:20px; line-height:22px; font-weight: bold; padding: 3px 1px 10px 3px;
-                                margin-bottom: 2px;">
-                                <div style="float:left;" class="SearchTextContainer">
+                            <div class="modalText" style="font-size: 10px; height: 20px; line-height: 22px; font-weight: bold;
+                                padding: 3px 1px 10px 3px; margin-bottom: 2px;">
+                                <div style="float: left;" class="SearchTextContainer">
                                     SEARCH:
                                     <asp:TextBox ID="txtSearchStyleNumber" runat="server" autofocus placeholder="Search Style"
                                         CssClass="modalText" AutoPostBack="True" Height="16px" Font-Size="10px" Width="100px"
@@ -412,12 +454,12 @@
                                     <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
                                         ToolTip="SEARCH" OnClick="imgBtnSearch_Click" />
                                 </div>
-                                <div style="float:right;">
+                                <div style="float: right;">
                                     <asp:Button Text="add lost tag" ID="btnAddLostTagItems" CssClass="btnTag" runat="server" />
-                                    <asp:ModalPopupExtender ID="btnAddLostTagItems_ModalPopupExtender" 
-                                        runat="server" DynamicServicePath="" Enabled="True" PopupControlID="pnlAddLostTagItemsModal"
-                                         PopupDragHandleControlID ="pnlAddLostTagItemsModalDrag" CancelControlID ="lblCancelAddLostTag" BackgroundCssClass="bgModal"
-                                        TargetControlID="btnAddLostTagItems">
+                                    <asp:ModalPopupExtender ID="btnAddLostTagItems_ModalPopupExtender" runat="server"
+                                        DynamicServicePath="" Enabled="True" PopupControlID="pnlAddLostTagItemsModal"
+                                        PopupDragHandleControlID="pnlAddLostTagItemsModalDrag" CancelControlID="lblCancelAddLostTag"
+                                        BackgroundCssClass="bgModal" TargetControlID="btnAddLostTagItems">
                                     </asp:ModalPopupExtender>
                                     <asp:Panel ID="pnlAddLostTagItemsModal" CssClass="modal" runat="server">
                                         <asp:Panel CssClass="modalDrag" ID="pnlAddLostTagItemsModalDrag" runat="server">
@@ -425,14 +467,15 @@
                                                 ADD LOST TAG
                                             </div>
                                         </asp:Panel>
-                                        <div style ="margin:5px;">
-                                        <label for="MainContent_txtLostTagQty">QTY:</label>
-                                            <asp:TextBox ID="txtLostTagQty" Height="22px" Width ="50px" CssClass="modalText" runat="server"></asp:TextBox>
+                                        <div style="margin: 5px;">
+                                            <label for="MainContent_txtLostTagQty">
+                                                QTY:</label>
+                                            <asp:TextBox ID="txtLostTagQty" Height="22px" Width="50px" CssClass="modalText" runat="server"></asp:TextBox>
                                         </div>
-                                        <div style="text-align:center; margin:2px 5px 5px 5px;">   
-                                            <asp:Button ID="btnSaveLostTag" CssClass="btnTag" runat="server" Text="SAVE" 
-                                                onclick="btnSaveLostTag_Click" />
-                                            <asp:Label Text="CANCEL" style=" cursor:pointer;" ID="lblCancelAddLostTag" CssClass="modalLabel" runat="server" />
+                                        <div style="text-align: center; margin: 2px 5px 5px 5px;">
+                                            <asp:Button ID="btnSaveLostTag" CssClass="btnTag" runat="server" Text="SAVE" OnClick="btnSaveLostTag_Click" />
+                                            <asp:Label Text="CANCEL" Style="cursor: pointer;" ID="lblCancelAddLostTag" CssClass="modalLabel"
+                                                runat="server" />
                                         </div>
                                     </asp:Panel>
                                 </div>
@@ -466,9 +509,8 @@
                                         <ItemStyle Font-Bold="True" />
                                     </asp:BoundField>
                                     <asp:BoundField DataField="BrandName" HeaderText="BRAND" SortExpression="BrandName" />
-                                    <asp:BoundField DataField="StyleDesc" HeaderText="DESCRIPTION" 
-                                        SortExpression="StyleDesc" >
-                                    <ItemStyle Width="180px" />
+                                    <asp:BoundField DataField="StyleDesc" HeaderText="DESCRIPTION" SortExpression="StyleDesc">
+                                        <ItemStyle Width="180px" />
                                     </asp:BoundField>
                                     <asp:TemplateField HeaderText="QTY">
                                         <EditItemTemplate>
@@ -491,9 +533,9 @@
                                 </Columns>
                                 <EditRowStyle BackColor="#7C6F57" />
                                 <EmptyDataTemplate>
-                                <div style="line-height:32px;">
-                                    <img src="../Resources/unhappy.png" alt="" align="left" />
-                                    STYLE NOT FOUND!
+                                    <div style="line-height: 32px;">
+                                        <img src="../Resources/unhappy.png" alt="" align="left" />
+                                        STYLE NOT FOUND!
                                     </div>
                                 </EmptyDataTemplate>
                                 <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -522,8 +564,7 @@
                                     <img src="../Resources/box-icon.png" alt="" align="top" style="" />
                                     USE BOX#:
                                     <asp:RadioButtonList ID="chkBoxList" CssClass="modalLabel" RepeatColumns="3" RepeatDirection="Horizontal"
-                                        runat="server" AutoPostBack="True" 
-                                        onselectedindexchanged="chkBoxList_SelectedIndexChanged">
+                                        runat="server" AutoPostBack="True" OnSelectedIndexChanged="chkBoxList_SelectedIndexChanged">
                                     </asp:RadioButtonList>
                                     <%-- <asp:CheckBoxList ID="chkBoxList" CssClass="modalLabel" runat="server" RepeatColumns="3"
                                         RepeatDirection="Horizontal">
@@ -535,8 +576,7 @@
                                     <img src="../Resources/Sack16.png" alt="" align="top" style="" />
                                     USE SACK#:
                                     <asp:RadioButtonList ID="chkSackList" CssClass="modalLabel" RepeatColumns="3" RepeatDirection="Horizontal"
-                                        runat="server" AutoPostBack="True" 
-                                        onselectedindexchanged="chkSackList_SelectedIndexChanged">
+                                        runat="server" AutoPostBack="True" OnSelectedIndexChanged="chkSackList_SelectedIndexChanged">
                                     </asp:RadioButtonList>
                                     <%--<asp:CheckBoxList ID="chkSackList" CssClass="modalLabel" runat="server" RepeatColumns="3"
                                         RepeatDirection="Horizontal">
@@ -560,77 +600,76 @@
                                             Text=""></asp:Label>
                                     </div>
                                 </div>
-                                <asp:GridView ID="gvSelectedStyles" CssClass="table_grid" runat="server"
-                                        CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
-                                        <AlternatingRowStyle BackColor="White" />
-                                        <Columns>
-                                            <asp:TemplateField>
-                                                <EditItemTemplate>
-                                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                                </EditItemTemplate>
-                                                <ItemTemplate>
-                                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/product.png" Height="16px" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField>
-                                                <EditItemTemplate>
-                                                    <asp:CheckBox ID="CheckBox1" runat="server" />
-                                                </EditItemTemplate>
-                                                <HeaderTemplate>
-                                                    <asp:CheckBox ID="chkAllSelected1" runat="server" title="Select All" ClientIDMode="Static"
-                                                        onclick="SelectAll('MainContent_gvSelectedStylesForSacks','chkAllSelected1')" />
-                                                </HeaderTemplate>
-                                                <ItemTemplate>
-                                                    <asp:CheckBox ID="chkItems" runat="server" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:BoundField DataField="StyleNumber" HeaderText="STYLE #">
-                                                <ItemStyle Font-Bold="True" />
-                                            </asp:BoundField>
-                                            <asp:BoundField DataField="StyleDescription" HeaderText="DESCRIPTION" 
-                                                HtmlEncode="False" >
+                                <asp:GridView ID="gvSelectedStyles" CssClass="table_grid" runat="server" CellPadding="4"
+                                    ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
+                                    <AlternatingRowStyle BackColor="White" />
+                                    <Columns>
+                                        <asp:TemplateField>
+                                            <EditItemTemplate>
+                                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/product.png" Height="16px" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <EditItemTemplate>
+                                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                                            </EditItemTemplate>
+                                            <HeaderTemplate>
+                                                <asp:CheckBox ID="chkAllSelected1" runat="server" title="Select All" ClientIDMode="Static"
+                                                    onclick="SelectAll('MainContent_gvSelectedStylesForSacks','chkAllSelected1')" />
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="chkItems" runat="server" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="StyleNumber" HeaderText="STYLE #">
+                                            <ItemStyle Font-Bold="True" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="StyleDescription" HeaderText="DESCRIPTION" HtmlEncode="False">
                                             <ItemStyle Width="170px" />
-                                            </asp:BoundField>
-                                            <asp:BoundField DataField="Quantity" HeaderText="QTY">
-                                                <ItemStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
-                                            </asp:BoundField>
-                                            <asp:BoundField DataField="SRP" HeaderText="SRP" DataFormatString="{0:###,###.00}">
-                                                <ItemStyle ForeColor="Red" />
-                                            </asp:BoundField>
-                                            <asp:BoundField DataField="TtlAmount" HeaderText="TOTAL AMT" DataFormatString="{0:###,###.00}">
-                                                <ItemStyle ForeColor="#CC0000" />
-                                            </asp:BoundField>
-                                            <asp:TemplateField HeaderText="LOST TAG?">
-                                                <EditItemTemplate>
-                                                    <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("IsLostTag") %>' />
-                                                </EditItemTemplate>
-                                                <ItemTemplate>
-                                                    <asp:CheckBox ID="chkIsLostTag" runat="server" Checked='<%# Bind("IsLostTag") %>'
-                                                        Enabled="false" />
-                                                </ItemTemplate>
-                                                <HeaderStyle Font-Size="8px" />
-                                                <ItemStyle HorizontalAlign="Center" Width="20px" />
-                                            </asp:TemplateField>
-                                            <asp:BoundField DataField="ContainerNumber" HeaderText="BOX#">
-                                                <HeaderStyle Font-Size="8px" />
-                                                <ItemStyle Font-Bold="True" ForeColor="Maroon" HorizontalAlign="Center" 
-                                                Width="28px" Wrap="True" />
-                                            </asp:BoundField>
-                                        </Columns>
-                                        <EditRowStyle BackColor="#7C6F57" />
-                                        <EmptyDataTemplate>
-                                            NO SELECTED ITEM!
-                                        </EmptyDataTemplate>
-                                        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                                        <RowStyle BackColor="#E3EAEB" />
-                                        <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                                        <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                                        <SortedAscendingHeaderStyle BackColor="#246B61" />
-                                        <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                                        <SortedDescendingHeaderStyle BackColor="#15524A" />
-                                    </asp:GridView>
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Quantity" HeaderText="QTY">
+                                            <ItemStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="SRP" HeaderText="SRP" DataFormatString="{0:###,###.00}">
+                                            <ItemStyle ForeColor="Red" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="TtlAmount" HeaderText="TOTAL AMT" DataFormatString="{0:###,###.00}">
+                                            <ItemStyle ForeColor="#CC0000" />
+                                        </asp:BoundField>
+                                        <asp:TemplateField HeaderText="LOST TAG?">
+                                            <EditItemTemplate>
+                                                <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("IsLostTag") %>' />
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                <asp:CheckBox ID="chkIsLostTag" runat="server" Checked='<%# Bind("IsLostTag") %>'
+                                                    Enabled="false" />
+                                            </ItemTemplate>
+                                            <HeaderStyle Font-Size="8px" />
+                                            <ItemStyle HorizontalAlign="Center" Width="20px" />
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="ContainerNumber" HeaderText="BOX#">
+                                            <HeaderStyle Font-Size="8px" />
+                                            <ItemStyle Font-Bold="True" ForeColor="Maroon" HorizontalAlign="Center" Width="28px"
+                                                Wrap="True" />
+                                        </asp:BoundField>
+                                    </Columns>
+                                    <EditRowStyle BackColor="#7C6F57" />
+                                    <EmptyDataTemplate>
+                                        NO SELECTED ITEM!
+                                    </EmptyDataTemplate>
+                                    <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#E3EAEB" />
+                                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                                </asp:GridView>
                             </div>
                             <%-- sacks--%>
                             <div>
@@ -670,9 +709,8 @@
                                             <asp:BoundField DataField="StyleNumber" HeaderText="STYLE #">
                                                 <ItemStyle Font-Bold="True" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="StyleDescription" HeaderText="DESCRIPTION" 
-                                                HtmlEncode="False" >
-                                            <ItemStyle Width="170px" />
+                                            <asp:BoundField DataField="StyleDescription" HeaderText="DESCRIPTION" HtmlEncode="False">
+                                                <ItemStyle Width="170px" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="Quantity" HeaderText="QTY">
                                                 <ItemStyle Font-Bold="True" ForeColor="Black" HorizontalAlign="Center" />
@@ -696,8 +734,8 @@
                                             </asp:TemplateField>
                                             <asp:BoundField DataField="ContainerNumber" HeaderText="SACK#">
                                                 <HeaderStyle Font-Size="8px" />
-                                                <ItemStyle Font-Bold="True" ForeColor="Maroon" HorizontalAlign="Center" 
-                                                Width="28px" Wrap="True" />
+                                                <ItemStyle Font-Bold="True" ForeColor="Maroon" HorizontalAlign="Center" Width="28px"
+                                                    Wrap="True" />
                                             </asp:BoundField>
                                         </Columns>
                                         <EditRowStyle BackColor="#7C6F57" />
@@ -825,7 +863,7 @@
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceCustomers" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL)">
+                        SelectCommand="SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) AND CompName LIKE '%SHOEMART%'">
                     </asp:SqlDataSource>
                 </div>
                 <div style="margin: 5px; text-align: center;">

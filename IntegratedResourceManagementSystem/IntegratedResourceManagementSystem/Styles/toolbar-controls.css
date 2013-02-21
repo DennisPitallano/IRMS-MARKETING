@@ -25,6 +25,8 @@
     text-shadow: 1px 1px 1px #E0E0E0;
     border-radius:5px 3px 5px 3px;
     border:1px Solid #7F921C;
+    
+   
 }
 
 .btnPrint:hover
@@ -70,6 +72,7 @@
     text-shadow: 1px 1px 1px #E0E0E0;
     border-radius:5px 3px 5px 3px;
     border:1px Solid #7F921C;
+    
 }
 .btnNew:hover
 {

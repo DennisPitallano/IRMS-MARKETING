@@ -27,5 +27,8 @@ namespace IRMS.ObjectModel
 
         [MapField("DATE_RECORDED")]
         public DateTime DateRecorded { get; set; }
+
+        [MapField("FITTING_SERIES_CODE")]
+        public string FittingSeriesCode { get; set; }
     }
 }

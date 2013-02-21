@@ -7,6 +7,11 @@
     <link href="../Styles/returns-and-transfer.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/pull-out-letter.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/brand-department-code.css" rel="stylesheet" type="text/css" />
+     <script language="javascript" type="text/javascript">
+         function validateEntry() {
+             return jQuery("#aspnetForm").validationEngine("validate");
+         }
+    </script>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="panelTitle">

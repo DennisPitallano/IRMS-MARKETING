@@ -13,7 +13,7 @@ namespace IntegratedResourceManagementSystem.Marketing
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-           
+            lblDateYear.Text = DateTime.UtcNow.Year.ToString();
 
         }
         protected void Page_Load(object sender, EventArgs e)
