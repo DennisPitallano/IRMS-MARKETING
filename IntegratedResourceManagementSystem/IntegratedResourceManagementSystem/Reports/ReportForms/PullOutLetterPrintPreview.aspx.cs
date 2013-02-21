@@ -26,6 +26,8 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
             lblDate.Text = DateTime.UtcNow.ToString("MMMM dd, yyyy");
             lblSeriesNumber.Text = Request.QueryString["PullOutSeries"];
             PullOutLetter pullOutLetter = POLManager.FetchById(PullOutId);
+
+
             lblDepartmentCode.Text = "Dept. Code: " + pullOutLetter.BrandDepartmentCode;
             lblTo.Text = pullOutLetter.CompanyName;
             lblBranch.Text= pullOutLetter.BranchName+" BRANCH";
@@ -38,7 +40,10 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
             //update init
             txtAttnChange.Text = lblAttention.Text;
             txtChangeTo.Text = lblTo.Text;
+            txtBrandGeneralManager.Text = lblBrandGeneralManager.Text;
             //
+
+            txtMrktAssUpdate.Text = "Dhel Cruz / Mr. Alberto San Gregorio";
             if (pullOutLetter.IsBackLoad)
             {
                 chkBackLoad.Checked = true;
@@ -46,17 +51,38 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
             else
             {
                 chkCT.Checked = true;
+                pnlCut.CssClass  = "pnlCut";
             }
 
             List<PullOutLetterDetail> POLDetails = POLDetailManager.PullOutLetterDetailsByPullOutCode(pullOutLetter.PullOutCode);
             List<PullOutLetterSummary> POLSummaries = POLSummaryManager.PullOutLetterSummariesByPullOutCode(pullOutLetter.PullOutCode);
             if (POLDetails.Count > 0)
             {
+                if (POLDetails.Count <=10)
+                {
+                    long  totalQty = 0;
+                    decimal totalAmount = 0;
+                    gvStyles.DataSource = POLDetails;
+                    gvStyles.DataBind();
+                    foreach (var pold in POLDetails)
+                    {
+                        totalQty += pold.Quantity;
+                        totalAmount += pold.TtlAmount;
+                    }
+                    lblTotalQtyStyles.Text = totalQty.ToString();
+                    lblTotalAmount.Text = totalAmount.ToString("###,###.00");
+                    pnlSummary.Visible = true;
+                }
+                else
+                {
+                    pnlSummary.Visible = false;
+                }
                 hpLinkPreviewDetails.NavigateUrl = "~/Reports/ReportForms/PullOutLetterDetailsPrintPreview.aspx?PullOutCode="
                   + pullOutLetter.PullOutCode + "&Customer=" + lblTo.Text + "&Branch=" + lblBranch.Text + "&Series=" + lblSeriesNumber.Text + "&CustomerId=" + pullOutLetter.CustomerNumber;
             }
             else
             {
+                pnlSummary.Visible = false;
                 if (POLSummaries.Count > 0)
                 {
                     hpLinkPreviewDetails.NavigateUrl = "~/Reports/ReportForms/PullOutLetterSummaryPrintPreview.aspx?PullOutCode="
@@ -69,6 +95,12 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
                 }
             }
 
+            if (pullOutLetter.Forwarders!="Not Assigned")
+            {
+                lblForwarder.Text = pullOutLetter.Forwarders;
+                pnlForwarder.Visible = true;
+                lblDepartmentCode.Visible = false;
+            }
            
         }
 
@@ -85,6 +117,22 @@ namespace IntegratedResourceManagementSystem.Reports.ReportForms
         protected void btnUpdateTo_Click(object sender, EventArgs e)
         {
             lblTo.Text = txtChangeTo.Text;
+        }
+
+        protected void btnUpdateMrktAss_Click(object sender, EventArgs e)
+        {
+            lblMrktAss.Text = txtMrktAssUpdate.Text;
+        }
+
+        protected void gvCompanyLogos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            imgLogo.ImageUrl = "~/Marketing/Marketing-Admin/company-logos/" + gvCompanyLogos.SelectedValue.ToString();
+            btnChangeLogo_ModalPopupExtender.Show();
+        }
+
+        protected void btnUpdateBrandGenManagerSave_Click(object sender, EventArgs e)
+        {
+            lblBrandGeneralManager.Text = txtBrandGeneralManager.Text;
         }
     }
 }

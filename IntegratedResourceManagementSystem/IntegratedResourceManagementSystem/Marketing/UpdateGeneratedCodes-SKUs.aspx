@@ -6,6 +6,9 @@
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <link href="../Styles/marketing-item-master.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="../Scripts/jquery-1.7.2.min.js"></script>
+    <link href="../Styles/grid.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/pull-out-letter.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/item-reprocess.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
     
         
@@ -91,7 +94,8 @@
                 <asp:Image ID="imgItem" runat="server" Height="20px" ImageAlign="Top" ImageUrl="~/Resources/product.png" />
                 &nbsp;ITEM GENERATOR UPDATE
                 <div style="float: right;">
-                <a href="ProductManagementPanel.aspx" ><img src="../Resources/reply.png" title="BACK" alt="BACK" /></a>
+                    <a href="ProductManagementPanel.aspx">
+                        <img src="../Resources/reply.png" title="BACK" alt="BACK" /></a>
                 </div>
                 <hr />
             </div>
@@ -106,41 +110,32 @@
             </div>
             <div style="min-height: 410px;">
                 <div>
-                    <asp:Panel ID="pnlGenerateItemCodeSKU" runat="server" Width="700px">
-                        <div>
+                    <asp:Panel ID="pnlGenerateItemCodeSKU" runat="server" Width="500px">
+                        <div class="titleForm" style="height: 12px">
+                            STYLE INFO.
+                        </div>
+                        <div class="form">
                             <table style="width: 100%;">
                                 <tr>
-                                    <td class="frmlbl">
-                                        &nbsp;STYLE NUMBER:
+                                    <td class="modalLabel">
+                                        STYLE NUMBER:
                                     </td>
-                                    <td>
-                                        <asp:TextBox ID="txtStyleNumber" runat="server" Width="250px" Font-Names="Verdana"
-                                            Font-Size="12px" ForeColor="#993300" ReadOnly="True"></asp:TextBox>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
+                                    <td colspan="3">
+                                        <asp:TextBox ID="txtStyleNumber" runat="server" Width="250px" CssClass="modalText"
+                                            Font-Names="Verdana" Font-Size="12px" Height="22px" ReadOnly="True"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="frmlbl">
+                                    <td class="modalLabel">
                                         STYLE DESCRIPTION:
                                     </td>
-                                    <td>
-                                        <asp:TextBox ID="txtStyleDescription" runat="server" Width="250px" Font-Names="Verdana"
-                                            Font-Size="12px" ForeColor="#993300" ReadOnly="True"></asp:TextBox>
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
+                                    <td colspan="3">
+                                        <asp:TextBox ID="txtStyleDescription" CssClass="modalText" runat="server" Width="250px"
+                                            Font-Names="Verdana" Font-Size="12px" Height="22px" ReadOnly="True"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="frmlbl">
+                                    <td class="modalLabel">
                                         SRP:
                                     </td>
                                     <td>
@@ -149,35 +144,32 @@
                                             Enabled="True" TargetControlID="txtSRP" WatermarkCssClass="txtwatermark" WatermarkText="0.00">
                                         </asp:TextBoxWatermarkExtender>
                                     </td>
-                                    <td>
+                                    <td class="modalLabel">
+                                        COST PRICE:
                                     </td>
                                     <td>
+                                        <asp:TextBox ID="txtCostPrice" runat="server" CssClass="txtMoney" Enabled="False"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         &nbsp;
                                     </td>
-                                    <td>
+                                    <td colspan="3">
                                         &nbsp;
                                         <asp:HiddenField ID="hfStartSeries" runat="server" />
                                         <asp:HiddenField ID="hfBrand" runat="server" />
                                         <asp:HiddenField ID="hfSRP" runat="server" />
                                         <asp:HiddenField ID="hfBrandStartSeries" runat="server" />
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
+                                        <asp:HiddenField ID="hfStyleNumber" runat="server" />
                                     </td>
                                 </tr>
                             </table>
                         </div>
                     </asp:Panel>
-                    <div style="font-family: Verdana; margin-bottom: 10px;">
-                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Resources/edit_normal.png" ImageAlign="Middle" />
-                        UPDATE OPTION:
+                    <div style="font-family: Verdana; margin-bottom: 10px; margin-top: 10px;">
+                        <img src="../Resources/edit_normal.png" alt="" align="left" />
+                        <span class="modalText" style="font-weight: bold; font-size: 10px;">UPDATE OPTION:</span>
                         <asp:RadioButtonList ID="rdioUpdateOption" runat="server" AutoPostBack="True" Font-Bold="True"
                             Font-Names="Verdana" Font-Size="11px" ForeColor="#CC6600" OnSelectedIndexChanged="rdioUpdateOption_SelectedIndexChanged"
                             RepeatDirection="Horizontal" BackColor="#FFFFCC" BorderColor="#FF9933" BorderWidth="1px">
@@ -187,13 +179,12 @@
                         </asp:RadioButtonList>
                     </div>
                 </div>
-
                 <asp:MultiView ID="mvUpdateOption" runat="server" ActiveViewIndex="0">
                     <asp:View ID="vGeneratedSkus" runat="server">
-                        <div class="modalDrag" style=" height:18px;">
-                          <div class="sizeLogo">
-                          <img src="../Resources/Barcode.png" alt="BarCode" height="16px" align="top" /> 
-                        GENERATED SKU's and ITEM CODES
+                        <div class="modalDrag" style="height: 18px;">
+                            <div class="sizeLogo">
+                                <img src="../Resources/Barcode.png" alt="BarCode" height="16px" align="top" />
+                                GENERATED SKU's and ITEM CODES
                             </div>
                         </div>
                         <asp:Panel ID="pnlGeneratedSKU" runat="server" ScrollBars="Auto">
@@ -243,8 +234,10 @@
                             <div style="font-family: Verdana; color: White; text-align: center;">
                                 LIST OF SKU TO BE CANCEL</div>
                             <div style="margin-left: 10px; margin-right: 10px; margin-top: 5px;">
-                                <asp:GridView ID="gvSelectedSKUToCancel" runat="server" Font-Names="Verdana" Font-Size="11px"
-                                    ForeColor="#FFFFCC" AutoGenerateColumns="False">
+                                <asp:GridView ID="gvSelectedSKUToCancel" CssClass="table_grid" runat="server" Font-Names="Verdana"
+                                    Font-Size="11px" ForeColor="#333333" AutoGenerateColumns="False" CellPadding="4"
+                                    GridLines="None">
+                                    <AlternatingRowStyle BackColor="White" />
                                     <Columns>
                                         <asp:BoundField DataField="ItemCode" HeaderText="ITEM CODE">
                                             <HeaderStyle Wrap="False" />
@@ -256,14 +249,23 @@
                                         </asp:BoundField>
                                         <asp:BoundField DataField="Price" DataFormatString="{0:Php###,###.00}" HeaderText="SRP" />
                                     </Columns>
+                                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                                    <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                                    <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                                    <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                                    <SortedDescendingHeaderStyle BackColor="#820000" />
                                 </asp:GridView>
                             </div>
                             <div style="margin: 7px 10px; text-align: center;">
                                 <asp:Button ID="btnContinueSKUCancelation" runat="server" Text="CONTINUE CANCELATION"
                                     CssClass="modalWarningButtonYes" Width="185px" ToolTip="Continue Cancellation"
                                     OnClick="btnContinueSKUCancelation_Click" />
-                                <asp:Button ID="btnCancelSKUCancelation" runat="server" Text="NO" CssClass="modalWarningButtonNo"
-                                    ToolTip="Cancel" />
+                                <asp:Button ID="btnCancelSKUCancelation" runat="server" Text="CANCEL" Width="85px"
+                                    CssClass="modalWarningButtonNo" ToolTip="Cancel" />
                             </div>
                         </asp:Panel>
                         <asp:RoundedCornersExtender ID="pnlSelectedSkusToCcancel_RoundedCornersExtender"
@@ -278,10 +280,10 @@
                             <ContentTemplate>
                                 <asp:Panel ID="pnlGeneratedSKUS" runat="server" Width="370px" CssClass="modal">
                                     <div class="modalDrag" style="font-family: Verdana; color: White; margin: 0px 0px 5px 0px;">
-                                       <div class="sizeLogo"> 
-                                       <img src="../Resources/Barcode.png" height="16px" align="top" />
-                                           GENERATED SKU's/ITEM CODE</div>
-                                        </div>
+                                        <div class="sizeLogo">
+                                            <img src="../Resources/Barcode.png" height="16px" align="top" />
+                                            GENERATED SKU's/ITEM CODE</div>
+                                    </div>
                                     <asp:Panel ID="pnlGeneratedSKUsContainer" runat="server" Height="250px" ScrollBars="Auto">
                                         <div style="margin-left: 2px;">
                                             <asp:GridView ID="gvGeneratedSKUS" runat="server" Font-Names="Verdana" Font-Size="10px"
@@ -352,7 +354,7 @@
                                     </div>
                                     <div style="margin-top: 10xp;">
                                         <asp:Panel ID="pnlColors" runat="server" Width="700px" ScrollBars="Auto">
-                                            <asp:CheckBoxList ID="ColorchkBxs" runat="server" Font-Names="Verdana" Font-Size="11px"
+                                            <asp:CheckBoxList ID="ColorchkBxs"  runat="server" Font-Names="Verdana" Font-Size="11px"
                                                 RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="ColorchkBxs_SelectedIndexChanged"
                                                 CssClass="chkColor" RepeatColumns="8" BackColor="#CCCCCC" BorderColor="#666666"
                                                 BorderWidth="1px">
@@ -366,7 +368,7 @@
                                             ImageAlign="AbsBottom" />&nbsp;SIZES:&nbsp;&nbsp;
                                         <asp:Label ID="Label6" runat="server" Text="FILTER:" Font-Names="Verdana" Font-Size="11px"
                                             ForeColor="#996600"></asp:Label>
-                                        <asp:CheckBoxList ID="chkSizeGroup" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66"
+                                        <asp:CheckBoxList ID="chkSizeGroup" style="line-height:20px;" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66"
                                             BorderStyle="Solid" BorderWidth="1px" DataSourceID="SqlDataSourceGroupSize" DataTextField="SIZE_GROUP"
                                             DataValueField="RECORD_NO" Font-Names="Verdana" Font-Size="10px" ForeColor="#336699"
                                             RepeatDirection="Horizontal" RepeatLayout="Flow" AutoPostBack="True" OnSelectedIndexChanged="chkSizeGroup_SelectedIndexChanged">
@@ -422,32 +424,176 @@
                         <div style="margin-top: 10px; text-align: center;">
                             <asp:Button ID="btnGenerate" runat="server" Text="GENERATE" CssClass="btnGenerateCodeSKU"
                                 OnClick="btnGenerate_Click" />
-                          
                         </div>
                     </asp:View>
                     <asp:View ID="VUpdatePrice" runat="server">
-
-                        <div class="modal" style="min-height:100px; margin-bottom:10px;">
+                    <div style="margin:5px 5px; height:32px;">
+                        <asp:Button ID="btnUpdatePrice" runat="server" CssClass="btnUpdate" Text="UPDATE SRP" />
+                        <asp:ModalPopupExtender ID="btnUpdatePrice_ModalPopupExtender" runat="server" 
+                            DynamicServicePath="" Enabled="True" PopupControlID="pnlUpdateSRPModal" PopupDragHandleControlID="pnlUpdateSRPModalDrag"
+                             CancelControlID="btnCancelSaveUpdateSRP" TargetControlID="btnUpdatePrice">
+                        </asp:ModalPopupExtender>
+                        <asp:Panel CssClass="modal" ID="pnlUpdateSRPModal" runat="server">  
+                            <asp:Panel CssClass="modalDrag" ID="pnlUpdateSRPModalDrag" runat="server">
+                                <div class="sizeLogo">
+                                    UPDATE SRP
+                                </div>
+                            </asp:Panel>
+                            <div class="modalLabel" style="text-align:center; height:40px; margin:3px;">
+                                <img src="../Resources/warning.png" alt="" align="left" />
+                                This action will affect all products constraints <br /> to this style number : <span>
+                                    <asp:Label CssClass="modalText" style="padding-right:3px;" 
+                                    ID="lblStyleNnumber" runat="server" Font-Bold="False" Font-Italic="True" 
+                                    ForeColor="#993300" /> </span>.
+                                    <br />
+                                <asp:HyperLink ID="hpLinkAffectedProducts" Target="_blank" style="cursor:pointer;" runat="server">view affected data</asp:HyperLink>
+                            </div>
+                            <hr />
+                            <div class="modalLabel" style="text-align:center; margin:5px;">
+                               ENTER NEW SRP:
+                                <asp:TextBox CssClass="modalText" Height="22px" Width="60px" ID="txtUpdateSRP" runat="server" />
+                            </div>
+                            <div style="text-align:center; margin:5px;">
+                                <asp:Button ID="btnSaveUpdateSRP" runat="server" Width="75px" 
+                                    CssClass="btnSave" Text="UPDATE" onclick="btnSaveUpdateSRP_Click" />
+                                  <asp:Button ID="btnCancelSaveUpdateSRP" runat="server" CssClass="btnCancel" Text="CANCEL" />
+                            </div>
+                        </asp:Panel>
+                    </div>
+                    <div>
+                        <div class="modal" style="min-height: 100px; float:left; margin-bottom: 10px; margin-right:10px;">
                             <div class="modalDrag">
                                 <div class="sizeLogo">
-                                     CONCESSION PRICE PER GROUP                 
+                                    CONCESSION PRICE PER GROUP
                                 </div>
                             </div>
                             <div>
-                               
+                                <asp:DataList ID="DListPrice" runat="server" DataSourceID="SqlDataSourcePrice">
+                                    <ItemTemplate>
+                                        <div class="history-item" style="margin:2px 10px; min-width:350px; min-height:50px;">
+                                            <div style="float: left; margin-right: 5px;">
+                                                PRICE GROUP .50:
+                                                <asp:Label ID="Price1Label" runat="server" Text='<%# Eval("Price1") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP .75:
+                                                <asp:Label ID="Price2Label" runat="server" Text='<%# Eval("Price2") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP .95:
+                                                <asp:Label ID="Price3Label" runat="server" Text='<%# Eval("Price3") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP 1.00:
+                                                <asp:Label ID="Price4Label" runat="server" Text='<%# Eval("Price4") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                            </div>
+                                            
+                                            <div style="display: inline-block;">
+                                               
+                                                SPECIAL PRICE GROUP:
+                                                <asp:Label ID="Price10Label" runat="server" Text='<%# Eval("Price10") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP .97:
+                                                <asp:Label ID="Price11Label" runat="server" Text='<%# Eval("Price11") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP .99:
+                                                <asp:Label ID="Price14Label" runat="server" Text='<%# Eval("Price14") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                                <asp:SqlDataSource ID="SqlDataSourcePrice" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
+                                    SelectCommand="SELECT 
+      [StyleNo]
+      ,CAST([Price1] as decimal(18,2) ) AS Price1 
+      ,CAST([Price2] as decimal(18,2) ) AS Price2
+      ,CAST([Price3] as decimal(18,2) ) AS Price3
+      ,CAST([Price4] as decimal(18,2) ) AS Price4
+      ,CAST([Price5] as decimal(18,2) ) AS Price5
+      ,CAST([Price6] as decimal(18,2) ) AS Price6
+      ,CAST([Price7] as decimal(18,2) ) AS Price7
+      ,CAST([Price8] as decimal(18,2) ) AS Price8
+      ,CAST([Price9] as decimal(18,2) ) AS Price9
+      ,CAST([Price10] as decimal(18,2) ) AS Price10
+      ,CAST([Price11] as decimal(18,2) ) AS Price11
+      ,CAST([Price12] as decimal(18,2) ) AS Price12
+      ,CAST([Price13] as decimal(18,2) ) AS Price13
+      ,CAST([Price14] as decimal(18,2) ) AS Price14
+      ,CAST([Price15] as decimal(18,2) ) AS Price15
+      ,CAST([Price16] as decimal(18,2) ) AS Price16
+  FROM [IRMS-DB].[dbo].[Price]
+WHERE StyleNo =@STYLE_NUMBER
+">
+                                    <SelectParameters>
+                                        <asp:ControlParameter ControlID="hfStyleNumber" Name="STYLE_NUMBER" PropertyName="Value" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
                             </div>
                         </div>
-
-                      <div class="modal" style="min-height:100px; margin-bottom:5px;">
+                        <div class="modal" style="min-height: 100px; float:left; margin-bottom: 5px;">
                             <div class="modalDrag">
                                 <div class="sizeLogo">
-                                     OUTRIGHT PRICE PER GROUP           
+                                    OUTRIGHT PRICE PER GROUP
                                 </div>
                             </div>
                             <div>
-                               
+                             <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSourcePrice">
+                                    <ItemTemplate>
+                                        <div class="history-item" style="margin: 2px 10px; min-width: 350px;">
+                                            <div style="display: inline-block;">
+                                                PRICE GROUP -28.5%:
+                                                <asp:Label ID="Price5Label" runat="server" Text='<%# Eval("Price5") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP -25%:
+                                                <asp:Label ID="Price6Label" runat="server" Text='<%# Eval("Price6") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP -30%:
+                                                <asp:Label ID="Price7Label" runat="server" Text='<%# Eval("Price7") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP -35%:
+                                                <asp:Label ID="Price8Label" runat="server" Text='<%# Eval("Price8") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                            </div>
+                                            <div style="display: inline-block;">
+                                                PRICE GROUP -40%:
+                                                <asp:Label ID="Price9Label" runat="server" Text='<%# Eval("Price9") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP -15%:
+                                                <asp:Label ID="Price12Label" runat="server" Text='<%# Eval("Price12") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP -20%:
+                                                <asp:Label ID="Price13Label" runat="server" Text='<%# Eval("Price13") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                                PRICE GROUP -31%:
+                                                <asp:Label ID="Price15Label" runat="server" Text='<%# Eval("Price15") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                            </div>
+                                            <div style="display: inline-block;">
+                                                PRICE GROUP -45%:
+                                                <asp:Label ID="Price16Label" runat="server" Text='<%# Eval("Price16") %>' ForeColor="#CC0000"
+                                                    Font-Bold="true" />
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
                             </div>
                         </div>
+                    </div>
                     </asp:View>
                 </asp:MultiView>
             </div>

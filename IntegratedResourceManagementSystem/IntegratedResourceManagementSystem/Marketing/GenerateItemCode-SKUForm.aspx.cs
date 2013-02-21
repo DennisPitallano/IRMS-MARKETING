@@ -27,7 +27,13 @@ namespace IntegratedResourceManagementSystem.Marketing
         StyleColorsManager StyleColorManager = new StyleColorsManager();
         StyleSizesManager StyleSizeManager = new StyleSizesManager();
         BrandGarmentsManager BGM = new BrandGarmentsManager();
+        PriceManager PriceManager = new PriceManager();
         #endregion
+
+        private Price getPrice(string styleNumber,string brand)
+        {
+            return PriceManager.GetSRPByStyle(styleNumber,brand) ?? new  Price();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,6 +52,7 @@ namespace IntegratedResourceManagementSystem.Marketing
                     hfStartSeries.Value = CheckStartSeriesNumber();
                     hfBrandStartSeries.Value = GetBrandStartSeries();
                     txtCostPrice.Text = ProdStyle.Cost.ToString("###,###.00");
+                    txtSRP.Text = getPrice(ProdStyle.StyleNumber, ProdStyle.BrandName).Price_10.ToString("###,###.00");
                 }
                 AllColors();
             }
@@ -139,10 +146,7 @@ namespace IntegratedResourceManagementSystem.Marketing
                                       Compute(SIZE_COUNT, COLOR_COUNT) + count).ToString();
                             }
                             sku.SKUNumber = (long.Parse(sn)).ToString();
-                            //sku.ItemColor = ColorchkBxs.Items[i].Text;
-                            //sku.ItemSize = SizeschkBxs.Items[j].Text;
-                            //sku.ItemBrand = dlBrandsForStyleNumber.SelectedItem.Text;
-                            //sku.ItemAPTYPE = rdioTopOrBottom.SelectedValue;
+                          
                             list.Add(sku);
                         }
                     }
@@ -222,6 +226,12 @@ namespace IntegratedResourceManagementSystem.Marketing
 
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtSRP.Text ))
+            {
+                lblErrorMessage.Text = "Invalid SRP!";
+                Label1_ModalPopupExtender.Show();
+                return;
+            }
             if (IsNewStyle() == true)
             {
                 SaveStyelNumber(StyleManager.GetStyleNumberByItemStyle(txtStyleNumber.Text));
@@ -309,7 +319,7 @@ namespace IntegratedResourceManagementSystem.Marketing
                     IsActive = "Yes",
                     DateCreated = DateTime.Now,
                     Size = sku.ItemSize,
-                   // AP_TYPE = sku.ItemAPTYPE,
+                    AP_TYPE = sku.ItemAPTYPE,
                     Brand = sku.ItemBrand,
                     Color = sku.ItemColor,
                      SRP= SRP

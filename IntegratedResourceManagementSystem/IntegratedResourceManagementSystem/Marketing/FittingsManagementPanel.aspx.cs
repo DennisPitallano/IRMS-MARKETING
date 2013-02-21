@@ -64,14 +64,14 @@ namespace IntegratedResourceManagementSystem.Marketing
         protected void gvFittings_SelectedIndexChanged(object sender, EventArgs e)
         {
             hfFittingCode.Value = gvFittings.SelectedDataKey[1].ToString();
-            lblFittingToDelete.Text = "FITTING: " + gvFittings.SelectedRow.Cells[4].Text;
+            lblFittingToDelete.Text = "FITTING: " + gvFittings.SelectedRow.Cells[5].Text;
             btnOKDeleteFitting.Enabled = true;
 
             fSubFitting.FittingCode = gvFittings.SelectedDataKey[1].ToString();
 
-            fFitting.FittingName = gvFittings.SelectedRow.Cells[4].Text;
-            fFitting.Category = HttpUtility.HtmlDecode(gvFittings.SelectedRow.Cells[5].Text.Trim());
-            
+            fFitting.FittingName = gvFittings.SelectedRow.Cells[5].Text;
+            fFitting.Category = HttpUtility.HtmlDecode(gvFittings.SelectedRow.Cells[6].Text.Trim());
+            fFitting.FittingSeriesCode = gvFittings.SelectedRow.Cells[3].Text;
         }
 
         protected void gvSubFittings_SelectedIndexChanged(object sender, EventArgs e)

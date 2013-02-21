@@ -31,6 +31,24 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.UpdatePanel upnlPullOutLetter;
         
         /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        
+        /// <summary>
+        /// hpLinlUpdateForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hpLinlUpdateForwarder;
+        
+        /// <summary>
         /// rdioPLType control.
         /// </summary>
         /// <remarks>
@@ -254,6 +272,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotalQtySummary;
+        
+        /// <summary>
+        /// txtForwarder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtForwarder;
         
         /// <summary>
         /// pnlStylesSelection control.

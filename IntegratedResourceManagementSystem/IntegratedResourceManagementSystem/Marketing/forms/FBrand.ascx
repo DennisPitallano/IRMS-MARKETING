@@ -37,7 +37,7 @@
         </td>
         <td>
           <asp:TextBox ID="txtBrandCode" runat="server" Height="20px"  Width ="50px" 
-                CssClass="modalText" EnableViewState="False"></asp:TextBox>
+                CssClass="modalText validate[required]" EnableViewState="False"></asp:TextBox>
           <span class="patern">(MAX OF 3 CHARACTERS)</span>
         </td>
         <td>

@@ -10,6 +10,18 @@
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <link href="../Styles/brand-management.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/permission-note.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#brandContent").show('slow');
+            function validateEntry() {
+                return jQuery("#form1").validationEngine("validate");
+            }
+        });
+    </script>
+     <script language="javascript" type="text/javascript">
+       
+    </script>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div style="height:28px; margin-bottom:10px; line-height:28px; color: #333;text-shadow: 1px 1px 0px white;">
@@ -89,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="listContent" style="float:left;">
+            <div id="brandContent" class="listContent" style="float:left;">
 
                 <div class="titleList">
                 <img alt="brands" src="../Resources/product_brand.png" height="16" width="20" align="left" />
@@ -174,7 +186,7 @@
                     <forms:Brand ID="fbrand" runat="server"></forms:Brand>
                 </asp:PlaceHolder>
                 <div style="text-align:center; margin:5px 0px;">
-                    <asp:Button ID="btnSaveBrand" runat="server" CssClass="btnSave" OnClick="btnSaveBrand_Click"
+                    <asp:Button ID="btnSaveBrand" runat="server" CssClass="btnSave" OnClientClick="javascript:return validateEntry();" OnClick="btnSaveBrand_Click"
                         Text="SAVE" ToolTip="Save New Brand"  />
                 </div>
             </asp:Panel>

@@ -4,6 +4,7 @@
 <%@ Register Src="~/Marketing/controls/UCLoader.ascx" TagName="LOADER" TagPrefix="UC" %>
 <asp:Content ID="HeadContent" ContentPlaceHolderID="head" runat="server">
     <link href="../Styles/marketing-item-master.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/pull-out-letter.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
          .txtMoney
         {
@@ -72,15 +73,18 @@
                 </asp:UpdateProgress>
             </div>
             <div>
-                <asp:Panel ID="pnlGenerateItemCodeSKU" runat="server" Width="700px">
+            <div class="titleForm" style="width:705px;">
+                STYLE INFO.
+            </div>
+                <asp:Panel CssClass="form" ID="pnlGenerateItemCodeSKU" runat="server" Width="700px">
                     <div>
                         <table style="width: 100%;">
                             <tr>
-                                <td class="frmlbl">
+                                <td class="modalLabel">
                                     STYLE NUMBER:
                                 </td>
                                 <td colspan="3">
-                                    <asp:TextBox ID="txtStyleNumber" CssClass="modalText" runat="server" Width="250px" Font-Names="Verdana"
+                                    <asp:TextBox ID="txtStyleNumber" Height="22px" CssClass="modalText" runat="server" Width="250px" Font-Names="Verdana"
                                         Font-Size="12px" ForeColor="#993300" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td>
@@ -109,11 +113,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="frmlbl">
+                                <td class="modalLabel">
                                     STYLE DESCRIPTION:
                                 </td>
                                 <td colspan="3">
-                                    <asp:TextBox ID="txtStyleDescription" CssClass="modalText" runat="server" Width="250px" Font-Names="Verdana"
+                                    <asp:TextBox ID="txtStyleDescription" Height="22px" CssClass="modalText" runat="server" Width="250px" Font-Names="Verdana"
                                         Font-Size="12px" ForeColor="#993300" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td>
@@ -125,7 +129,7 @@
                                 
                             </tr>
                             <tr>
-                                        <td class="frmlbl">
+                                        <td class="modalLabel">
                                             COST PRICE:</td>
                                         <td >
                                             <asp:TextBox ID="txtCostPrice" runat="server" CssClass="txtMoney"></asp:TextBox>
@@ -161,33 +165,53 @@
                                     &nbsp;
                                 </td>
                                 <td>
-                                    &nbsp;
+                                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                            <asp:ModalPopupExtender ID="Label1_ModalPopupExtender" runat="server" 
+                                                DynamicServicePath="" Enabled="True" TargetControlID="Label1" PopupControlID="pnlErrorMessage"
+                                                 PopupDragHandleControlID="pnlErrorMessageDrag" CancelControlID="btnOk">
+                                            </asp:ModalPopupExtender>
+                                            <asp:Panel ID="pnlErrorMessage" CssClass="modal" runat="server">
+                                                <asp:Panel CssClass="modalDrag" ID="pnlErrorMessageDrag" runat="server">
+                                                    <div class="sizeLogo">
+                                                        WARNING!!!!
+                                                    </div>
+                                                </asp:Panel>
+                                                <div style="min-width:200px;height:50px; margin:5px; line-height:50px;">
+                                                   <img src="../Resources/warning.png" alt="Warning" align="left"  />  
+                                                   <asp:Label Font-Bold="true"  Font-Size="12px" ID="lblErrorMessage"  
+                                                        runat="server" ForeColor="#CC3300"></asp:Label>
+                                                </div>
+                                                <div style="text-align:center; margin:3px 3px;">
+                                                    <asp:Button ID="btnOk" CssClass="modalWarningButtonYes" runat="server" Text="OK" />
+                                                </div>
+                                            </asp:Panel>
                                 </td>
                                 
                             </tr>
                         </table>
                     </div>
                 </asp:Panel>
-                <div style="margin-bottom: 10px;">
-                    <div>
-                        <asp:Image ID="imgColors" runat="server" Height="21px" ImageUrl="~/Resources/color.png"
-                            ImageAlign="AbsBottom" />
+                <div  style="margin: 10px;">
+                    <div class="modalLabel" style="text-align:left;">
+                        <img src="../Resources/color.png" alt="" align="left" />
                         COLORS:
                     </div>
                     <asp:Panel ID="pnlColors" runat="server" Width="700px" ScrollBars="Auto">
                         <asp:CheckBoxList ID="ColorchkBxs" runat="server" Font-Names="Verdana" Font-Size="11px"
                             RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="ColorchkBxs_SelectedIndexChanged"
-                            CssClass="chkColor" RepeatColumns="8" BackColor="#CCCCCC" BorderColor="#666666"
+                            CssClass="table_grid chkColor" RepeatColumns="10" BackColor="#CCCCCC" BorderColor="#666666"
                             BorderWidth="1px">
                         </asp:CheckBoxList>
                     </asp:Panel>
                 </div>
-                <div style="margin-bottom: 10px;">
+                <div style="margin: 10px;">
+                 <div class="modalLabel" style="text-align:left;">
+                        <img src="../Resources/size.png" alt="" align="left" />
+                        SIZES:
+                    </div>
                     <div style="margin-bottom: 10px;">
-                        <asp:Image ID="imgSizes" runat="server" ImageUrl="~/Resources/size.png" Height="20px"
-                            ImageAlign="AbsBottom" />&nbsp;SIZES:&nbsp;&nbsp;
-                        <asp:Label ID="Label6" runat="server" Text="FILTER BY SIZE GROUP:" Font-Names="Verdana"
-                            Font-Size="11px" ForeColor="#996600"></asp:Label>
+                        <asp:Label ID="Label6" Width="80px" runat="server" Text="FILTER BY SIZE GROUP:" Font-Names="Verdana"
+                            Font-Size="9px" ForeColor="#996600"></asp:Label>
                         <asp:CheckBoxList ID="chkSizeGroup" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66"
                             BorderStyle="Solid" BorderWidth="1px" DataSourceID="SqlDataSourceGroupSize" DataTextField="SIZE_GROUP"
                             DataValueField="RECORD_NO" Font-Names="Verdana" Font-Size="10px" ForeColor="#336699"
@@ -204,9 +228,9 @@
                         </asp:CheckBoxList>
                     </asp:Panel>
                 </div>
-                <div>
-                    <asp:Image ID="imgSku" runat="server" ImageUrl="~/Resources/Barcode.png" Height="18px"
-                        ImageAlign="AbsBottom" />&nbsp;PREVIEW OF ITEM CODES(top label) AND SKU&#39;s(bottom
+                <div class="titleForm modalLabel" style="text-align:left; line-height:18px;">
+                    <img src="../Resources/Barcode.png" alt="" height="18px" align="left" />
+                       &nbsp;PREVIEW OF ITEM CODES(top label) AND SKU&#39;s(bottom
                     label)</div>
                 <asp:Panel ID="pnlGeneratedSKU" runat="server" ScrollBars="Auto">
                     <asp:Repeater ID="rptrSKU" runat="server">
@@ -232,7 +256,7 @@
                         </FooterTemplate>
                     </asp:Repeater>
                 </asp:Panel>
-                <div style="margin-top: 10px; width: 500px;">
+                <div style="margin: 10px; width: 500px; height:35px;">
                     <asp:Button ID="btnGenerate" runat="server" Text="GENERATE" CssClass="btnGenerateCodeSKU"
                         OnClick="btnGenerate_Click" />
                     <div style="float: right;">

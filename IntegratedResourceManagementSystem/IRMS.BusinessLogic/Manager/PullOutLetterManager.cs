@@ -161,18 +161,38 @@ namespace IRMS.BusinessLogic.Manager
         /// <param name="customerDataSource"></param>
         /// <param name="searchParameter"></param>
         /// <param name="brandName"></param>
-        public void SearchCustomers(SqlDataSource customerDataSource, string searchParameter, string brandName = "")
+        public void SearchCustomers(SqlDataSource customerDataSource, string searchParameter, bool forSM = true, string brandName = "")
         {
             StringBuilder strCmd = new StringBuilder();
             strCmd.Append("SELECT [CustNo], [CompName], [MainCustNo], [brand], [PGNo], [PGMDNo], [AGNo], [SAGNo] FROM [CustInfoEx] WHERE ([MainCustNo] IS NOT NULL) ");
-            if (!string.IsNullOrEmpty(searchParameter))
+            if (forSM)
             {
-                strCmd.Append(" and CompName like '%" + searchParameter + "%' ");
+                if (!string.IsNullOrEmpty(searchParameter))
+                {
+                    strCmd.Append(" and CompName like '%SHOEMART " + searchParameter + "%' ");
+                }
+                else
+                {
+                    strCmd.Append(" AND CompName LIKE '%SHOEMART%' ");
+
+                }
+                if (brandName != "")
+                {
+                    strCmd.Append(" and brand='" + brandName + "' ");
+                }
             }
-            if (brandName != "")
+            else
             {
-                strCmd.Append(" and brand='" + brandName + "' ");
+                if (!string.IsNullOrEmpty(searchParameter))
+                {
+                    strCmd.Append(" and CompName like '%" + searchParameter + "%' ");
+                }
+                if (brandName != "")
+                {
+                    strCmd.Append(" and brand='" + brandName + "' ");
+                }
             }
+           
             customerDataSource.SelectCommand = strCmd.ToString();
             customerDataSource.DataBind();
         }
@@ -332,6 +352,75 @@ namespace IRMS.BusinessLogic.Manager
             }
             return (result+1);
         }
+
+        #region pull out letter custom query
+        
+        public void FilterPullOutLetters(SqlDataSource polDataSource, string brandName, int forSM = 1)
+        {
+            StringBuilder strCmd = new StringBuilder();
+            strCmd.Append("SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = "+forSM+") ");
+            if (!string.IsNullOrEmpty(brandName))
+            {
+                strCmd.Append(" AND BRAND_NAME='"+brandName +"' ");
+            }
+            strCmd.Append("ORDER BY ID DESC");
+            polDataSource.SelectCommand = strCmd.ToString();
+            polDataSource.DataBind();
+        }
+
+        public void FilterPullOutLetters(SqlDataSource polDataSource, string brandName, string letterStatus, int  forSM = 1)
+        {
+            StringBuilder strCmd = new StringBuilder();
+            strCmd.Append("SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] = " + forSM + ") ");
+            if (letterStatus !="ALL")
+            {
+                strCmd.Append(" AND LETTER_STATUS='" + letterStatus + "' ");
+            }
+            if (!string.IsNullOrEmpty(brandName))
+            {
+                strCmd.Append(" AND BRAND_NAME='" + brandName + "' ");
+            }
+            
+            strCmd.Append("ORDER BY ID DESC");
+            polDataSource.SelectCommand = strCmd.ToString();
+            polDataSource.DataBind();
+        }
+
+        public void SearchPullOutLetters(SqlDataSource polDataSource, string searchParameter, string searchBy, string brandName, string letterStatus, int forSM = 1)
+        {
+            StringBuilder strCmd = new StringBuilder();
+            strCmd.Append("SELECT * FROM [PULL_OUT_LETTERS] WHERE ([FOR_SM] =  " + forSM + ") ");
+            if (searchBy=="CUSTOMER")
+            {
+                strCmd.Append(" AND COMPANY_NAME LIKE '%"+ searchParameter +"%' ");
+                if (letterStatus != "ALL")
+                {
+                    strCmd.Append(" AND LETTER_STATUS='" + letterStatus + "' ");
+                }
+
+                if (!string.IsNullOrEmpty(brandName))
+                {
+                    strCmd.Append(" AND BRAND_NAME='" + brandName + "' ");
+                }
+            }
+            else
+            {
+                strCmd.Append(" AND SERIES_NO LIKE '%" + searchParameter + "%' ");
+                if (letterStatus != "ALL")
+                {
+                    strCmd.Append(" AND LETTER_STATUS='" + letterStatus + "' ");
+                }
+                if (!string.IsNullOrEmpty(brandName))
+                {
+                    strCmd.Append(" AND BRAND_NAME='" + brandName + "' ");
+                }
+            }
+
+            strCmd.Append("ORDER BY ID DESC");
+            polDataSource.SelectCommand = strCmd.ToString();
+            polDataSource.DataBind();
+        }
+        #endregion
     }
 }
     

@@ -53,8 +53,9 @@ namespace IntegratedResourceManagementSystem.Marketing
             txtAccountName.Text = POL.AccountName;
             txtBranchName.Text = POL.BranchName;
             txtBrand.Text = POL.BrandName;
+            txtForwarder.Text = POL.Forwarders;
             txtTotalQtySummary.Text = POL.TotalQuantity.ToString("###,###");
-        
+            hpLinlUpdateForwarder.NavigateUrl = "~/Marketing/UpdatePullOutLetterForwarder.aspx?PullOutId=" + POL.RecordNumber+"&mode=default";
         }
 
         protected void Page_Load(object sender, EventArgs e)

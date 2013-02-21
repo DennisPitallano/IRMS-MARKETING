@@ -42,18 +42,21 @@ namespace IntegratedResourceManagementSystem.Marketing.forms
 
         public string BrandName { get { return DDLBrands.SelectedValue; } set { DDLBrands.SelectedValue = value; } }
 
+        public string FittingSeriesCode { get { return txtCode.Text; } set { txtCode.Text = value; } }
+
         public Fitting FITTING
         {
             get
             {
                 return new Fitting
                 {
-                  Category = Category,
-                   DateRecorded = DateTime.UtcNow ,
+                    Category = Category,
+                    DateRecorded = DateTime.UtcNow ,
                     FiitingCode = FittingCode,
-                     FittingName = FittingName,
-                      RecordNumber = RecordNo,
-                       BrandName = BrandName
+                    FittingName = FittingName,
+                    RecordNumber = RecordNo,
+                    BrandName = BrandName,
+                     FittingSeriesCode = FittingSeriesCode
                 };
             }
         }

@@ -44,7 +44,18 @@
       </tr>
       <tr>
         <td class ="input-form-label form-label">
-          CATEGORY:
+            CODE:
+        </td>
+        <td>
+        <asp:TextBox ID="txtCode" runat="server" Height="20px"  
+                CssClass="modalText" EnableViewState="False"></asp:TextBox>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class ="input-form-label form-label">
+            APPAREL TYPE:
         </td>
         <td>
             <asp:RadioButtonList ID="rdioCategory" CssClass="modalText" runat="server" 
