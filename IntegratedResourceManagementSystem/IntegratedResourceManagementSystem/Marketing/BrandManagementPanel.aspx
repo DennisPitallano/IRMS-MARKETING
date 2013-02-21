@@ -14,9 +14,14 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#brandContent").show('slow');
+            function validateEntry() {
+                return jQuery("#form1").validationEngine("validate");
+            }
         });
     </script>
-
+     <script language="javascript" type="text/javascript">
+       
+    </script>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div style="height:28px; margin-bottom:10px; line-height:28px; color: #333;text-shadow: 1px 1px 0px white;">
@@ -181,7 +186,7 @@
                     <forms:Brand ID="fbrand" runat="server"></forms:Brand>
                 </asp:PlaceHolder>
                 <div style="text-align:center; margin:5px 0px;">
-                    <asp:Button ID="btnSaveBrand" runat="server" CssClass="btnSave" OnClick="btnSaveBrand_Click"
+                    <asp:Button ID="btnSaveBrand" runat="server" CssClass="btnSave" OnClientClick="javascript:return validateEntry();" OnClick="btnSaveBrand_Click"
                         Text="SAVE" ToolTip="Save New Brand"  />
                 </div>
             </asp:Panel>
