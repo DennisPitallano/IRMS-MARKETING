@@ -416,6 +416,8 @@
     <Content Include="Resources\transfer_loading_waiting.png" />
     <Content Include="Resources\truck-icon.png" />
     <Content Include="Resources\truck-icon24.png" />
+    <Content Include="Resources\Uptighticon16.png" />
+    <Content Include="Resources\Uptighticon32.png" />
     <Content Include="Resources\usermode.png" />
     <None Include="Resources\users.png" />
     <None Include="Resources\user_roles_grant.png" />
