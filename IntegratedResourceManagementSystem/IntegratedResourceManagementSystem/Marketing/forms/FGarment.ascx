@@ -18,7 +18,7 @@
  <table class ="frmbg" style="width: 100%;">
         <tr>
               <td class ="modalLabel">
-                 TOP OR BOTTOM?</td>
+                APPAREL TYPE:</td>
               <td>
                   <asp:RadioButtonList ID="rdioTopOrBottom" runat="server" CssClass ="modalText" Font-Size="10px" 
                       RepeatDirection="Horizontal">

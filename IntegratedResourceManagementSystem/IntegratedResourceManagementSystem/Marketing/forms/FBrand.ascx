@@ -1,6 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="FBrand.ascx.cs" Inherits="IntegratedResourceManagementSystem.Marketing.forms.FBrand" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
   <link href="../../Styles/marketing-item-master.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript">
+       jQuery(document).ready(function () {
+           jQuery("#main").show('slow');
+
+       });
+       function validateEntry() {
+           return jQuery("#form1").validationEngine("validate");
+       }
+    </script>
   <style type ="text/css">
     .frmbg
     {
@@ -37,7 +46,7 @@
         </td>
         <td>
           <asp:TextBox ID="txtBrandCode" runat="server" Height="20px"  Width ="50px" 
-                CssClass="modalText validate[required]" EnableViewState="False"></asp:TextBox>
+                class="modalText validate[required]" EnableViewState="False"></asp:TextBox>
           <span class="patern">(MAX OF 3 CHARACTERS)</span>
         </td>
         <td>

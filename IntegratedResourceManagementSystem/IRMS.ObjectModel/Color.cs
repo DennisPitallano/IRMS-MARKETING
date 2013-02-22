@@ -27,5 +27,8 @@ namespace IRMS.ObjectModel
 
         [MapField("IS_ACTIVE")]
         public string IsActive { get; set; }
+
+        [MapField("APPAREL_TYPE")]
+        public string ApparelType { get; set; }
     }
 }

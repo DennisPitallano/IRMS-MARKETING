@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Marketing/Marketing.Master" AutoEventWireup="true"
     CodeBehind="ColorManagementPanel.aspx.cs" Inherits="IntegratedResourceManagementSystem.Marketing.ColorManagementPanel" %>
+
 <%@ OutputCache CacheProfile="cached_profile" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register TagPrefix="uc" TagName="color_picker" Src="~/Marketing/controls/color_picker.ascx" %>
@@ -9,25 +10,25 @@
     <link href="../Styles/permission-note.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-       <div  style="height:28px; margin-bottom:10px; line-height:28px; color: #333;text-shadow: 1px 1px 0px white;">
-                <asp:Image ID="imgpnlTitle" runat="server" ImageUrl="~/Resources/color.png" ImageAlign="Top"
-                    Height="28px" />
-                &nbsp;<asp:Label ID="Label3" runat="server" Text="COLOR MANAGEMENT PANEL" Font-Bold="True"
-                    Font-Names="Verdana" Font-Size="14px"></asp:Label>
-                <div style="float: right;">
-                    <asp:ImageButton ID="imgBtnBack" runat="server" ImageUrl="~/Resources/reply.png"
-                        PostBackUrl="~/Marketing/StylePanel.aspx" ToolTip="BACK" />
-                </div>
-                    <hr />
-            </div>
+    <div style="height: 28px; margin-bottom: 10px; line-height: 28px; color: #333; text-shadow: 1px 1px 0px white;">
+        <asp:Image ID="imgpnlTitle" runat="server" ImageUrl="~/Resources/color.png" ImageAlign="Top"
+            Height="28px" />
+        &nbsp;<asp:Label ID="Label3" runat="server" Text="COLOR MANAGEMENT PANEL" Font-Bold="True"
+            Font-Names="Verdana" Font-Size="14px"></asp:Label>
+        <div style="float: right;">
+            <asp:ImageButton ID="imgBtnBack" runat="server" ImageUrl="~/Resources/reply.png"
+                PostBackUrl="~/Marketing/StylePanel.aspx" ToolTip="BACK" />
+        </div>
+        <hr />
+    </div>
     <asp:UpdatePanel ID="upnlColor" runat="server">
         <ContentTemplate>
             <div style="margin-bottom: 1px; height: 26px;" class="modalDrag">
                 <div style="float: right;" class="SearchTextContainer">
-                SEARCH:
-                    <asp:TextBox ID="txtSearch" runat="server" autofocus placeholder="Search Color" CssClass="modalText" OnTextChanged="txtSearch_TextChanged"
-                        AutoPostBack="True" Height="16px" Font-Size="10px" Width="150px" ToolTip="Search Color"></asp:TextBox>
+                    SEARCH:
+                    <asp:TextBox ID="txtSearch" runat="server" autofocus placeholder="Search Color" CssClass="modalText"
+                        OnTextChanged="txtSearch_TextChanged" AutoPostBack="True" Height="16px" Font-Size="10px"
+                        Width="150px" ToolTip="Search Color"></asp:TextBox>
                     <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
                         ToolTip="SEARCH" />
                 </div>
@@ -87,13 +88,12 @@
                 <img alt="brands" src="../Resources/color.png" height="16" width="20" align="left" />
                 LIST OF COLORS
             </div>
-            <div class="listContent" style="float:left;">
+            <div class="listContent" style="float: left;">
                 <asp:Panel ID="pnlSizesList" runat="server" Width="595px" Height="415px" ScrollBars="Auto">
-                    <asp:GridView ID="gvColorsList" runat="server" CellPadding="4"
-                        GridLines="None" AutoGenerateColumns="False"  CssClass="table_grid"
-                        OnSelectedIndexChanged="gvColorsList_SelectedIndexChanged" DataKeyNames="RECORD_NO"
-                        EnablePersistedSelection="True" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSourceColors"
-                        PageSize="15">
+                    <asp:GridView ID="gvColorsList" runat="server" CellPadding="4" GridLines="None" AutoGenerateColumns="False"
+                        CssClass="table_grid" OnSelectedIndexChanged="gvColorsList_SelectedIndexChanged"
+                        DataKeyNames="RECORD_NO" EnablePersistedSelection="True" AllowPaging="True" AllowSorting="True"
+                        DataSourceID="SqlDataSourceColors" PageSize="15">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField>
@@ -118,6 +118,11 @@
                                 <HeaderStyle Wrap="False" />
                                 <ItemStyle Wrap="False" />
                             </asp:BoundField>
+                            <asp:BoundField DataField="APPAREL_TYPE" HeaderText="APPAREL TYPE" 
+                                HtmlEncode="False" SortExpression="APPAREL_TYPE">
+                            <HeaderStyle Font-Size="8px" HorizontalAlign="Center" Width="20px" />
+                            <ItemStyle Font-Bold="True" HorizontalAlign="Center" />
+                            </asp:BoundField>
                             <asp:BoundField DataField="DATE_RECORDED" HeaderText="DATE RECORDED" SortExpression="DATE_RECORDED">
                                 <HeaderStyle Wrap="False" />
                                 <ItemStyle Wrap="False" />
@@ -130,35 +135,32 @@
                         </EmptyDataTemplate>
                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle  CssClass ="pager" />
+                        <PagerStyle CssClass="pager" />
                         <RowStyle BackColor="#E3EAEB" />
                         <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="False" ForeColor="#333333" Font-Names="Verdana"
                             Font-Size="11px" Font-Italic="True" />
-                        <SortedAscendingCellStyle  CssClass="asc_cell_style" />
+                        <SortedAscendingCellStyle CssClass="asc_cell_style" />
                         <SortedAscendingHeaderStyle CssClass="asc_cell_style_h" />
                         <SortedDescendingCellStyle CssClass="desc_cell_style" />
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceColors" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SP_GET_ALL_COLORS" SelectCommandType="StoredProcedure" >
-                    </asp:SqlDataSource>
+                        SelectCommand="SP_GET_ALL_COLORS" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </asp:Panel>
             </div>
-            
-             <asp:Panel CssClass="permission-container" ID="pnlNotification" Visible ="false" runat="server">
+            <asp:Panel CssClass="permission-container" ID="pnlNotification" Visible="false" runat="server">
                 <asp:CollapsiblePanelExtender ID="CollapsiblePaneItemMaster" runat="server" CollapseControlID="lblNoteCollapsHandler"
-                CollapsedText="dennis" ExpandedText="pitallano" TargetControlID="pnlPermissionNotification"
-                ExpandControlID="lblNoteCollapsHandler" Collapsed="True">
-               </asp:CollapsiblePanelExtender>
-               <div class="collaps-link">
-                <asp:Label CssClass="collaps-text" ID="lblNoteCollapsHandler" Height="48px" runat="server" Text="NOTE"
-                ToolTip="Show/Hide Notification"></asp:Label>
+                    CollapsedText="dennis" ExpandedText="pitallano" TargetControlID="pnlPermissionNotification"
+                    ExpandControlID="lblNoteCollapsHandler" Collapsed="True">
+                </asp:CollapsiblePanelExtender>
+                <div class="collaps-link">
+                    <asp:Label CssClass="collaps-text" ID="lblNoteCollapsHandler" Height="48px" runat="server"
+                        Text="NOTE" ToolTip="Show/Hide Notification"></asp:Label>
                 </div>
-              <asp:Panel CssClass="note-container" ID="pnlPermissionNotification" runat="server">
-               <asp:Label ID="lblPermissionNotifications" runat="server" Text="Label"></asp:Label>
-              </asp:Panel>
+                <asp:Panel CssClass="note-container" ID="pnlPermissionNotification" runat="server">
+                    <asp:Label ID="lblPermissionNotifications" runat="server" Text="Label"></asp:Label>
+                </asp:Panel>
             </asp:Panel>
-
             <asp:Panel ID="pnlNewSizeModal" runat="server" CssClass="modal">
                 <asp:Panel ID="pnlNewSizeModalDrag" runat="server" CssClass="modalDrag">
                     <div class="close_btn">
@@ -166,7 +168,7 @@
                             ImageUrl="~/Resources/cancel_gray.png" ToolTip="CLOSE" />
                     </div>
                     <div class="sizeLogo">
-                    <img alt="new color" src="../Resources/color.png" height="16" align="top" />
+                        <img alt="new color" src="../Resources/color.png" height="16" align="top" />
                         NEW COLOR
                     </div>
                 </asp:Panel>
@@ -176,7 +178,7 @@
                             COLOR CODE:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtColorCode" runat="server" Height="20px"  CssClass="modalText"></asp:TextBox>
+                            <asp:TextBox ID="txtColorCode" runat="server" Height="20px" CssClass="modalText"></asp:TextBox>
                             &nbsp;
                         </td>
                         <td>
@@ -207,6 +209,18 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="modalLabel">
+                            APPAREL TYPE:
+                        </td>
+                        <td>
+                            <asp:RadioButtonList ID="rdioApparelTypes" CssClass="modalText" Height="20px" Font-Size="10px"
+                                Font-Bold="true" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
+                            </asp:RadioButtonList>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>
                             &nbsp;
                         </td>
@@ -221,7 +235,6 @@
                     </tr>
                 </table>
             </asp:Panel>
-
             <asp:Panel ID="pnlUpdateSizeModal" runat="server" CssClass="modal">
                 <asp:Panel ID="pnlUpdateSizeModalDrag" runat="server" CssClass="modalDrag">
                     <div class="close_btn">
@@ -246,7 +259,7 @@
                             COLOR CODE:
                         </td>
                         <td>
-                            <asp:TextBox ID="txtColorCodeUpdate" runat="server" Height="20px"  CssClass ="modalText"></asp:TextBox>
+                            <asp:TextBox ID="txtColorCodeUpdate" runat="server" Height="20px" CssClass="modalText"></asp:TextBox>
                         </td>
                         <td>
                             &nbsp;
@@ -258,10 +271,22 @@
                         </td>
                         <td>
                             <asp:TextBox ID="txtColorDescriptionUpdate" runat="server" Height="40px" TextMode="MultiLine"
-                               CssClass ="modalText"></asp:TextBox>
+                                CssClass="modalText"></asp:TextBox>
                         </td>
                         <td>
                             &nbsp;
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="modalLabel">
+                            APPAREL TYPE:
+                        </td>
+                        <td>
+                            <asp:RadioButtonList ID="rdioApparelTypeUpdate" CssClass="modalText" Height="20px"
+                                Font-Size="10px" Font-Bold="true" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
+                            </asp:RadioButtonList>
+                        </td>
+                        <td>
                         </td>
                     </tr>
                     <tr>
@@ -277,34 +302,33 @@
                         </td>
                     </tr>
                 </table>
-                
             </asp:Panel>
             <%--Delete Modal--%>
             <asp:Panel ID="pnlDeleteModal" runat="server" CssClass="modal">
                 <asp:Panel ID="pnlDeleteModalDrag" runat="server" CssClass="modalDrag">
                     <div class="sizeLogo">
-                       <img alt="new color" src="../Resources/color.png" height="16" align="top" />
+                        <img alt="new color" src="../Resources/color.png" height="16" align="top" />
                         CONFIRMATION!!!
                     </div>
                 </asp:Panel>
-                     <div style="border: 1px solid #FFCC66; text-align: center; font-family: Verdana;
+                <div style="border: 1px solid #FFCC66; text-align: center; font-family: Verdana;
                     font-size: 12px; height: 23px; color: #CC6600; background-color: #FFFF99; line-height: 16px;
                     margin: 2px 5px;">
                     <img alt="error update" src="../Resources/warning.png" height="22px" align="middle" />
                     Warning: This action cannot be undo.
                 </div>
-                <div style="text-align: center; color: #FFFF99; font-family: Verdana; font-size: 11px;
-                    margin: 5px 2px;">
-                    <asp:Label ID="lblColorToDelete" runat="server" Text="No data to delete. Select from the list and try again."></asp:Label>
+                <div style="text-align: center; font-family: Verdana; font-size: 11px;
+                    margin:5px 5px;">
+                    <asp:Label ID="lblColorToDelete" CssClass="modalLabel" runat="server" Text="No data to delete. Select from the list and try again."></asp:Label>
                 </div>
-                <div style=" text-align:center; margin:5px 0px;">
+                <div style="text-align: center; margin: 5px 0px;">
                     <asp:Button ID="btnYes" runat="server" Text="YES" CssClass="modalWarningButtonYes"
                         ToolTip="Delete" OnClick="btnYes_Click" />
                     <asp:Button ID="btnNo" runat="server" Text="NO" CssClass="modalWarningButtonNo" ToolTip="Cancel" />
                 </div>
             </asp:Panel>
-            <asp:Panel ID="pnlColorPicker" runat="server" Height="150px" Width="230px" 
-                CssClass="color_picker" ViewStateMode="Disabled">
+            <asp:Panel ID="pnlColorPicker" runat="server" Height="150px" Width="230px" CssClass="color_picker"
+                ViewStateMode="Disabled">
                 <asp:Panel ID="pnlColorPickerDrag" runat="server" Height="18px" CssClass="color_picker_drag">
                     &nbsp;&nbsp;COLOR PICKER
                     <div style="float: right; margin-top: 2px;">

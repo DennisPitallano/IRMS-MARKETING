@@ -10,7 +10,7 @@
     <link href="../Styles/permission-note.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div style="height:28px; margin-bottom:10px; line-height:28px; color: #333;text-shadow: 1px 1px 0px white;">
+    <div style="height: 28px; margin-bottom: 10px; line-height: 28px; color: #333; text-shadow: 1px 1px 0px white;">
         <asp:Image ID="imgpnlTitle" runat="server" ImageUrl="~/Resources/garments.png" ImageAlign="Top"
             Height="23px" />
         &nbsp;<asp:Label ID="Label3" runat="server" Text="GARMENT MANAGEMENT PANEL" Font-Bold="True"
@@ -24,10 +24,11 @@
     <asp:UpdatePanel ID="upnlGarments" runat="server">
         <ContentTemplate>
             <div style="margin-bottom: 1px; height: 26px;" class="modalDrag">
-             <div style="float: right;" class="SearchTextContainer">
-                SEARCH:
-                    <asp:TextBox ID="txtSearch" autofocus placeholder="Search Garment" runat="server" CssClass="modalText" OnTextChanged="txtSearch_TextChanged"
-                        AutoPostBack="True" Height="16px" Font-Size="10px" Width="150px" ToolTip="Search Category"></asp:TextBox>
+                <div style="float: right;" class="SearchTextContainer">
+                    SEARCH:
+                    <asp:TextBox ID="txtSearch" autofocus placeholder="Search Garment" runat="server"
+                        CssClass="modalText" OnTextChanged="txtSearch_TextChanged" AutoPostBack="True"
+                        Height="16px" Font-Size="10px" Width="150px" ToolTip="Search Category"></asp:TextBox>
                     <asp:ImageButton ID="imgBtnSearch" runat="server" ImageAlign="AbsBottom" ImageUrl="~/Resources/search.png"
                         ToolTip="SEARCH" />
                 </div>
@@ -83,17 +84,16 @@
                     </div>
                 </div>
             </div>
-            <div class="titleList">
-               <img alt="new color" src="../Resources/garments.png" height="16" align="top" />
-                LIST OF GARMENTS
-            </div>
-            <div class="listContent" style="float:left;">
-                <asp:Panel ID="pnlSizesList" runat="server" Width="700px" Height="415px" ScrollBars="Auto">
-                    <asp:GridView ID="gvGarmentList" runat="server" CellPadding="4" 
-                        GridLines="None" AutoGenerateColumns="False" CssClass="table_grid"
-                        OnSelectedIndexChanged="gvGarmentList_SelectedIndexChanged" DataKeyNames="RECORD_NO"
-                        EnablePersistedSelection="True" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSourceGarments"
-                        PageSize="15">
+            <div style="min-height:450px;">
+                <div class="titleList">
+                    <img alt="new color" src="../Resources/garments.png" height="16" align="top" />
+                    LIST OF GARMENTS
+                </div>
+                <div style="float: left; margin-bottom: 10px;">
+                    <asp:GridView ID="gvGarmentList" runat="server" CellPadding="4" GridLines="None"
+                        AutoGenerateColumns="False" CssClass="table_grid" OnSelectedIndexChanged="gvGarmentList_SelectedIndexChanged"
+                        DataKeyNames="RECORD_NO" EnablePersistedSelection="True" AllowPaging="True" AllowSorting="True"
+                        DataSourceID="SqlDataSourceGarments" PageSize="15">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:TemplateField>
@@ -111,7 +111,9 @@
                             </asp:BoundField>
                             <asp:BoundField DataField="GARMENT_DESCRIPTION" HeaderText="GARMENT DESCRIPTION"
                                 SortExpression="GARMENT_DESCRIPTION"></asp:BoundField>
-                            <asp:BoundField DataField="TOP_OR_BOTTOM" HeaderText="TOP/BOTTOM" SortExpression="TOP_OR_BOTTOM">
+                            <asp:BoundField DataField="TOP_OR_BOTTOM" HeaderText="APPAREL TYPE" SortExpression="TOP_OR_BOTTOM">
+                                <HeaderStyle Font-Size="8px" HorizontalAlign="Center" Width="20px" />
+                                <ItemStyle Font-Bold="True" HorizontalAlign="Center" Width="20px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="DATE_RECORDED" HeaderText="DATE UPDATED" SortExpression="DATE_RECORDED">
                             </asp:BoundField>
@@ -123,35 +125,32 @@
                         </EmptyDataTemplate>
                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                        <PagerStyle  CssClass="pager" />
+                        <PagerStyle CssClass="pager" />
                         <RowStyle BackColor="#E3EAEB" />
                         <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="False" ForeColor="#333333" Font-Names="Verdana"
                             Font-Size="11px" Font-Italic="True" />
                         <SortedAscendingCellStyle CssClass="asc_cell_style" />
-                        <SortedAscendingHeaderStyle  CssClass="asc_cell_style_h" />
-                        <SortedDescendingCellStyle  CssClass="desc_cell_style" />
+                        <SortedAscendingHeaderStyle CssClass="asc_cell_style_h" />
+                        <SortedDescendingCellStyle CssClass="desc_cell_style" />
                         <SortedDescendingHeaderStyle CssClass="desc_cell_style_h" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceGarments" runat="server" ConnectionString="<%$ ConnectionStrings:IRMSConnectionString %>"
-                        SelectCommand="SP_GET_ALL_GARMENTS" SelectCommandType ="StoredProcedure" >
-                    </asp:SqlDataSource>
-                </asp:Panel>
-            </div>
-
-             <asp:Panel CssClass="permission-container" ID="pnlNotification" Visible ="false" runat="server">
-                <asp:CollapsiblePanelExtender ID="CollapsiblePaneItemMaster" runat="server" CollapseControlID="lblNoteCollapsHandler"
-                CollapsedText="dennis" ExpandedText="pitallano" TargetControlID="pnlPermissionNotification"
-                ExpandControlID="lblNoteCollapsHandler" Collapsed="True">
-               </asp:CollapsiblePanelExtender>
-               <div class="collaps-link">
-                <asp:Label CssClass="collaps-text" ID="lblNoteCollapsHandler" Height="48px" runat="server" Text="NOTE"
-                ToolTip="Show/Hide Notification"></asp:Label>
+                        SelectCommand="SP_GET_ALL_GARMENTS" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                 </div>
-              <asp:Panel CssClass="note-container" ID="pnlPermissionNotification" runat="server">
-               <asp:Label ID="lblPermissionNotifications" runat="server" Text="Label"></asp:Label>
-              </asp:Panel>
+            </div>
+            <asp:Panel CssClass="permission-container" ID="pnlNotification" Visible="false" runat="server">
+                <asp:CollapsiblePanelExtender ID="CollapsiblePaneItemMaster" runat="server" CollapseControlID="lblNoteCollapsHandler"
+                    CollapsedText="dennis" ExpandedText="pitallano" TargetControlID="pnlPermissionNotification"
+                    ExpandControlID="lblNoteCollapsHandler" Collapsed="True">
+                </asp:CollapsiblePanelExtender>
+                <div class="collaps-link">
+                    <asp:Label CssClass="collaps-text" ID="lblNoteCollapsHandler" Height="48px" runat="server"
+                        Text="NOTE" ToolTip="Show/Hide Notification"></asp:Label>
+                </div>
+                <asp:Panel CssClass="note-container" ID="pnlPermissionNotification" runat="server">
+                    <asp:Label ID="lblPermissionNotifications" runat="server" Text="Label"></asp:Label>
+                </asp:Panel>
             </asp:Panel>
-
             <asp:Panel ID="pnlNewSizeModal" runat="server" CssClass="modal">
                 <asp:Panel ID="pnlNewSizeModalDrag" runat="server" CssClass="modalDrag">
                     <div class="close_btn">
@@ -167,9 +166,9 @@
                     <form:Garment ID="fGarment" runat="server"></form:Garment>
                 </asp:PlaceHolder>
                 <div>
-                    <div style="padding:3px 5px;">
-                        <asp:Label ID="Label1" runat="server" Text="APPLY GARMENT TO BRAND/S:" Font-Bold="true" Font-Italic="True"
-                             CssClass="modalLabel"></asp:Label>
+                    <div style="padding: 3px 5px;">
+                        <asp:Label ID="Label1" runat="server" Text="APPLY GARMENT TO BRAND/S:" Font-Bold="true"
+                            Font-Italic="True" CssClass="modalLabel"></asp:Label>
                     </div>
                     <asp:Panel ID="pnlBrands" runat="server">
                         <asp:CheckBoxList ID="chkBoxBrands" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
@@ -182,7 +181,6 @@
                         OnClick="btnSaveGarment_Click" />
                 </div>
             </asp:Panel>
-            
             <asp:Panel ID="pnlUpdateSizeModal" runat="server" CssClass="modal">
                 <asp:Panel ID="pnlUpdateSizeModalDrag" runat="server" CssClass="modalDrag">
                     <div class="close_btn">
@@ -198,12 +196,13 @@
                     <form:Garment ID="fGarment_update" runat="server"></form:Garment>
                 </asp:PlaceHolder>
                 <div>
-                    <div  style="padding-left: 5px;">
-                        <asp:Label ID="Label2" runat="server" Text="APPLY GARMENT TO BRAND/S:" CssClass ="modalLabel" Font-Bold="true" Font-Italic="True"></asp:Label>
+                    <div style="padding-left: 5px;">
+                        <asp:Label ID="Label2" runat="server" Text="APPLY GARMENT TO BRAND/S:" CssClass="modalLabel"
+                            Font-Bold="true" Font-Italic="True"></asp:Label>
                     </div>
                     <asp:Panel ID="Panel1" runat="server">
                         <asp:CheckBoxList ID="chkBrandsUpdate" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
-                            Font-Size="10px"  CssClass="modalText">
+                            Font-Size="10px" CssClass="modalText">
                         </asp:CheckBoxList>
                     </asp:Panel>
                 </div>
@@ -219,7 +218,6 @@
                         OnClick="btnSaveUpdate_Click" />
                 </div>
             </asp:Panel>
-         
             <%--Delete Modal--%>
             <asp:Panel ID="pnlDeleteModal" runat="server" CssClass="modal">
                 <asp:Panel ID="pnlDeleteModalDrag" runat="server" CssClass="modalDrag">
@@ -244,7 +242,6 @@
                     <asp:Button ID="btnNo" runat="server" Text="NO" CssClass="modalWarningButtonNo" ToolTip="Cancel" />
                 </div>
             </asp:Panel>
-          
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

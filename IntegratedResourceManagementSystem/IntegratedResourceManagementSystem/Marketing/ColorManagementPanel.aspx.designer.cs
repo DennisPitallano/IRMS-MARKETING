@@ -274,6 +274,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.WebControls.TextBox txtColorDescription;
         
         /// <summary>
+        /// rdioApparelTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdioApparelTypes;
+        
+        /// <summary>
         /// btnSaveColor control.
         /// </summary>
         /// <remarks>
@@ -335,6 +344,15 @@ namespace IntegratedResourceManagementSystem.Marketing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtColorDescriptionUpdate;
+        
+        /// <summary>
+        /// rdioApparelTypeUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdioApparelTypeUpdate;
         
         /// <summary>
         /// btnSaveUpdate control.

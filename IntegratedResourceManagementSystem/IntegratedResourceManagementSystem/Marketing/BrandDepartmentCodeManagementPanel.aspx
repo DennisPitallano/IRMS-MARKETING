@@ -8,13 +8,17 @@
     <link href="../Styles/pull-out-letter.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/brand-department-code.css" rel="stylesheet" type="text/css" />
      <script language="javascript" type="text/javascript">
-         function validateEntry() {
-             return jQuery("#aspnetForm").validationEngine("validate");
-         }
+         jQuery(document).ready(function () {
+
+             // binds form submission and fields to the validation engine
+             function validateEntry() {
+                 return jQuery("#aspnetForm").validationEngine("validate");
+             }
+         });
     </script>
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="panelTitle">
+    <div id="panelTitle" class="panelTitle">
         <asp:Image ID="imgpnlTitle" runat="server" ImageUrl="~/Resources/memo-doc.png" ImageAlign="Top"
             Height="28px" />Brand Department Codes Management Panel
         <div style="float: right; height: 24px;">

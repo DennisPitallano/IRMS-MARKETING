@@ -66,6 +66,7 @@
     <Compile Include="CustomerGroup.cs" />
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="Fabric.cs" />
+    <Compile Include="FabricSupplier.cs" />
     <Compile Include="Fitting.cs" />
     <Compile Include="Forwarder.cs" />
     <Compile Include="ForwarderCustomer.cs" />

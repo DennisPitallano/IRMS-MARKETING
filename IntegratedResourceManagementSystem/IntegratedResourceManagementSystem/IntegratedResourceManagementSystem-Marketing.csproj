@@ -128,6 +128,7 @@
     <Content Include="Marketing\DeliveryReceiptsMenu.aspx" />
     <Content Include="Marketing\ErrorPages\Error404.htm" />
     <Content Include="Marketing\FabricManagementPanel.aspx" />
+    <Content Include="Marketing\FabricSupplierManagementPanel.aspx" />
     <Content Include="Marketing\FittingsManagementPanel.aspx" />
     <Content Include="Marketing\forms\FBrand.ascx" />
     <Content Include="Marketing\forms\FCategory.ascx" />
@@ -993,6 +994,13 @@
     </Compile>
     <Compile Include="Marketing\FabricManagementPanel.aspx.designer.cs">
       <DependentUpon>FabricManagementPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marketing\FabricSupplierManagementPanel.aspx.cs">
+      <DependentUpon>FabricSupplierManagementPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Marketing\FabricSupplierManagementPanel.aspx.designer.cs">
+      <DependentUpon>FabricSupplierManagementPanel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Marketing\FittingsManagementPanel.aspx.cs">
       <DependentUpon>FittingsManagementPanel.aspx</DependentUpon>

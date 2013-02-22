@@ -139,15 +139,6 @@ namespace IntegratedResourceManagementSystem.Marketing {
         protected global::System.Web.UI.UpdateProgress upProgress;
         
         /// <summary>
-        /// pnlSizesList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlSizesList;
-        
-        /// <summary>
         /// gvGarmentList control.
         /// </summary>
         /// <remarks>

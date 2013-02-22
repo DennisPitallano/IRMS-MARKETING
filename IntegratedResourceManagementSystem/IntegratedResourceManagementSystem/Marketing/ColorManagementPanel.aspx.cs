@@ -17,11 +17,13 @@ namespace IntegratedResourceManagementSystem.Marketing
         #region variables
         ColorManager CM = new ColorManager();
         Color color = new Color();
+        CategoryManager CategoryManager = new CategoryManager();
         #endregion
 
         #region Page_init
         protected void Page_Init(object sender, EventArgs e)
         {
+            initializedApparels();
             #region check roles
             Permission.PERMITTED_USER = (UsersClass)Session["USER_ACCOUNT"];
             if (!Permission.IsAdmin())
@@ -57,6 +59,17 @@ namespace IntegratedResourceManagementSystem.Marketing
         }
         #endregion
 
+        private void initializedApparels()
+        {
+            rdioApparelTypes.Items.Clear();
+            rdioApparelTypeUpdate.Items.Clear();
+            foreach (var apparel in CategoryManager.Categories())
+            {
+                rdioApparelTypes.Items.Add(new ListItem(apparel.CategoryDescription, apparel.CategoryCode));
+                rdioApparelTypeUpdate.Items.Add(new ListItem(apparel.CategoryDescription, apparel.CategoryCode));
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -81,7 +94,8 @@ namespace IntegratedResourceManagementSystem.Marketing
                 ColorCode = txtColorCode.Text.ToUpper(),
                 ColorDescription = txtColorDescription.Text,
                 DateCreated = DateTime.UtcNow,
-                IsActive ="Yes"
+                IsActive ="Yes",
+                ApparelType = rdioApparelTypes.SelectedValue.ToString()
             };
             CM.Save(color);
             #region log
@@ -98,9 +112,10 @@ namespace IntegratedResourceManagementSystem.Marketing
             {
                 ColorCode = txtColorCodeUpdate.Text.ToUpper(),
                 ColorDescription = txtColorDescriptionUpdate.Text,
-                RecordNo = long.Parse(gvColorsList.SelectedRow.Cells[2].Text),
+                RecordNo = long.Parse(gvColorsList.SelectedValue.ToString()),
                 DateCreated  = DateTime.UtcNow,
-                IsActive = "Yes"
+                IsActive = "Yes",
+                ApparelType = rdioApparelTypeUpdate.SelectedValue.ToString()
             };
             CM.Save(colorToUpdate);
             #region log
@@ -114,13 +129,18 @@ namespace IntegratedResourceManagementSystem.Marketing
         {
             txtColorCodeUpdate.Text = gvColorsList.SelectedRow.Cells[3].Text;
             txtColorDescriptionUpdate.Text = gvColorsList.SelectedRow.Cells[4].Text;
+            if (!string.IsNullOrWhiteSpace(HttpUtility.HtmlDecode(gvColorsList.SelectedRow.Cells[5].Text.Trim())) 
+               )
+            {
+                rdioApparelTypeUpdate.SelectedValue =gvColorsList.SelectedRow.Cells[5].Text ;
+            }
             updateErrorMessage.Visible = false;
             lblColorToDelete.Text = "Delete color " + txtColorCodeUpdate.Text + "?";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
         {
-            color.RecordNo= long.Parse(gvColorsList.SelectedRow.Cells[2].Text);
+            color.RecordNo= long.Parse(gvColorsList.SelectedValue.ToString());
             CM.Delete(color);
             #region log
             CM.Identity = (int)color.RecordNo;

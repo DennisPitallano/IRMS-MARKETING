@@ -118,9 +118,12 @@
                                 <HeaderStyle Wrap="False" />
                                 <ItemStyle Wrap="False" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="TOP_OR_BOTTOM" HeaderText="TOP/BOTTOM" SortExpression="TOP_OR_BOTTOM">
-                                <HeaderStyle Wrap="False" />
-                                <ItemStyle Wrap="False" />
+                            <asp:BoundField DataField="TOP_OR_BOTTOM" HeaderText="APPAREL TYPE" 
+                                SortExpression="TOP_OR_BOTTOM">
+                                <HeaderStyle Wrap="True" Font-Size="8px" HorizontalAlign="Center" 
+                                Width="20px" />
+                                <ItemStyle Wrap="True" Font-Bold="True" HorizontalAlign="Center" 
+                                Width="20px" />
                             </asp:BoundField>
                             <asp:BoundField DataField="DATE_RECORDED" HeaderText="DATE RECORDED" SortExpression="DATE_RECORDED">
                                 <HeaderStyle Wrap="False" />

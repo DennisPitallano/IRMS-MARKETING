@@ -12,12 +12,13 @@
     <link href="../Styles/permission-note.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("#brandContent").show('slow');
-            function validateEntry() {
-                return jQuery("#form1").validationEngine("validate");
-            }
+        jQuery(document).ready(function () {
+            jQuery("#main").show('slow');
+
         });
+        function validateEntry() {
+            return jQuery("#form1").validationEngine("validate");
+        }
     </script>
      <script language="javascript" type="text/javascript">
        
