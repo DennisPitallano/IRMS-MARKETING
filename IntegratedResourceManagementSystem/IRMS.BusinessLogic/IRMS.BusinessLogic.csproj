@@ -74,6 +74,7 @@
     <Compile Include="DataAccess\DeliveryReceiptsAccessor.cs" />
     <Compile Include="DataAccess\DepartmentAccessor.cs" />
     <Compile Include="DataAccess\FabricAccessor.cs" />
+    <Compile Include="DataAccess\FabricSupplierAccessor.cs" />
     <Compile Include="DataAccess\FittingAccessor.cs" />
     <Compile Include="DataAccess\FormulaAccessor.cs" />
     <Compile Include="DataAccess\ForwarderAccessor.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Manager\DeliveryReceiptsManager.cs" />
     <Compile Include="Manager\DepartmentManager.cs" />
     <Compile Include="Manager\FabricManager.cs" />
+    <Compile Include="Manager\FabricSupplierManager.cs" />
     <Compile Include="Manager\FittingManager.cs" />
     <Compile Include="Manager\FormulaManager.cs" />
     <Compile Include="Manager\ForwarderManager.cs" />
